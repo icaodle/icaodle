@@ -1320,21 +1320,9 @@ function createTutorialPage() {
     toggleElement(document.getElementById("tutorial_container"))
   };
 
-  let tutorialSpacer = document.createElement("div");
+  let tutorialSpacer = document.createElement("div")
   tutorialSpacer.className = "tutorial_spacer";
   tutorialSub.append(tutorialSpacer);
-
-  let tutorialPar1 = document.createElement("p");
-  tutorialPar1.textContent = "Guess the icaodle in six tries."
-  tutorialSub.append(tutorialPar1);
-
-  let tutorialPar2 = document.createElemenet("p");
-  tutorialPar2.textContent = "Each guess must be a valid four-letter ICAO code. Hit the enter button to submit."
-  tutorialSub.append(tutorialPar2);
-
-  let tutorialPar3 = document.createElement("p");
-  tutorialPar3.textContent = "Guess the icaodle in six tries.";
-  tutorialSub.append(tutorialPar3);
 }
 
 function toggleElement(element,top = 0){
