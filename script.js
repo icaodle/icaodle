@@ -1278,7 +1278,7 @@ function createSettingsMenu() {
   let credits = document.createElement("div");
   credits.className = "credits";
   credits.id = "credits";
-  credits.textContent = 'icaodle developed by Frank "AP Comp Sci" Faulkner and Luca Caviness';
+  credits.textContent = 'icaodle developed by Frank Faulkner and Luca Caviness';
   settingsSub.append(credits);
 }
 
@@ -1323,6 +1323,18 @@ function createTutorialPage() {
   let tutorialSpacer = document.createElement("div")
   tutorialSpacer.className = "tutorial_spacer";
   tutorialSub.append(tutorialSpacer);
+
+  let par1 = document.createElement("p");
+  par1.textContent = "Test paragraph 1.";
+  tutorialSub.append(par1);
+
+  let par2 = document.createElement("p");
+  par2.textContent = "Test paragraph 2.";
+  tutorialSub.append(par2);
+
+  let par3 = document.createElement("p");
+  par3.textContent = "Test paragraph 3.";
+  tutorialSub.append(par3);
 }
 
 function toggleElement(element,top = 0){
