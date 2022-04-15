@@ -909,7 +909,3 @@ input:checked + .slider:before {
 #country_icon {
   cursor: not-allowed;
 }
-
-p {
-  font-family: 'Rubik', sans-serif;
-}
