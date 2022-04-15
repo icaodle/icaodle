@@ -183,6 +183,9 @@ function resize(){
     document.getElementById("credits").style.visibility = "hidden"
   }
   
+  let tutorial = document.getElementById("tutorial_unflex");
+  tutorial.style.left = ((document.body.clientWidth / 2) - (tutorial.clientWidth / 2)) + "px";
+
   //Clear Row button
   let del = document.getElementById("clear_row_button")
   let left = box.parentElement.lastChild.getBoundingClientRect().left + (box.parentElement.lastChild.clientWidth*1.33)
