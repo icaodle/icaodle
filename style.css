@@ -407,34 +407,35 @@ a:active {
   cursor: pointer;
 }
 
-.settings_exit_div {
+/*.settings_exit_div {
   position: relative;
   top: 20px;
   width: 95%;
   height: 20px;
   display: flex;
   flex-direction: row;
-}
-
+}*/
 
 #settings_exit_button {
   cursor: pointer;
   color: var(--black);
 }
 
-.tutorial_exit_div {
+/*.tutorial_exit_div {
   position: relative;
   top: 20px;
   width: 95%;
   height: 20px;
   display: flex;
   flex-direction: row;
-}
-
+}*/
 
 #tutorial_exit_button {
   cursor: pointer;
   color: var(--black);
+  position: absolute;
+  right: 0px;
+  top: 25px;
 }
 
 #hint_dropdown_id {
@@ -609,7 +610,7 @@ a:active {
   top: 0px;
   left: 0px;
   background-color: var(--white);
-  /*border: 1px dashed blue;*/
+  /*border: 1px solid blue;*/
 }
 
 .tutorial_row {
@@ -806,9 +807,9 @@ input:checked + .slider:before {
   margin-bottom: 15px;
 }
 
-#elevation_icon {
-  /*z-index: 4;*/
-}
+/*#elevation_icon {
+  z-index: 4;
+}*/
 
 #elevation_dropdown {
   position: absolute;
