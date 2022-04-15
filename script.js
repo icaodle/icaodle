@@ -1325,16 +1325,32 @@ function createTutorialPage() {
   tutorialSub.append(tutorialSpacer);
 
   let par1 = document.createElement("p");
-  par1.textContent = "Test paragraph 1.";
+  par1.textContent = "Guess the icaodle in six tries.";
   tutorialSub.append(par1);
 
   let par2 = document.createElement("p");
-  par2.textContent = "Test paragraph 2.";
+  par2.textContent = "Each guess must be a valid four-letter ICAO code. Hit the enter button to submit.";
   tutorialSub.append(par2);
 
   let par3 = document.createElement("p");
-  par3.textContent = "Test paragraph 3.";
+  par3.textContent = "After each guess, the color of the tiles will change to show how close your guess was to the word.";
   tutorialSub.append(par3);
+
+  let line1 = document.createElement("div");
+  line1.className = "tutorial_line";
+  tutorialSub.append(line1);
+
+  let line2 = document.createElement("div");
+  line2.className = "tutorial_line";
+  tutorialSub.append(line2);
+
+  let tutorialSpacer2 = document.createElement("div")
+  tutorialSpacer2.className = "tutorial_spacer_2";
+  tutorialSub.append(tutorialSpacer2);
+
+  let par4 = document.createElement("p");
+  par4.textContent = "A new icaodle will be available each day!";
+  tutorialSub.append(par4);
 }
 
 function toggleElement(element,top = 0){
