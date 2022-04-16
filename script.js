@@ -1410,6 +1410,12 @@ function createTutorialPage() {
   tutorialSub.append(par4);
 }
 
+function tutorialPopup() {
+  let overlay = document.createElement("div");
+  let popup = document.createElement("div");
+  
+}
+
 function toggleElement(element,top = 0){
   if (element.style.visibility == "visible" && !animatingMenu){
     animatingMenu = true
