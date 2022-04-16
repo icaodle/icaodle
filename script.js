@@ -4,27 +4,13 @@ window.onload = function() {
   loadWindow()
   setViewMode()
   checkStorage()
+  addClicks()
   //callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
   resize()
 }
-
-document.getElementById("menu_icon").onclick = function(){
-  toggleElement(document.getElementById("tutorial_container"))
-}
-
-document.getElementById("hint_icon").onclick = function() {
-  if (!hintOpen){
-    openHintMenu();
-  } else if (hintOpen){
-    closeHintMenu();
-  }
-}
-
-document.getElementById("settings_icon").onclick = function(){
-  toggleElement(document.getElementById("settings_container"))};
 
 //Global Variables
 let target = "letter_box_0_0"
@@ -913,8 +899,6 @@ function openHintMenu() {
         document.getElementById("country_icon").style.cursor = "pointer";
         elevationDropdown.style.visibility = "visible";
         elevationHider.style.visibility = "visible"
-        
-        //localStorage.setItem("Hints_Used", )
       }
     }
   
@@ -1325,16 +1309,89 @@ function createTutorialPage() {
   tutorialSub.append(tutorialSpacer);
 
   let par1 = document.createElement("p");
-  par1.textContent = "Test paragraph 1.";
+  par1.textContent = "Guess the icaodle in six tries.";
   tutorialSub.append(par1);
 
   let par2 = document.createElement("p");
-  par2.textContent = "Test paragraph 2.";
+  par2.textContent = "Each guess must be a valid four-letter ICAO code. Hit the enter button to submit.";
   tutorialSub.append(par2);
 
   let par3 = document.createElement("p");
-  par3.textContent = "Test paragraph 3.";
+  par3.textContent = "After each guess, the color of the tiles will change to show how close your guess was to the word.";
   tutorialSub.append(par3);
+
+  let line1 = document.createElement("div");
+  line1.className = "tutorial_line";
+  tutorialSub.append(line1);
+
+  let example = document.createElement("p");
+  example.style.fontWeight = "500";
+  example.textContent = "Examples";
+  example.style.marginTop = "10px";
+  tutorialSub.append(example);
+
+  let row1 = document.createElement("div");
+  row1.id = "row_1";
+  row1.className = "tutorial_box_row";
+  let rowCode1 = ["K", "S", "F", "O"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_1_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode1[r];
+    row1.append(elem);
+  }
+  tutorialSub.append(row1);
+
+  let explan1 = document.createElement("p");
+  explan1.textContent = 'The letter K is in the code and in the correct spot.';
+  tutorialSub.append(explan1);
+
+  let row2 = document.createElement("div");
+  row2.id = "row_2";
+  row2.className = "tutorial_box_row";
+  let rowCode2 = ["L", "T", "B", "S"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_2_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode2[r];
+    row2.append(elem);
+  }
+  tutorialSub.append(row2);
+
+  let explan2 = document.createElement("p");
+  explan2.textContent = "The letter T is in the code but in the wrong spot.";
+  tutorialSub.append(explan2);
+
+  let row3 = document.createElement("div");
+  row3.id = "row_3";
+  row3.className = "tutorial_box_row";
+  let rowCode3 = ["V", "Q", "P", "R"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_3_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode3[r];
+    row3.append(elem);
+  }
+  tutorialSub.append(row3);
+
+  let explan3 = document.createElement("p");
+  explan3.textContent = "The letter R is not in the code in any spot.";
+  tutorialSub.append(explan3);
+
+  let line2 = document.createElement("div");
+  line2.className = "tutorial_line";
+  tutorialSub.append(line2);
+
+  let tutorialSpacer2 = document.createElement("div")
+  tutorialSpacer2.className = "tutorial_spacer_2";
+  tutorialSub.append(tutorialSpacer2);
+
+  let par4 = document.createElement("p");
+  par4.textContent = "A new icaodle will be available each day!";
+  tutorialSub.append(par4);
 }
 
 function toggleElement(element,top = 0){
@@ -1358,5 +1415,31 @@ function toggleElement(element,top = 0){
     window.setTimeout(function(){
       animatingMenu = false
     },500);
+  }
+}
+
+function addClicks(){
+  document.getElementById("menu_icon").onclick = function(){
+    toggleElement(document.getElementById("tutorial_container"))
+    window.setTimeout(function(){
+    document.getElementById("tutorial_box_1_0").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_1_0").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_2_1").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_2_1").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_3_3").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_3_3").style.transform = "rotate3d(1,0,0,360deg)"
+  },400)
+  }
+  
+  document.getElementById("hint_icon").onclick = function() {
+    if (!hintOpen){
+      openHintMenu();
+    } else if (hintOpen){
+      closeHintMenu();
+    }
+  }
+  
+  document.getElementById("settings_icon").onclick = function(){
+    toggleElement(document.getElementById("settings_container"));
   }
 }
