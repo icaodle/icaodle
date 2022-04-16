@@ -619,7 +619,7 @@ function endScreen() {
   if (finished == true) { //Won't actually display airport info unless it is know what the airport is
 
     let airportTitle = document.createElement("a"); //Divs for info
-    airportTitle.className = "pop_up_title";
+    airportTitle.className = "pop_up_grand_title";
     if (airportLink != "" && airportHomeLink != "") {
       airportTitle.href = airportLink;
       airportTitle.target = "_blank";
