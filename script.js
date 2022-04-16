@@ -1251,8 +1251,8 @@ function createSettingsMenu() {
 
   let settingsRow4Right = document.createElement("a");
   settingsRow4Right.className = "settings_row_right_text";
-  settingsRow4Right.textContent = "Link";
-  settingsRow4Right.href = "https://forms.gle/n5hYrykgFBv1TMdJA";
+  settingsRow4Right.textContent = "GitHub";
+  settingsRow4Right.href = "https://github.com/icaodle/main";
   settingsRow4Right.target = "_blank";
   settingsRow4.append(settingsRow4Right);
 
