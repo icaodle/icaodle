@@ -292,6 +292,15 @@ html {
 .pop_up_title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
+  color: var(--black);
+}
+
+.pop_up_grand_title {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--settingsSubtext);
+  text-decoration: underline;
 }
 
 a:link {
