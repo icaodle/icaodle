@@ -4,27 +4,13 @@ window.onload = function() {
   loadWindow()
   setViewMode()
   checkStorage()
+  addClicks()
   //callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
   resize()
 }
-
-document.getElementById("menu_icon").onclick = function(){
-  toggleElement(document.getElementById("tutorial_container"))
-}
-
-document.getElementById("hint_icon").onclick = function() {
-  if (!hintOpen){
-    openHintMenu();
-  } else if (hintOpen){
-    closeHintMenu();
-  }
-}
-
-document.getElementById("settings_icon").onclick = function(){
-  toggleElement(document.getElementById("settings_container"))};
 
 //Global Variables
 let target = "letter_box_0_0"
@@ -913,8 +899,6 @@ function openHintMenu() {
         document.getElementById("country_icon").style.cursor = "pointer";
         elevationDropdown.style.visibility = "visible";
         elevationHider.style.visibility = "visible"
-        
-        //localStorage.setItem("Hints_Used", )
       }
     }
   
@@ -1431,5 +1415,31 @@ function toggleElement(element,top = 0){
     window.setTimeout(function(){
       animatingMenu = false
     },500);
+  }
+}
+
+function addClicks(){
+  document.getElementById("menu_icon").onclick = function(){
+    toggleElement(document.getElementById("tutorial_container"))
+    window.setTimeout(function(){
+    document.getElementById("tutorial_box_1_0").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_1_0").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_2_1").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_2_1").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_3_3").style.transition = "transform 0.33s ease-in-out"
+    document.getElementById("tutorial_box_3_3").style.transform = "rotate3d(1,0,0,360deg)"
+  },400)
+  }
+  
+  document.getElementById("hint_icon").onclick = function() {
+    if (!hintOpen){
+      openHintMenu();
+    } else if (hintOpen){
+      closeHintMenu();
+    }
+  }
+  
+  document.getElementById("settings_icon").onclick = function(){
+    toggleElement(document.getElementById("settings_container"));
   }
 }
