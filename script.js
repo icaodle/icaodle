@@ -1340,6 +1340,63 @@ function createTutorialPage() {
   line1.className = "tutorial_line";
   tutorialSub.append(line1);
 
+  let example = document.createElement("p");
+  example.style.fontWeight = "500";
+  example.textContent = "Examples";
+  example.style.marginTop = "10px";
+  tutorialSub.append(example);
+
+  let row1 = document.createElement("div");
+  row1.id = "row_1";
+  row1.className = "tutorial_box_row";
+  let rowCode1 = ["K", "S", "F", "O"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_1_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode1[r];
+    row1.append(elem);
+  }
+  tutorialSub.append(row1);
+
+  let explan1 = document.createElement("p");
+  explan1.textContent = 'The letter K is in the code and in the correct spot.';
+  tutorialSub.append(explan1);
+
+  let row2 = document.createElement("div");
+  row2.id = "row_2";
+  row2.className = "tutorial_box_row";
+  let rowCode2 = ["L", "T", "B", "S"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_2_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode2[r];
+    row2.append(elem);
+  }
+  tutorialSub.append(row2);
+
+  let explan2 = document.createElement("p");
+  explan2.textContent = "The letter T is in the code but in the wrong spot.";
+  tutorialSub.append(explan2);
+
+  let row3 = document.createElement("div");
+  row3.id = "row_3";
+  row3.className = "tutorial_box_row";
+  let rowCode3 = ["V", "Q", "P", "R"];
+  for (r = 0; r < 4; r++) {
+    let elem = document.createElement("div");
+    elem.id = "tutorial_box_3_" + r;
+    elem.className = "tutorial_box";
+    elem.textContent = rowCode3[r];
+    row3.append(elem);
+  }
+  tutorialSub.append(row3);
+
+  let explan3 = document.createElement("p");
+  explan3.textContent = "The letter R is not in the code in any spot.";
+  tutorialSub.append(explan3);
+
   let line2 = document.createElement("div");
   line2.className = "tutorial_line";
   tutorialSub.append(line2);
