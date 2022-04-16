@@ -4,3 +4,4 @@ changelog:
   exclude:
     labels:
       - ignore
+      - bug
