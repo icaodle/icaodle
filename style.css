@@ -156,6 +156,7 @@ html {
   justify-content: left;
   align-items: left;
   margin: 4px;
+  margin-left: 0px;
   /*width: 100%;*/
 }
 
@@ -968,6 +969,7 @@ p {
   background-color: var(--green);
   color: white;
   border-color: var(--green);
+  margin-left: 0px;
 }
 
 #tutorial_box_1_1 {
@@ -988,6 +990,7 @@ p {
 #tutorial_box_2_0 {
   color: var(--black);
   border-color: var(--filledborder);
+  margin-left: 0px;
 }
 
 #tutorial_box_2_1 {
@@ -1009,6 +1012,7 @@ p {
 #tutorial_box_3_0 {
   color: var(--black);
   border-color: var(--filledborder);
+  margin-left: 0px;
 }
 
 #tutorial_box_3_1 {
