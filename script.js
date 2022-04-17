@@ -172,8 +172,8 @@ function resize(){
   //Settings Menu Resizing
   let menu = document.getElementById("settings_unflex");
   menu.style.left = ((document.body.clientWidth / 2) - (menu.clientWidth / 2)) + "px";
-  if (document.getElementById("credits").offsetTop < document.getElementById("last_line_aka_franks_special").offsetTop){
-    document.getElementById("credits").style.visibility = "hidden"
+  if (document.getElementById("settings_footer").offsetTop < document.getElementById("last_line_aka_franks_special").offsetTop){
+    document.getElementById("settings_footer").style.visibility = "hidden"
   }
   
   let tutorial = document.getElementById("tutorial_unflex");
@@ -1266,11 +1266,21 @@ function createSettingsMenu() {
   line4.id = "last_line_aka_franks_special";
   settingsSub.append(line4);
 
+  let settingsFooter = document.createElement("div");
+  settingsFooter.id = "settings_footer";
+  settingsSub.append(settingsFooter);
+
   let credits = document.createElement("div");
   credits.className = "credits";
   credits.id = "credits";
   credits.textContent = 'icaodle developed by Frank Faulkner and Luca Caviness';
-  settingsSub.append(credits);
+  credits.style.visibility = "visible";
+  settingsFooter.append(credits);
+
+  let version = document.createElement("div");
+  version.id = "version";
+  version.textContent = "v0.1.0";
+  settingsFooter.append(version);
 }
 
 function createTutorialPage() {
