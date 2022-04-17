@@ -6,7 +6,7 @@ As a part of the 2022 AP Computer Science Principles test, we are developing ica
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Feel free to report bugs by opening an issue in [Issues](https://github.com/icaodle/home/issues). Please use the template provided and include as much detail as possible. All issues will be triaged by the developers and fixed when time allows. 
+Feel free to report bugs by opening an issue in [Issues](https://github.com/icaodle/origin/issues). Please use the template provided and include as much detail as possible. All issues will be triaged by the developers and fixed when time allows. 
 
 ## Credits
 
@@ -16,4 +16,4 @@ icaodle is developed and maintained by Frank Faulkner ([@FossaFun](https://githu
 
 ## License
 
-icaodle is licensed under the GNU General Public License. A copy of the license is available [here](https://github.com/icaodle/home/blob/main/README.md) and [here](https://www.gnu.org/licenses/gpl-3.0.txt).
+icaodle is licensed under the GNU General Public License. A copy of the license is available [here](https://github.com/icaodle/origin/blob/main/README.md) and [here](https://www.gnu.org/licenses/gpl-3.0.txt).
