@@ -853,7 +853,32 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+#settings_footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /*height: 40px;*/
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--settingsSubtext);
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
 .credits {
+  visibility: visible;
+}
+
+#credits {
+  visibility: visible;
+}
+
+/*
+#version {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -863,6 +888,7 @@ input:checked + .slider:before {
   color: var(--settingsSubtext);
   margin-bottom: 15px;
 }
+*/
 
 /*#elevation_icon {
   z-index: 4;
