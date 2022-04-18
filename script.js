@@ -1279,7 +1279,7 @@ function createSettingsMenu() {
 
   let version = document.createElement("div");
   version.id = "version";
-  version.textContent = "v0.1.0";
+  version.textContent = "v1.0";
   settingsFooter.append(version);
 }
 
