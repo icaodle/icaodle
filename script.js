@@ -5,7 +5,7 @@ window.onload = function() {
   setViewMode()
   checkStorage()
   addClicks()
-  tutorialPopup()
+  //tutorialPopup()
   //callAPI()
 }
 
@@ -1411,6 +1411,7 @@ function createTutorialPage() {
   tutorialSub.append(par4);
 }
 
+/*
 function tutorialPopup() {
   let overlay = document.createElement("div");
   let popup = document.createElement("div");
@@ -1454,6 +1455,7 @@ function tutorialPopup() {
   popupTitle.textContent = "HOW TO PLAY";
   popup.append(popupTitle);
 }
+*/
 
 function toggleElement(element,top = 0){
   if (element.style.visibility == "visible" && !animatingMenu){
