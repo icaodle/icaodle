@@ -1308,6 +1308,12 @@ function createTutorialPage() {
   tutorialUnflex.append(exitButton);
 
   exitButton.onclick = function(){
+    document.getElementById("tutorial_box_1_0").style.transition = ""
+    document.getElementById("tutorial_box_1_0").style.transform = "rotate3d(1,0,0,0deg)"
+    document.getElementById("tutorial_box_2_1").style.transition = ""
+    document.getElementById("tutorial_box_2_1").style.transform = "rotate3d(1,0,0,0deg)"
+    document.getElementById("tutorial_box_3_3").style.transition = ""
+    document.getElementById("tutorial_box_3_3").style.transform = "rotate3d(1,0,0,0deg)"
     toggleElement(document.getElementById("tutorial_container"))
   };
 
