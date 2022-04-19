@@ -1339,6 +1339,10 @@ function createTutorialPage() {
   par2.textContent = "Each guess must be a valid four-letter ICAO code. Hit the enter button to submit.";
   tutorialSub.append(par2);
 
+  let par2point5 = document.createElement("p");
+  par2point5.textContent = "If you wish to change your guess before submitting, click the delete icon next to the active row to clear the row's content or simply delete each space one-by-one as normal."
+  tutorialSub.append(par2point5);
+
   let par3 = document.createElement("p");
   par3.textContent = "After each guess, the color of the tiles will change to show how close your guess was to the word.";
   tutorialSub.append(par3);
@@ -1413,7 +1417,7 @@ function createTutorialPage() {
   tutorialSub.append(tutorialSpacer2);
 
   let par4 = document.createElement("p");
-  par4.textContent = "A new icaodle will be available each day!";
+  par4.textContent = "Load a new ICAO code by either clicking on the refresh icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
 }
 
