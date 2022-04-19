@@ -1421,7 +1421,7 @@ function createTutorialPage() {
   tutorialSub.append(par3point5);
 
   let par4 = document.createElement("p");
-  par4.textContent = "Load a new ICAO code by either clicking on the refresh icon in our menu bar or refreshing the site in your browser.";
+  par4.textContent = "Load a new ICAO code by either clicking on the plus icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
 }
 
