@@ -618,6 +618,7 @@ function endScreen() {
 
   let exitEndScreenButton = document.getElementById("exit_button");
   exitEndScreenButton.onclick = exitEndScreen;
+  overlay.onclick = exitEndScreen;
 
   let spacer0 = document.createElement("div");
   spacer0.className = "spacer";
