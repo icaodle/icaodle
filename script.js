@@ -1107,6 +1107,8 @@ function createSettingsMenu() {
   settingsSpacer.className = "settings_spacer";
   settingsSub.append(settingsSpacer);
 
+  /*
+
   let settingsRow1 = document.createElement("div");
   settingsRow1.className = "settings_row";
   settingsSub.append(settingsRow1);
@@ -1154,6 +1156,8 @@ function createSettingsMenu() {
   let line1 = document.createElement("div");
   line1.className = "settings_line";
   settingsSub.append(line1);
+
+  */
 
   let settingsRow2 = document.createElement("div");
   settingsRow2.className = "settings_row";
