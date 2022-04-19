@@ -1416,6 +1416,10 @@ function createTutorialPage() {
   tutorialSpacer2.className = "tutorial_spacer_2";
   tutorialSub.append(tutorialSpacer2);
 
+  let par3point5 = document.createElement("p");
+  par3point5.textContent = "If you need, click the lightbulb in the menu bar for hints!";
+  tutorialSub.append(par3point5);
+
   let par4 = document.createElement("p");
   par4.textContent = "Load a new ICAO code by either clicking on the refresh icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
