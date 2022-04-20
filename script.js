@@ -159,7 +159,7 @@ function resize(){
     }
     for (let r = 0; r<row.children.length;r++){
       row.children[r].style.height = "84.4%"
-      if (row.children[r].clientHeight <20){
+      if (row.children[r].clientHeight <20) {
         row.children[r].style.height = "20px"
       }
       row.children[r].style.width = row.children[r].clientHeight + "px"
