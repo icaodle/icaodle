@@ -6,7 +6,6 @@ window.onload = function() {
   checkStorage()
   addClicks()
   tutorialPopup()
-  //callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
@@ -539,22 +538,20 @@ function checkStorage(){
 }
 
 function callAPI() {
-  if (apiIsCalled === false) { //" && finished === true" does not work for whatever reason
-    var request = new XMLHttpRequest();
-    request.open('GET', endpoint);
-    request.send();
-    request.onload = ()=>{
-      let data = JSON.parse(request.response); //VAKP missing Municipality
-      airportName = data.name;
-      airportCity = data.municipality;
-      airportState = data.region.name;
-      airportCountry = data.country.name;
-      airportElevation = data.elevation_ft;
-      airportLink = data.wikipedia_link;
-      airportHomeLink = data.home_link;
-    }
-    apiIsCalled = true;
+  var request = new XMLHttpRequest();
+  request.open('GET', endpoint);
+  request.send();
+  request.onload = ()=>{
+    let data = JSON.parse(request.response); //VAKP missing Municipality
+    airportName = data.name;
+    airportCity = data.municipality;
+    airportState = data.region.name;
+    airportCountry = data.country.name;
+    airportElevation = data.elevation_ft;
+    airportLink = data.wikipedia_link;
+    airportHomeLink = data.home_link;
   }
+  apiIsCalled = true;
 }
 
 function superTopSecretFunction() { //Shhhhhh...
@@ -624,6 +621,10 @@ function endScreen() {
   popUp.append(spacer0);
 
   if (finished == true) { //Won't actually display airport info unless it is know what the airport is
+    if (apiIsCalled == false) {
+      callAPI();
+      apiIsCalled = true;
+    }
 
     let airportTitle = document.createElement("a"); //Divs for info
     airportTitle.className = "pop_up_grand_title";
@@ -898,6 +899,11 @@ function openHintMenu() {
   
     elevationIcon.onclick = function() {
       if (elevationDropdown.style.visibility == "hidden") {
+        if (apiIsCalled == false) {
+          callAPI();
+          apiIsCalled = true;
+        }
+
         hasOpenedElev = true
         let hints = JSON.parse(window.localStorage.getItem("Hints_Used"))
         hints += 1
