@@ -7,7 +7,7 @@ changelog:
   categories:
     - title: Exciting New Features 🎉
       labels:
-        - feature
+        - enchancement
     - title: Bug Fixes 🛠
       labels:
         - bug
