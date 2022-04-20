@@ -28,6 +28,9 @@ let hasOpenedElev = false
 let hasOpenedCountry = false
 let hasOpenedCity = false
 
+let countryCursor = false;
+let cityCursor = false;
+
 let airportName = "Placeholder Airport";
 let airportCity = "Place";
 let airportState = "";
@@ -905,6 +908,7 @@ function openHintMenu() {
         window.localStorage.setItem("Hints_Used",hints.toString())
         document.getElementById("country_icon").style.color = "var(--black)"
         document.getElementById("country_icon").style.cursor = "pointer";
+        countryCursor = true;
         elevationDropdown.style.visibility = "visible";
         elevationHider.style.visibility = "visible"
       }
@@ -915,6 +919,9 @@ function openHintMenu() {
     countryIcon.classList.add("dropdownButton")
     countryIcon.id = "country_icon";
     countryIcon.style.top = "60%"
+    if (countryCursor == true) {
+      countryIcon.style.cursor = "pointer";
+    }
     if (hasOpenedElev){
       countryIcon.style.color = "var(--black)"
     }else {
@@ -951,6 +958,7 @@ function openHintMenu() {
         window.localStorage.setItem("Hints_Used",hints.toString())
         document.getElementById("city_icon").style.color = "var(--black)"
         document.getElementById("city_icon").style.cursor = "pointer";
+        cityCursor = true;
         countryDropdown.style.visibility = "visible";
         countryHider.style.visibility = "visible"
       }
@@ -961,6 +969,9 @@ function openHintMenu() {
     cityIcon.id = "city_icon";
     cityIcon.classList.add("dropdownButton")
     cityIcon.style.top = "85%"
+    if (cityCursor == true) {
+      cityIcon.style.cursor = "pointer";
+    }
     hintDropdown.appendChild(cityIcon);
     width = (cityIcon.parentElement.clientWidth-cityIcon.clientWidth)/cityIcon.parentElement.clientWidth * 50
     cityIcon.style.left = width +"%"
