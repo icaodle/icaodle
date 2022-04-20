@@ -5,7 +5,7 @@ window.onload = function() {
   setViewMode()
   checkStorage()
   addClicks()
-  //tutorialPopup()
+  tutorialPopup()
   //callAPI()
 }
 
@@ -1411,51 +1411,19 @@ function createTutorialPage() {
   tutorialSub.append(par4);
 }
 
-/*
 function tutorialPopup() {
-  let overlay = document.createElement("div");
-  let popup = document.createElement("div");
-
-  overlay.className = "overlay";
-  overlay.id = "tutorial_overlay_id";
-  overlay.style.visibility = "hidden";
-
-  popup.className = "pop_up";
-  popup.id = "tutorial_pop_up_id";
-  popup.style.visibility = "hidden";
-
-  document.body.append(overlay);
-  document.body.append(popup);
-
-  popup.style.left = ((document.body.clientWidth / 2) - (popup.clientWidth / 2)) + "px";
-  popup.style.top = window.outerHeight + "px";
-
-  let exitDiv = document.createElement("div"); 
-  exitDiv.className = "exit_div";
-  popup.append(exitDiv);
-
-  let exitFiller = document.createElement("div");
-  exitFiller.className = "exit_filler";
-  popup.firstChild.append(exitFiller);
-
-  let exitButton = document.createElement("i");
-  exitButton.className = "fa-solid fa-xmark fa-xl";
-  exitButton.id = "tutorial_popup_exit_button";
-  popup.firstChild.append(exitButton);
-
-  let exitTutorialPopupButton = document.getElementById("tutorial_popup_exit_button");
-  exitTutorialPopupButton.onclick = exitTutorialPopup;
-
-  let spacer0 = document.createElement("div");
-  spacer0.className = "spacer";
-  popup.append(spacer0);
-
-  let popupTitle = document.createElement("div");
-  popupTitle.className = "pop_up_title";
-  popupTitle.textContent = "HOW TO PLAY";
-  popup.append(popupTitle);
+  if (window.localStorage.getItem("Games") == "0"){
+    toggleElement(document.getElementById("tutorial_container"))
+    window.setTimeout(function(){
+    document.getElementById("tutorial_box_1_0").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_1_0").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_2_1").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_2_1").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_3_3").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_3_3").style.transform = "rotate3d(1,0,0,360deg)"
+  },350)
+  }
 }
-*/
 
 function toggleElement(element,top = 0){
   if (element.style.visibility == "visible" && !animatingMenu){
