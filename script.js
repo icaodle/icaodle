@@ -6,6 +6,7 @@ window.onload = function() {
   checkStorage()
   addClicks()
   tutorialPopup()
+  callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
@@ -621,10 +622,12 @@ function endScreen() {
   popUp.append(spacer0);
 
   if (finished == true) { //Won't actually display airport info unless it is know what the airport is
+    /*
     if (apiIsCalled == false) {
       callAPI();
       apiIsCalled = true;
     }
+    */
 
     let airportTitle = document.createElement("a"); //Divs for info
     airportTitle.className = "pop_up_grand_title";
@@ -899,10 +902,12 @@ function openHintMenu() {
   
     elevationIcon.onclick = function() {
       if (elevationDropdown.style.visibility == "hidden") {
+        /*
         if (apiIsCalled == false) {
           callAPI();
           apiIsCalled = true;
         }
+        */
 
         hasOpenedElev = true
         let hints = JSON.parse(window.localStorage.getItem("Hints_Used"))
