@@ -9,7 +9,7 @@ window.onload = function() {
   //callAPI()
 }
 
-window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
+window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size.
   resize()
 }
 
@@ -54,7 +54,6 @@ endScreenButton.onclick = function() {
 }
 
 //The actual array to source codes from.
-/*let airportArray = "KSFO"*/
 let airportArray = "AGGH AGGM ANAU AYGA AYLA AYMD AYMH AYPY AYRB AYWK BGAM BGBW BGCH BGCO BGDU BGEM BGFH BGGH BGGN BGHB BGJN BGKA BGKK BGNN BGNS BGQA BGSC BGSF BGTL BGUM BGUP BIAR BIBL BIEG BIHN BIIS BIKF BIKR BINF BIPA BIRG BIRK BISI BIST BITE BITH BIVM CYAC CYAG CYAL CYAM CYAQ CYAS CYAT CYAW CYAY CYAZ CYBB CYBC CYBD CYBE CYBF CYBG CYBK CYBL CYBQ CYBR CYBT CYBV CYCA CYCB CYCC CYCD CYCE CYCG CYCH CYCL CYCN CYCO CYCQ CYCR CYCS CYCT CYCW CYCY CYCZ CYDA CYDB CYDF CYDL CYDM CYDN CYDO CYDP CYDQ CYEG CYEK CYEL CYEM CYEN CYER CYET CYEU CYEV CYEY CYFA CYFB CYFC CYFH CYFO CYFR CYFS CYFT CYGB CYGH CYGK CYGL CYGM CYGO CYGP CYGQ CYGR CYGT CYGV CYGW CYGX CYGZ CYHA CYHB CYHD CYHE CYHF CYHH CYHI CYHK CYHM CYHN CYHO CYHR CYHT CYHU CYHY CYHZ CYIB CYID CYIF CYIK CYIO CYIV CYJF CYJN CYJQ CYJT CYKA CYKC CYKD CYKF CYKG CYKJ CYKL CYKO CYKQ CYKX CYKY CYKZ CYLA CYLB CYLD CYLH CYLJ CYLL CYLQ CYLR CYLT CYLU CYLW CYMA CYME CYMG CYMH CYMJ CYML CYMM CYMO CYMT CYMU CYMW CYMX CYNA CYNC CYND CYNE CYNH CYNL CYNM CYOC CYOD CYOH CYOJ CYOO CYOP CYOS CYOW CYPA CYPC CYPD CYPE CYPG CYPH CYPL CYPM CYPN CYPO CYPQ CYPR CYPW CYPX CYPY CYPZ CYQA CYQB CYQD CYQF CYQG CYQH CYQI CYQK CYQL CYQM CYQN CYQQ CYQR CYQS CYQT CYQU CYQV CYQW CYQX CYQY CYQZ CYRB CYRI CYRJ CYRL CYRM CYRO CYRQ CYRS CYRT CYRV CYSB CYSC CYSD CYSE CYSF CYSH CYSJ CYSK CYSL CYSM CYSN CYSP CYSR CYST CYSU CYSY CYTA CYTE CYTF CYTH CYTJ CYTL CYTQ CYTR CYTS CYTZ CYUB CYUL CYUT CYUX CYUY CYVB CYVC CYVG CYVK CYVM CYVO CYVP CYVQ CYVR CYVT CYVV CYVZ CYWA CYWG CYWJ CYWK CYWL CYWP CYWY CYXC CYXD CYXE CYXH CYXJ CYXK CYXL CYXN CYXP CYXQ CYXR CYXS CYXT CYXU CYXX CYXY CYXZ CYYB CYYC CYYD CYYE CYYF CYYG CYYH CYYJ CYYL CYYM CYYN CYYQ CYYR CYYT CYYU CYYW CYYY CYYZ CYZE CYZF CYZG CYZH CYZP CYZR CYZS CYZT CYZU CYZV CYZW CYZX CZAC CZAM CZBB CZBD CZBF CZBM CZEE CZEM CZFA CZFD CZFG CZFM CZFN CZGF CZGI CZGR CZHP CZJG CZJN CZKE CZLQ CZMD CZML CZMN CZMT CZNG CZPB CZPC CZPO CZRJ CZSJ CZSN CZST CZTA CZTM CZUC CZUM CZWH CZWL DAAD DAAE DAAG DAAJ DAAT DAAV DABB DABC DABS DAOB DAON DAOO DATG DATM DAUA DAUE DAUG DAUH DAUI DAUK DAUO DAUT DAUU DAUZ DBBB DBBK DBBN DBBP DFCC DFEE DFEF DFEG DFEL DFET DFFD DFOB DFOD DFOG DFON DFOO DGAA DGLE DGSI DGSN DGTK DIAP DIAU DIBI DIBK DIBN DIBU DIDK DIDL DIFK DIGL DIGN DIKO DIMN DIOD DIOF DISP DISS DITB DITM DIYO DNAA DNAK DNBE DNCA DNEN DNIB DNIL DNJO DNKA DNKN DNMA DNMM DNMN DNPO DNSO DNYO DNZA DRRM DRRN DRRT DRZA DRZR DTKA DTMB DTTA DTTF DTTJ DTTR DTTX DTTZ DXNG DXXX EBAW EBBR EBCI EBKT EBLG EBOS EDAC EDAH EDAH EDBC EDBH EDDB EDDB EDDC EDDE EDDF EDDG EDDH EDDK EDDL EDDM EDDN EDDP EDDR EDDS EDDT EDDV EDDW EDFH EDFM EDGS EDHI EDHK EDHL EDJA EDLE EDLI EDLN EDLP EDLV EDLW EDMA EDMO EDNY EDOP EDQD EDQM EDSB EDTL EDVE EDVK EDWB EDWE EDWG EDWI EDWJ EDWR EDWY EDXB EDXH EDXW EDXY EEKA EEKE EEPU EETN EETU EFET EFHF EFHK EFHV EFIL EFIT EFIV EFJO EFJY EFKA EFKE EFKI EFKJ EFKK EFKS EFKT EFKU EFLP EFMA EFMI EFOU EFPO EFRO EFSA EFSO EFTP EFTU EFVA EFVR EFYL EGAA EGAB EGAC EGAE EGBB EGBE EGBJ EGBK EGBN EGCC EGCN EGDJ EGDQ EGEC EGEH EGEN EGEP EGET EGEW EGFE EGFF EGFH EGGD EGGP EGGW EGHC EGHD EGHE EGHH EGHI EGHJ EGHL EGJA EGJB EGJJ EGKA EGKB EGKK EGKR EGLC EGLF EGLK EGLL EGMC EGMD EGMH EGNC EGNH EGNJ EGNL EGNM EGNR EGNS EGNT EGNV EGNX EGPA EGPB EGPC EGPD EGPE EGPF EGPH EGPI EGPK EGPL EGPM EGPN EGPO EGPR EGPT EGPU EGSC EGSH EGSS EGSY EGTE EGTG EGTK EGTO EGYP EHAM EHBK EHGG EHLE EHRD EHTW EICA EICK EICM EIDL EIDW EIKN EIKY EINN EISG EIWF EKAH EKBI EKCH EKEB EKKA EKOD EKRK EKRN EKSB EKTS EKVG EKVJ EKYT ELLX ENAL ENAN ENAT ENBL ENBN ENBO ENBR ENBS ENBV ENCN ENDI ENDU ENEV ENFG ENFL ENGM ENHA ENHD ENHF ENHK ENHV ENKA ENKB ENKL ENKR ENLI ENLK ENMH ENML ENMS ENNA ENNK ENNM ENNO ENOL ENOV ENRA ENRM ENRO ENRS ENRY ENSB ENSD ENSG ENSH ENSK ENSN ENSO ENSR ENSS ENST ENTC ENTO ENVA ENVD ENZV EPBY EPGD EPKK EPKT EPLL EPPO EPRZ EPSC EPSY EPWA EPWR EPZG ESDF ESGG ESGJ ESGL ESGP ESGR ESGT ESKK ESKM ESKN ESMK ESMO ESMQ ESMS ESMT ESMX ESND ESNG ESNH ESNK ESNL ESNN ESNO ESNQ ESNS ESNU ESNV ESNX ESNY ESOE ESOH ESOK ESOW ESPA ESPC ESSA ESSB ESSD ESSF ESSK ESSL ESSP ESST ESSU ESSV ESSW ESTA ESUD ESUE ESUP ESUT ETMN ETNL ETNU ETSI EVLA EVRA EVVA FAAB FABE FABL FACD FACT FADN FAEL FAEM FAFB FAGC FAGG FAGI FAGM FAHL FAHR FAHT FAJS FAKD FAKM FAKP FAKU FAKZ FALA FALC FALO FALW FALY FAMD FAMG FAMM FAMN FANC FANS FAOH FAPA FAPE FAPG FAPH FAPI FAPK FAPM FAPN FAQT FARB FARI FARS FASB FASC FASS FASZ FATZ FAUL FAUP FAUT FAVB FAVG FAVR FAVY FAWB FAWM FBFT FBGZ FBJW FBKE FBKR FBMN FBOR FBSK FBSP FBSW FBTL FBTS FCBB FCBD FCBK FCBL FCBM FCBS FCBY FCBZ FCMM FCOB FCOE FCOI FCOK FCOM FCOO FCOS FCOT FCOU FCPA FCPL FCPP FDMS FEFB FEFF FEFG FEFI FEFM FEFN FEFO FEFR FEFS FEFT FEFY FEFZ FEGZ FGBT FGSL FIMP FIMR FKKB FKKC FKKD FKKF FKKI FKKL FKKM FKKN FKKO FKKR FKKS FKKU FKKV FKKW FKKY FKYS FLCP FLKE FLKL FLKO FLKS FLKY FLLI FLLK FLLS FLMA FLMF FLMG FLNA FLND FLSN FLSO FLSW FLZB FMCH FMCI FMCN FMCV FMEE FMMC FMME FMMG FMMH FMMI FMMK FMML FMMN FMMO FMMQ FMMR FMMS FMMT FMMU FMMV FMMX FMMY FMMZ FMNA FMNC FMND FMNE FMNF FMNG FMNH FMNJ FMNL FMNM FMNN FMNO FMNQ FMNR FMNS FMNT FMNV FMNW FMNX FMSB FMSC FMSD FMSF FMSG FMSI FMSJ FMSK FMSL FMSM FMSN FMSR FMST FMSY FMSZ FNAM FNBC FNBG FNCA FNGI FNHU FNKU FNLU FNMA FNME FNNG FNPA FNSA FNSO FNUB FNUE FNUG FNWK FNXA FNZE FOGB FOGE FOGF FOGG FOGI FOGM FOGO FOGQ FOGR FOGV FOOB FOOD FOOE FOOG FOOH FOOK FOOL FOOM FOON FOOR FOOS FOOT FOOY FPPR FPST FQAG FQBR FQCB FQCH FQIN FQLC FQMA FQMP FQNC FQNP FQPB FQQL FQTT FQVL FSDR FSIA FSPP FSSB FSSD FSSF FTTA FTTB FTTC FTTD FTTH FTTI FTTJ FTTK FTTL FTTM FTTN FTTP FTTS FTTU FTTY FVBU FVCZ FVFA FVHA FVKB FVMU FVMV FVTL FVWN FVWT FWCD FWCL FWCM FWDW FWKA FWKG FWLI FWLK FWMG FWMY FWSM FWUU FXLR FXMF FXMK FXMM FXQN FXSH FXSM FYAR FYGF FYKM FYKT FYLZ FYNA FYOA FYOG FYOO FYRU FYSM FYTM FYWB FYWE FYWH FZAA FZAB FZAJ FZAL FZAM FZBA FZBI FZBO FZCA FZCB FZCE FZCV FZEA FZEN FZFA FZFD FZFK FZFP FZFU FZGA FZGN FZGV FZIC FZJH FZKA FZKJ FZMA FZNA FZNP FZOA FZOD FZOK FZOP FZQA FZQC FZQG FZQM FZRA FZRB FZRF FZRM FZRQ FZSA FZSK FZTK FZUA FZUG FZUK FZVA FZVI FZVM FZVR FZVS FZWA FZWC FZWT GABS GAGM GAGO GAKA GAKO GAKY GAMB GANK GANR GASK GATB GAYE GBYD GCFV GCGM GCHI GCLA GCLP GCRR GCTS GCXO GECT GEML GFBN GFBO GFGK GFHA GFKB GFKE GFLL GFYE GGOV GLBU GLCP GLGE GLMR GLNA GLRB GLTN GMAD GMAT GMFF GMFK GMFO GMMC GMME GMMF GMMN GMMS GMMX GMMZ GMTA GMTN GMTT GOGG GOGK GOGS GOOK GOOY GOSM GOSP GOSR GOSS GOTB GOTK GOTS GOTT GQNA GQNB GQNC GQND GQNE GQNF GQNH GQNI GQNJ GQNK GQNL GQNN GQNS GQNT GQPA GQPF GQPP GQPZ GUCY GUFA GUFH GUKU GULB GUMA GUNZ GUOK GUSB GUSI GUXD GVAC GVBA GVFM GVMA GVSN GVSV HAAB HAAM HAAX HABC HABD HABE HADC HADD HADM HADR HADT HAFN HAGB HAGH HAGM HAGN HAGR HAHU HAJM HAKD HALA HALL HAMA HAMK HAML HAMM HAMN HAMT HANJ HANK HASD HASK HASO HATP HAWC HBBA HBBE HBBO HCMA HCMC HCME HCMF HCMG HCMI HCMK HCMM HCMO HCMR HCMS HCMU HCMV HEAR HEAT HEAX HEBA HEBL HECA HEDK HEGN HEKG HELX HEMA HEMM HEOW HEPS HESC HESH HESN HETB HETR HFFF HKAM HKED HKES HKFG HKGA HKHO HKJK HKKI HKKL HKKR HKKT HKLO HKLU HKLY HKMA HKMB HKML HKMO HKMY HKNI HKNK HKNW HKNY HKSB HKWJ HLKF HLLB HLLS HLLT HLMB HLON HRYG HRYI HRYR HRYU HRZA HSAT HSDN HSFS HSGF HSGG HSGN HSKA HSKI HSMR HSNH HSNL HSNW HSOB HSPN HSSJ HSSM HSSS HSSW HSWW HTAR HTBU HTDA HTDO HTIR HTKA HTKI HTKJ HTLI HTLM HTMA HTMB HTMD HTMI HTMT HTMU HTMW HTNA HTNJ HTPE HTSN HTSO HTSU HTSY HTTB HTTG HTZA HUAR HUEN HUGU HUJI HUKS HUMA HUMI HUPA HUSO HUTO KABE KABI KABQ KABR KABY KACK KACT KACV KACY KAEX KAGS KAHN KALB KALO KALW KAMA KAOO KAPF KAPN KASE KATL KATW KAUS KAVL KAVP KAZO KBDL KBED KBFI KBFL KBGM KBGR KBHB KBHM KBIL KBIS KBJI KBLI KBMI KBNA KBOI KBOS KBPT KBQK KBRD KBRO KBTM KBTR KBTV KBUF KBUR KBWI KBZN KCAE KCAK KCDC KCEC KCHA KCHO KCHS KCIC KCID KCIU KCKB KCLE KCLL KCLM KCLT KCMH KCMI KCMX KCOD KCOS KCOU KCPR KCRP KCRQ KCRW KCSG KCVG KCVX KCWA KCYS KDAB KDAL KDAY KDBQ KDCA KDEC KDEN KDFW KDHN KDLH KDRO KDSM KDTW KDUJ KEAT KEAU KEFD KEGE KEKO KELM KELP KERI KEUG KEVV KEWB KEWN KEWR KEYW KFAR KFAT KFAY KFHR KFLG KFLL KFLO KFMN KFNT KFOE KFSD KFSM KFWA KGCC KGCN KGEG KGFK KGGG KGJT KGNV KGPI KGPT KGRB KGRK KGRR KGSO KGSP KGTF KGTR KGUC KHDN KHGR KHLN KHOU KHPN KHRL KHSV KHTS KHVN KHXD KHYA KIAD KIAH KICT KIDA KIFP KILM KIND KINL KIPL KIPT KISP KITH KIYK KJAC KJAN KJAX KJFK KJHW KJLN KJST KLAF KLAN KLAS KLAW KLAX KLBB KLBE KLCH KLEX KLFT KLGA KLGB KLIT KLMT KLNK KLNS KLRD KLSE KLWS KLYH KMAF KMBS KMCI KMCN KMCO KMCW KMDT KMDW KMEI KMEM KMFE KMFR KMGM KMGW KMHK KMHT KMIA KMKE KMKG KMKT KMLB KMLI KMLU KMOB KMOD KMOT KMRY KMSN KMSO KMSP KMSY KMTJ KMVY KMWA KMYR KOAJ KOAK KOKC KOMA KONT KORD KORF KORH KOTH KOXR KPAH KPBI KPCW KPDT KPDX KPFN KPGA KPGV KPHF KPHL KPHX KPIA KPIB KPIE KPIH KPIR KPIT KPKB KPLN KPNS KPQI KPSC KPSM KPSP KPUW KPVC KPVD KPWM KRAP KRDD KRDG KRDM KRDU KRHI KRIC KRIW KRKD KRNO KROA KROC KRST KRSW KSAF KSAN KSAT KSAV KSAW KSBA KSBN KSBP KSBY KSCK KSDF KSDY KSEA KSFB KSFO KSGF KSGU KSHR KSHV KSJC KSJT KSLC KSMF KSMX KSNA KSPI KSPS KSRQ KSTC KSTL KSUN KSUX KSWF KSYR KTEX KTLH KTOL KTPA KTRI KTTN KTUL KTUP KTUS KTVC KTWF KTXK KTYR KTYS KUIN KUNV KVCT KVCV KVGT KVLD KVPS KXNA KYKM KYUM LATI LBBG LBGO LBPD LBSF LBWN LCEN LCLK LCPH LDDU LDOS LDPL LDRI LDSB LDSP LDZA LDZD LEAB LEAL LEAM LEAS LEBA LEBB LEBL LEBZ LECO LEGE LEGR LEIB LEJR LELC LELL LELN LELO LEMD LEMG LEMH LEPA LEPP LERS LESA LESO LEST LETO LEVC LEVD LEVT LEVX LEXJ LEZG LEZL LFAB LFAC LFAT LFBA LFBD LFBE LFBG LFBH LFBI LFBK LFBL LFBN LFBO LFBP LFBT LFBU LFBV LFBX LFBZ LFCC LFCI LFCK LFCR LFCY LFDH LFDN LFEY LFGA LFGJ LFHM LFHO LFHP LFJL LFJR LFKB LFKC LFKF LFKJ LFKO LFKS LFKX LFLA LFLB LFLC LFLD LFLJ LFLL LFLO LFLP LFLS LFLU LFLV LFLW LFLX LFLY LFMD LFMH LFMK LFML LFMN LFMP LFMQ LFMT LFMU LFMV LFNA LFNB LFOB LFOE LFOH LFOI LFOJ LFOP LFOQ LFOT LFOU LFOV LFPB LFPC LFPG LFPN LFPO LFPT LFQD LFQF LFQG LFQM LFQQ LFQT LFRB LFRC LFRD LFRE LFRF LFRG LFRH LFRI LFRK LFRM LFRN LFRO LFRQ LFRS LFRT LFRU LFRV LFRZ LFSB LFSD LFSF LFSG LFSN LFSR LFST LFSZ LFVP LFXC LGAL LGAV LGBL LGHI LGIK LGIO LGIR LGKA LGKC LGKF LGKJ LGKL LGKO LGKP LGKR LGKS LGKV LGKZ LGLM LGMK LGML LGMT LGNX LGPA LGPL LGPZ LGRP LGRX LGSA LGSK LGSM LGSO LGSR LGST LGSY LGTS LGZA LHBP LHDC LHMC LHPR LHSM LIBC LIBD LIBF LIBG LIBN LIBP LIBR LICA LICC LICD LICG LICJ LICR LICT LIDB LIDR LIEA LIEE LIEO LIET LIMC LIME LIMF LIMG LIMJ LIML LIMP LIMW LIMZ LIPB LIPD LIPE LIPH LIPK LIPO LIPQ LIPR LIPT LIPX LIPY LIPZ LIQL LIQS LIRA LIRF LIRJ LIRL LIRN LIRP LIRQ LIRS LIRZ LJLJ LJMB LJPZ LKKU LKKV LKMT LKPD LKPR LKTB LLBG LLBS LLET LLEY LLHA LLIB LLKS LLMR LLMZ LLOV LLSD LMML LNMC LOWG LOWI LOWK LOWL LOWS LOWW LPAZ LPBG LPBR LPCH LPCO LPCR LPCV LPFL LPFR LPGR LPHR LPMA LPPD LPPI LPPM LPPR LPPS LPPT LPSI LPSJ LPVR LPVZ LQBK LQMO LQSA LQTZ LRAR LRBC LRBM LRBS LRCK LRCL LRCS LRCV LRIA LROD LROP LRSB LRSM LRSV LRTC LRTM LRTR LSGG LSGS LSZA LSZB LSZH LSZR LSZS LTAC LTAF LTAI LTAJ LTAN LTAR LTAT LTAU LTAY LTAZ LTBA LTBH LTBJ LTBR LTBS LTBU LTBY LTCA LTCC LTCD LTCE LTCF LTCG LTCH LTCI LTCJ LTCK LTCL LTCN LTCO LTCP LTCR LTFC LTFD LTFE LTFG LTFH LTFJ LTFM LUKK LWOH LWOH LWSK LWSK LXGB LYBE LYNI LYNS LYPA LYPG LYPR LYTV LYUZ LYVA LZIB LZKZ LZPP LZSL LZTT LZZI MBGT MDBH MDCR MDCZ MDHE MDLI MDLR MDPC MDPO MDPP MDSB MDSD MDSJ MDST MGCB MGCR MGCT MGGT MGHT MGMM MGPB MGPP MGQC MGQZ MGRB MGRT MGTK MHCA MHLC MHLE MHLM MHPL MHRO MHTE MHTG MKJP MKJS MMAA MMAS MMBT MMCB MMCE MMCL MMCM MMCN MMCP MMCS MMCU MMCV MMCZ MMDO MMEP MMGL MMGM MMGR MMHO MMIA MMIO MMJA MMLC MMLM MMLO MMLP MMLT MMMA MMMD MMML MMMM MMMT MMMV MMMX MMMY MMMZ MMNL MMOX MMPA MMPB MMPG MMPN MMPR MMPS MMQT MMRX MMSD MMSP MMTC MMTG MMTJ MMTM MMTO MMTP MMUN MMVA MMVR MMZC MMZH MMZO MNBL MNMG MNPC MPBO MPCH MPDA MPEJ MPJE MPTO MRAN MRAO MRBA MRBC MRCC MRCR MRDK MRGF MRGP MRIA MRLB MRLC MRLM MRNS MROC MRPJ MRPM MRPV MRQP MRTM MRTR MRUP MTCH MTJA MTJE MTPP MTPX MUBA MUBY MUCA MUCF MUCL MUCM MUCU MUGT MUHA MUHG MUKW MULM MUMO MUMZ MUNB MUNC MUNG MUOC MUPR MUSC MUSN MUTD MUVR MUVT MWCB MWCR MYAB MYAF MYAK MYAM MYAN MYAP MYAT MYBC MYBG MYBS MYCA MYCB MYCI MYEF MYEH MYEM MYEN MYER MYES MYGF MYIG MYLD MYLS MYMM MYNN MYPI MYSM MZBZ NCAI NCMK NCPY NCRG NFFN NFNA NFNL NFNR NFTF NFTL NFTP NFTV NGFU NGTA NGTU NTTB NTTG NTTR NVSS NVVV NWWD NWWE NWWH NWWK NWWL NWWM NWWR NWWU NWWV NWWW NZAA NZAP NZAS NZCH NZCI NZDN NZGB NZGM NZGS NZGT NZHK NZHN NZKI NZKK NZKO NZKT NZLX NZMA NZMC NZMF NZMS NZNP NZNR NZNS NZNV NZOH NZOU NZPM NZPP NZQN NZRA NZRO NZTG NZTH NZTU NZWB NZWF NZWK NZWN NZWO NZWR NZWS NZWU OABN OABT OACC OAFR OAFZ OAGZ OAHN OAHR OAIX OAJL OAKB OAKN OAKS OAMN OAMS OASN OAUZ OAZJ OBBI OEAB OEAH OEBA OEBH OEDF OEDW OEGN OEGS OEGT OEHL OEJN OEKK OEMA OENG OEPA OERF OERK OERR OESH OESK OETB OETF OETR OEWD OEWJ OEYN OIAA OIAM OIAW OIBB OIBI OIBK OIBL OIBQ OIBS OIBV OICC OICK OICS OIFM OIGG OIHH OIIE OIII OIKB OIKK OIKM OIKR OIKY OIMB OIMC OIMM OIMN OIMT OINR OINZ OISS OITL OITT OIYY OIZB OIZC OIZH OJAI OJAM OJAQ OKBK OLBA OLKA OMAA OMAD OMAL OMDB OMFJ OMRK OMSJ OOKB OOMA OOMS OONR OOSA OOTH OPBN OPBW OPCH OPCL OPDB OPDG OPDI OPFA OPGD OPGT OPJI OPKC OPKD OPKH OPLA OPMA OPMF OPMJ OPMP OPMT OPNH OPOR OPPC OPPG OPPI OPPS OPQT OPRK OPRN OPRT OPSB OPSD OPSK OPSN OPSS OPSU OPTA OPTU OPZB ORER ORSU OSAP OSDI OSDZ OSKL OSLK OSPR OTBD OYAA OYAB OYAT OYBN OYBQ OYGD OYHD OYMB OYMK OYQN OYRN OYSH OYSN OYSQ OYSY OYTZ PABE PABR PACV PADL PADQ PADU PAEN PAFA PAGA PAHO PAJN PAKN PAKT PALH PAMR PANC PANI PAOM PAOT PAPG PASC PASI PAVD PAYA PCIS PGRO PGSN PGUM PHHN PHKO PHLI PHMK PHNL PHNY PHOG PHTO PKMA PKMJ PKWA PLCH PTKK PTPN PTRO PTRO PTSA PTYA RCKH RCSS RCTP RJAA RJAF RJBB RJBD RJBE RJCB RJCC RJCH RJCK RJCM RJCN RJCR RJCW RJDB RJDC RJDT RJEB RJEC RJEO RJER RJFC RJFE RJFF RJFG RJFK RJFM RJFO RJFR RJFS RJFT RJFU RJGG RJKA RJKB RJKI RJKN RJNA RJNF RJNO RJNT RJNW RJOA RJOB RJOC RJOK RJOM RJOO RJOR RJOT RJOW RJSA RJSC RJSD RJSF RJSI RJSK RJSN RJSR RJSS RJSY RJTH RJTO RJTQ RJTT RKJJ RKJK RKJM RKJY RKNC RKND RKNN RKNW RKPC RKPE RKPK RKPU RKSI RKSM RKSO RKSS RKSW RKTH RKTN RKTU RKTY ROAH ROIG ROKJ ROKR ROMD ROMY RORA RORE RORH RORK RORS RORT RORY ROYN RPLB RPLC RPLI RPLL RPLO RPLP RPLU RPMA RPMC RPMD RPME RPMF RPMG RPMH RPMI RPMJ RPML RPMM RPMN RPMO RPMP RPMQ RPMR RPMS RPMU RPMV RPMW RPMX RPMZ RPNS RPUB RPUD RPUH RPUK RPUM RPUN RPUO RPUQ RPUR RPUS RPUT RPUV RPUW RPUY RPUZ RPVA RPVB RPVC RPVD RPVE RPVF RPVG RPVH RPVI RPVJ RPVK RPVM RPVO RPVP RPVR RPVS RPVT RPVU RPVV SAAP SAAR SABE SACO SADF SAEZ SAME SAMM SAMR SANC SANE SANL SANT SANU SAOC SAOR SAOU SARE SARF SARI SARP SASA SATR SAVC SAVE SAVR SAVV SAVY SAWE SAWG SAWH SAZB SAZG SAZM SAZR SAZS SBAR SBBE SBBH SBBR SBBV SBCF SBCG SBCR SBCT SBCY SBCZ SBEG SBFI SBFL SBFZ SBGL SBGO SBGR SBIL SBIZ SBJP SBJV SBKP SBLO SBMA SBMG SBMO SBMQ SBNF SBNT SBPA SBPJ SBPP SBPS SBPV SBRB SBRF SBRJ SBRP SBSL SBSN SBSP SBSR SBSV SBTE SBUL SBVT SCAC SCAN SCAR SCAS SCBA SCBE SCCC SCCF SCCH SCCI SCCY SCDA SCEL SCES SCFA SCFM SCFT SCGE SCGZ SCHA SCHR SCIE SCJO SCLL SCLN SCNT SCPC SCRA SCRG SCSB SCSE SCSF SCTC SCTE SCTI SCTL SCTN SCTO SCTT SCVD SCVM SEAM SECO SECU SEGS SEGS SEGU SELA SEMA SEMC SEMH SEMT SEPV SEQU SESA SESC SESM SEST SESV SETH SETI SETN SETR SETU SGAS SGEN SKAC SKAO SKAR SKAS SKBC SKBG SKBO SKBQ SKBS SKBU SKCC SKCD SKCG SKCL SKCM SKCN SKCO SKCR SKCU SKCV SKCZ SKEB SKEJ SKFL SKGI SKGO SKGP SKHA SKHC SKIB SKIG SKIP SKLG SKLP SKLT SKMD SKMF SKMG SKMP SKMR SKMU SKNV SKOC SKOT SKPC SKPD SKPE SKPI SKPP SKPQ SKPR SKPS SKPV SKPZ SKQU SKRG SKRH SKSA SKSJ SKSM SKSO SKSV SKTB SKTD SKTM SKTQ SKTU SKUC SKUI SKUL SKVG SKVP SKVV SKYP SLAG SLAP SLBJ SLCA SLCB SLCO SLCP SLET SLGY SLJO SLJV SLLP SLMG SLOR SLPS SLRA SLRB SLRI SLRQ SLRY SLSB SLSI SLSM SLSU SLTJ SLTR SLVG SLVM SLVR SLYA SMJP SMPA SMZO SOCA SPAR SPBB SPBL SPBR SPCL SPEO SPGM SPHI SPHO SPHY SPHZ SPIL SPIM SPJA SPJI SPJJ SPJL SPJN SPJR SPLN SPME SPMS SPNC SPOV SPPY SPQT SPQU SPRN SPRU SPSO SPST SPTN SPTU SPUR SPYL SPZO SUAG SUCA SUDU SULS SUMO SUMU SUPU SURV SUSO SUTB SUTR SUVO SVAC SVAN SVBC SVBI SVBM SVCB SVCL SVCN SVCO SVCP SVCR SVCU SVED SVEZ SVGD SVGI SVGU SVIC SVKA SVLF SVMC SVMD SVMG SVMI SVMT SVPA SVPC SVPM SVPR SVPT SVSE SVSO SVSP SVSR SVST SVTC SVTM SVUM SVVA SVVG SVVL SVVP SYAH SYAN SYCJ SYIB SYKM SYKR SYKT SYLP SYLT SYMD SYOR TAPA TAPH TBPB TDCF TDPD TFFA TFFB TFFC TFFF TFFG TFFJ TFFM TFFR TFFS TGPY TIST TISX TJAB TJBQ TJCP TJFA TJIG TJMZ TJPS TJSJ TJVQ TLPC TLPL TNCA TNCB TNCC TNCE TNCM TNCS TQPF TTPP TUPJ TUPW TVSU TVSV TXKF UAAA UAAH UACC UAFM UAFO UAKD UAKK UARR UATG UATT UAUU UBBB UBBG UEAA UEEE UELL UERP UERR UESO UGEE UGGG UGGG UGSS UHBB UHBI UHHH UHMA UHMD UHMM UHMP UHPP UHSS UHWW UIAA UIBB UIUU UKBB UKCC UKDD UKDE UKDR UKFF UKHH UKKK UKLI UKLL UKLR UKLU UKON UKOO UKWW ULAA ULAM ULDD ULKK ULLI ULMM ULOO ULPB UMBB UMGG UMII UMKK UMMG UMMM UMMS UNBB UNEE UNKL UNKY UNNT UNOO UNWW UOOO URKA URKK URMM URMN URMO URMT URRR URWA URWW USCC USCM USKK USNN USPP USRR USSS UTAA UTDD UTDL UTNU UTSB UTSS UTST UTTT UUDD UUEE UUII UUOB UUOO UUWW UUYH UUYY UWGG UWKD UWKS UWOO UWOR UWPP UWSS UWUU UWWW VAAH VAAK VAAU VABB VABJ VABM VABO VABP VABV VAGO VAID VAJB VAJM VAKE VAKJ VAKP VAKS VAND VANP VAPO VAPR VARK VARP VASL VASU VAUD VCBI VCCA VCCB VCCC VCCG VCCJ VCCT VDBG VDPP VDSR VEAT VEBD VEBG VEBI VEBS VECC VECO VEGK VEGT VEGY VEIM VEJS VEJT VEKR VEKU VELP VELR VEMH VEMR VEMZ VEPG VEPT VEPU VERC VERK VERU VETJ VETZ VEVZ VEZO VGBR VGCB VGCM VGEG VGHS VGJR VGRJ VGSD VGSG VGSY VHHH VIAG VIAL VIAR VIBN VIBR VICG VIDN VIDP VIGG VIGR VIJO VIJP VIJR VIJU VIKA VIKO VILD VILH VILK VIPT VISM VISR VLAP VLHS VLLB VLLN VLOS VLPS VLSB VLSK VLSN VLSV VLTK VLVT VLXK VMMC VNBG VNBJ VNBL VNBP VNBR VNBT VNBW VNDG VNDH VNDL VNDP VNGK VNJL VNJP VNJS VNKT VNLD VNLK VNMA VNMG VNNG VNPK VNRB VNRC VNRK VNRT VNSI VNSK VNSR VNST VNTR VNVT VOAT VOBG VOBZ VOCB VOCI VOCL VOCP VOHY VOMD VOML VOMM VOMY VOPB VOPC VOPN VORY VOSM VOTP VOTR VOTV VQPR VRMG VRMH VRMM VRMT VTBD VTBS VTBU VTCC VTCH VTCL VTCN VTCP VTCR VTCT VTPH VTPM VTPO VTPP VTPT VTPU VTSB VTSC VTSG VTSH VTSK VTSM VTSN VTSP VTSR VTSS VTST VTUD VTUD VTUI VTUK VTUL VTUQ VTUU VTUW VVBM VVCI VVCM VVCR VVCS VVCT VVDB VVDL VVDN VVNB VVNS VVPB VVPC VVPK VVPQ VVRG VVTH VVTS VVVH VYBG VYCZ VYDW VYGG VYGW VYHH VYHL VYKG VYKI VYKP VYKT VYLK VYLS VYME VYMK VYMM VYMN VYMO VYMS VYMT VYMW VYNS VYPA VYPK VYPN VYPP VYPT VYPU VYPY VYSW VYTD VYTL VYYE VYYY WAAA WAAU WABB WADD WAJJ WALL WAML WAMM WAPP WBGB WBGG WBGK WBGM WBGR WBGW WBGZ WBKD WBKK WBKL WBKS WBKW WBSB WIBB WIIB WIIH WIII WIIJ WIIS WIIT WIKB WIKN WIMM WIOO WIPP WIPT WITT WMBI WMKA WMKB WMKC WMKD WMKE WMKI WMKJ WMKK WMKL WMKM WMKN WMKP WMSA WPDL WPMN WRBB WRBP WRKK WRLR WRLS WRRA WRSJ WRSQ WSSS YABA YAPH YARA YARM YAVV YAYE YBAS YBBN YBCG YBCK YBCS YBCV YBHI YBHM YBIE YBKE YBLA YBLN YBMA YBMC YBMK YBNA YBNS YBOU YBPN YBRK YBRM YBRN YBRW YBTH YBTI YBTL YBTR YBUD YBWP YCAR YCBA YCBB YCBP YCBR YCCA YCCY YCDU YCEE YCKI YCMT YCNM YCOE YCOM YCOR YCRG YCTM YCUE YCWR YDBI YDBY YDLQ YDPO YDYS YECH YELD YEML YESP YFBS YFLI YFRT YFTZ YGDH YGEL YGFN YGLA YGLB YGLI YGPT YGTE YGTH YHAY YHBA YHID YHLC YHML YHOT YHPN YHSM YIVL YKER YKII YKMB YKMP YKOW YKRY YKSC YLEC YLEO YLHI YLHR YLIS YLRD YLRE YLST YLTV YMAY YMBA YMCO YMDG YMEK YMEN YMER YMGD YMHB YMIA YMLT YMMB YMML YMNE YMOG YMOR YMRB YMRY YMTG YNAR YNBR YNGU YNRM YNTN YNWN YORB YORG YPAD YPAG YPBO YPCC YPDN YPGV YPIR YPJT YPKA YPKG YPKS YPKT YPKU YPLC YPLM YPMQ YPOD YPPD YPPH YPXM YQLP YRED YREN YROI YROM YRTI YSBK YSCB YSCH YSCN YSDU YSGE YSHT YSMI YSNB YSNF YSPT YSRN YSSY YSTH YSTW YSWG YSWH YSWL YTAM YTEM YTGM YTIB YTMU YTNG YTNK YTRE YTWB YWDH YWGT YWHA YWKB YWLG YWLM YWLU YWOL YWRN YWSL YWTN YWWL YWYY YYNG ZBAA ZBBB ZBCF ZBCZ ZBDT ZBHH ZBLA ZBOW ZBSH ZBSJ ZBTJ ZBTL ZBUL ZBXT ZBYN ZGBH ZGGG ZGHA ZGHY ZGKL ZGNN ZGOW ZGSD ZGSY ZGSZ ZGWZ ZGZH ZGZJ ZHAY ZHCC ZHHH ZHLY ZHNY ZHSS ZHXF ZHYC ZJHK ZKPY ZKPY ZLAN ZLDH ZLGM ZLHZ ZLIC ZLJN ZLJQ ZLLL ZLQY ZLXN ZLXY ZLYA ZLYL ZMAH ZMAT ZMBH ZMBN ZMBU ZMCD ZMUB ZPBS ZPJH ZPLJ ZPLX ZPPP ZPSM ZPZT ZSAM ZSAQ ZSBB ZSCG ZSCN ZSFY ZSFZ ZSGZ ZSHC ZSJD ZSJJ ZSJN ZSLG ZSLQ ZSNB ZSNJ ZSOF ZSPD ZSQD ZSQZ ZSSS ZSSZ ZSTX ZSWF ZSWX ZSWY ZSWZ ZSXZ ZSYT ZSYW ZSZS ZUCK ZUGY ZULS ZUNC ZUUU ZUXC ZUYB ZUZY ZWAK ZWAT ZWFY ZWHM ZWKC ZWKL ZWKM ZWSH ZWTN ZWWW ZWYN ZYAS ZYCC ZYDD ZYHB ZYHE ZYJL ZYJM ZYJZ ZYMD ZYQQ ZYTL ZYTN ZYTX ZYYJ".split(" ");
 
 //Choses the airport, and stores it in two ways, an array and a string
@@ -65,7 +64,6 @@ let answer = airportCode.split("");
 let token = "f303fdff7879008e26b9115eed617e61e6c07010dbbfbc994e7b02ebc930ae33e234113a928761faee0ced9bee9957e2";
 let endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
 
-//Actually loads the info from the API
 
 function loadWindow() { //Creates the rows and keyboard
   for (i = 0; i < 6; i++) {
@@ -76,7 +74,7 @@ function loadWindow() { //Creates the rows and keyboard
   resize();
 }
 
-function resize(){
+function resize(){ //Changes all the sizes/positions to be acurate with the new window
   let box
   if (target_row != 6){
     box = document.getElementById(target)
@@ -150,6 +148,7 @@ function resize(){
   let main_container = document.getElementById("main_container");
   main_container.style.paddingTop = (document.body.clientHeight/20) + "px"
 
+  //Boxes
   let row_container = document.getElementById("letter_box_container")
   for (let i = 0; i<row_container.children.length;i++){
     let row = row_container.children[i]
@@ -172,13 +171,14 @@ function resize(){
     }
   }
 
-  //Settings Menu Resizing
+  //Settings Menu
   let menu = document.getElementById("settings_unflex");
   menu.style.left = ((document.body.clientWidth / 2) - (menu.clientWidth / 2)) + "px";
   if (document.getElementById("settings_footer").offsetTop < document.getElementById("last_line_aka_franks_special").offsetTop){
     document.getElementById("settings_footer").style.visibility = "hidden"
   }
   
+  //Tutorial
   let tutorial = document.getElementById("tutorial_unflex");
   tutorial.style.left = ((document.body.clientWidth / 2) - (tutorial.clientWidth / 2)) + "px";
 
@@ -191,74 +191,81 @@ function resize(){
   del.style.transform = "scale("+box.clientHeight/50+")"
 }
 
+
+ //Creates each row, and the boxes in it
+
 function createRow() {
-  //Setting up to create the row
   let container = document.getElementById("letter_box_container");
   let children = container.children;
   let row = document.createElement("div");
-  //Giving the row a dynamic ID and a style.
   row.id = "letter_row" + children.length;
   row.className = "row"
-  //Creating the 4 boxes in the row
   for (r = 0; r < 4; r++) {
     let elem = document.createElement("div");
     elem.id = "letter_box" + "_" + children.length + "_" + r;
     elem.className = "box"
     row.append(elem);
   }
-  //Adds the row to the container
   container.append(row);
 }
 
-function createRowDeletion(){
+
   //Adds the button following the rows to allow deletion of the content of all the boxes there
+
+function createRowDeletion(){
   let box = document.getElementById(target)
   let del = document.createElement("i")
-  del.className = "fa-solid fa-delete-left fa-xl" //Makes the icon
+  del.className = "fa-solid fa-delete-left fa-xl"
   del.id = "clear_row_button"
-  del.onclick = function(){ //Makes it so it actually does what it says
+  del.onclick = function(){
     deleteRow()
   }
-  //Adds it to the body and puts it in the right place
+  
   document.body.append(del)
-  let top = (box.parentElement.offsetHeight + (box.parentElement.clientHeight/2) + (del.clientWidth*(3/4))) //In human: Y = row's distance from top + 1/2 of row's height + 3/4 of its own width
-  let left = box.parentElement.lastChild.getBoundingClientRect().left + (box.parentElement.lastChild.clientWidth*1.33)//X = Last box in row's distance from the edge + 4/3 that box's width
+  let top = (box.parentElement.offsetHeight + (box.parentElement.clientHeight/2) + (del.clientWidth*(3/4)))
+  let left = box.parentElement.lastChild.getBoundingClientRect().left + (box.parentElement.lastChild.clientWidth*1.33)
   del.style.top = top + "px"
   del.style.left = left + "px"
 }
 
+
+//Used by the row deletion button
+
 function deleteRow(){
   if (!finished){
     let box = document.getElementById(target);
-    for (let i = 0; i<box.parentElement.children.length;i++){ //Goes through the row and resets the boxes style to an unused one
+    for (let i = 0; i<box.parentElement.children.length;i++){ 
       box.parentElement.children[i].textContent = "";
       box.parentElement.children[i].style.backgroundColor = "var(--white)";
       box.parentElement.children[i].style.borderColor = "var(--lightgrey)";
       box.parentElement.children[i].style.color = "black";
     }
-    target = "letter_box_"+target_row+"_0" //Sets the next box to be typed in to the first in the row
+    target = "letter_box_"+target_row+"_0"
   }
 }
 
+
+//The keyboard at the bottom of the screen
+
 function createKeyboard() {
-  for (i = 0; i < 3; i++) { //QWERTY has 3 rows
+  for (i = 0; i < 3; i++) {
     let container = document.getElementById("keyboard_container");
     let row = document.createElement("div");
-    row.id = "keyboard_row" + container.length; //Same way the guess rows are ided above, just with the keyboard this time
+    row.id = "keyboard_row" + container.length;
     row.className = "keyboard_row";
     let keys
-    if (i == 0) { //Sets the keys to the ones that are in the row
+    if (i == 0) {
       keys = ["Q","W","E","R","T","Y","U","I","O","P"]
     } else if (i==1) {
       keys = ["A","S","D","F","G","H","J","K","L"]
     } else if (i==2) {
       keys = ["DELETE","Z","X","C","V","B","N","M","ENTER"]
     }
-    for (let r = 0; r < keys.length; r++) { //Goes through and adds the keys to the row
+    for (let r = 0; r < keys.length; r++) {
       let key = document.createElement("div")
       key.id = keys[r]
       key.textContent = keys[r]
-      if (key.textContent == "ENTER" || key.textContent == "DELETE") { //Special styling for the Enter and Delete keys as they are different
+      if (key.textContent == "ENTER" || key.textContent == "DELETE") {
         key.className = "enter_delete_key"
       } else {
         key.className = "key"
@@ -275,17 +282,17 @@ function createKeyboard() {
   }
 }
 
-function keyDown(event) { //For converting key inputs to something readable by our renderLetter function.
+
+//For converting key inputs to something readable by our renderLetter function.
+
+function keyDown(event) {
   let keyCode = event.code;
-  //console.log(keyCode);
   let key;
   if (keyCode != "Enter" && keyCode != "Backspace" && keyCode != "Backquote" && keyCode != "Equal" && keyCode != "Backslash" && keyCode != "BracketRight") {
-    let keyArray = keyCode.split("Key"); //Removes "Key" from the begining of the code
+    let keyArray = keyCode.split("Key");
     key = keyArray[1];
   } else if (keyCode == "Backquote" && JSON.parse(window.localStorage.getItem("isDev"))) {
-    superTopSecretFunction(); // runs a super top secret function
-  } else if (keyCode == "Equal" && JSON.parse(window.localStorage.getItem("isDev"))) {
-    callAPI(); // tests API when we want to run it
+    superTopSecretFunction();
   } else if (keyCode == "Backslash" && JSON.parse(window.localStorage.getItem("isDev"))) {
     toggleColorblind();
   } else if (keyCode == "BracketRight" && JSON.parse(window.localStorage.getItem("isDev"))) {
@@ -296,55 +303,58 @@ function keyDown(event) { //For converting key inputs to something readable by o
   renderLetter(key);
 }
 
+
+ //Big function, anything typing and box related pretty much
+
 function renderLetter(key) {
-  if (!finished && !isEndScreenOpen && !animatingBox) { //Disallows typing once the game has ended
-    let box = document.getElementById(target); //Gets the box to type in
+  if (!finished && !isEndScreenOpen && !animatingBox) {
+    let box = document.getElementById(target);
     let qwerty = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"];
-    if (qwerty.includes(key) == true) { //Checks if it is a letter
-      if (box.textContent == ""){ //Used mainly for checking if the last box is already filled once it reaches the end of the row
-        box.textContent = key; //Changes some styling and add the letter into the box
+    if (qwerty.includes(key) == true) {
+      if (box.textContent == ""){
+        box.textContent = key;
         box.style.backgroundColor = "var(--white)";
         box.style.borderColor = "var(--filledborder)";
         box.style.color = "var(--black)";
-        let new_id = parseInt(target.substring(13)) //Just gets the current box number and adds one to it
+        let new_id = parseInt(target.substring(13))
         new_id += 1
-        if (new_id>=box.parentElement.children.length){ //Limits the new id so it doesn't exceed the number of boxes
+        if (new_id>=box.parentElement.children.length){
           new_id = box.parentElement.children.length-1
         }
-        target = "letter_box_"+target_row+"_"+new_id //Changes the target to the next box
+        target = "letter_box_"+target_row+"_"+new_id
       }
     } else if (key == "DELETE" || key == "Backspace") {
       let new_id = parseInt(target.substring(13))
       let qwerty = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"];
-      if (new_id != 3){ //Changes the id down by one, to target a box that has content, as long as it is not the last box, as that has special check
+      if (new_id != 3){
         new_id -= 1
         if (new_id<0){
           new_id = 0
         }
         target = "letter_box_"+target_row+"_"+new_id
-      }else if (new_id == 3 && qwerty.includes(box.textContent) == false){ //Checks to see if the last box is empty, otherwise, it keeps the current box as the target
+      }else if (new_id == 3 && qwerty.includes(box.textContent) == false){
         new_id -= 1
         target = "letter_box_"+target_row+"_"+new_id
         }
-      box = document.getElementById(target); //Resets the box styling
+      box = document.getElementById(target);
       box.textContent = "";
       box.style.backgroundColor = "var(--white)";
       box.style.borderColor = "var(--defaultborder)";
       box.style.color = "var(--black)";
-    } else if (key == "ENTER" || key == "Enter") { //Calcuating next row
-      if (box == box.parentElement.lastChild && box.textContent != ""){ //As long as the last box is filled,
+    } else if (key == "ENTER" || key == "Enter") {
+      if (box == box.parentElement.lastChild && box.textContent != ""){ 
         let guess = ""
-        for (let i = 0; i<box.parentElement.children.length;i++){ //Turns the 4 boxes' letters into a string
+        for (let i = 0; i<box.parentElement.children.length;i++){ 
           guess += box.parentElement.children[i].textContent
         }
-        if (airportArray.includes(guess) && guessedCodes.includes(guess) != true){ //As long as it is a valid airport code
-          let fluidAnswer = []; // Creates a secondary array used for checking matches, and making it so guessing NZHN against CZMN will give you Incorrect, correct, incorrect, correct, that guessing KOAK against KSFO will result in correct, right letter wrong place, incorrect, incorrect, and such for similar cases. Without the array, the first one would be right letter wrong place, corret, incorrect, correct, and the second example would be correct, right letter wrong place, incorrect, right letter wrong place.
+        if (airportArray.includes(guess) && guessedCodes.includes(guess) != true){
+          let fluidAnswer = [];
           guessedCodes.push(guess)
           for (i=0; i < answer.length; i++) {
             fluidAnswer.push(answer[i]); 
           }
-          correctCount = 0; //Used to determine whether all 4 boxes are correct
-          for (let i = 0; i<box.parentElement.children.length;i++) { //Goes through each box in the current row and checks correctness
+          correctCount = 0;
+          for (let i = 0; i<box.parentElement.children.length;i++) {
             box.parentElement.children[i].style.transition = "transform " + (i*durationModif+1) + "s ease-in-out, background-color 0.2s " + (i*durationModif+0.8) + "s, border-color 0.2s " + (i*durationModif+0.8) + "s, color 0.2s " + (i*durationModif+0.8) + "s"
             box.parentElement.children[i].style.transform = "rotate3d(1,0,0,"+ (Math.round((i+3)*360))+"deg)"
             if (!animatingBox){
@@ -353,69 +363,69 @@ function renderLetter(key) {
             }
             let guess = box.parentElement.children[i].textContent;
             let transition = "background-color 0.2s " + (3*durationModif+1.1) + "s, border-color 0.2s "+(3*durationModif+1.1)+"s, color 0.2s "+(3*durationModif+1.1)+"s"
-            if (guess == fluidAnswer[i]) { //If the current guess is the same as the equivilant letter in the guess,
-              box.parentElement.children[i].style.backgroundColor = "var(--green)"; //Styles the box to show its correct
+            if (guess == fluidAnswer[i]) {
+              box.parentElement.children[i].style.backgroundColor = "var(--green)";
               box.parentElement.children[i].style.borderColor = "var(--green)";
               box.parentElement.children[i].style.color = "white";
               document.getElementById(guess).style.transition = transition
-              document.getElementById(guess).style.backgroundColor = "var(--green)"//Changes the key to be correct
+              document.getElementById(guess).style.backgroundColor = "var(--green)"
               document.getElementById(guess).style.borderColor = "var(--green)"
               document.getElementById(guess).style.color = "white"
-              fluidAnswer[i] = ""; //Removes the letter from the array, so that the futrue guesses will not mention it. See initial declaration of fluid answer above for more.
+              fluidAnswer[i] = "";
               correctCount += 1;
-            } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) { //As long as it is in the array but not in the current position,
-              let location = fluidAnswer.indexOf(guess); //Gets where it is actually located in the answer array
-              if (box.parentElement.children[location].textContent != fluidAnswer[location]){ //Used for example two where fluidAnswer is delcared, makes sure, that there is not the correct letter in the correct position,
-                box.parentElement.children[i].style.backgroundColor = "var(--yellow)"; //Yellow box styling
+            } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
+              let location = fluidAnswer.indexOf(guess); 
+              if (box.parentElement.children[location].textContent != fluidAnswer[location]){
+                box.parentElement.children[i].style.backgroundColor = "var(--yellow)"; 
                 box.parentElement.children[i].style.borderColor = "var(--yellow)";
                 box.parentElement.children[i].style.color = "white";
                 if (document.getElementById(guess).style.backgroundColor != "var(--green)"){
                   document.getElementById(guess).style.transition = transition
-                  document.getElementById(guess).style.backgroundColor = "var(--yellow)"//Changes the key to be the correct color
+                  document.getElementById(guess).style.backgroundColor = "var(--yellow)"
                   document.getElementById(guess).style.borderColor = "var(--yellow)"
                   document.getElementById(guess).style.color = "white"
                 }
-                fluidAnswer[location] = "";//Removes the letter from the array, so that the futrue guesses will not mention it. See initial declaration of fluid answer above for more.
+                fluidAnswer[location] = "";
               } else {
-                box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)"; //If there is the correct letter in the correct position, then it styles it for incorrect
+                box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
                 box.parentElement.children[i].style.borderColor = "var(--darkgrey)";
                 box.parentElement.children[i].style.color = "white";
               }
-            } else if (fluidAnswer.includes(guess) == false) { //If the letter is not at all present in the array
-              box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)"; //Grey styling to show it is incorrect
+            } else if (fluidAnswer.includes(guess) == false) {
+              box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
               box.parentElement.children[i].style.borderColor = "var(--darkgrey)";
               box.parentElement.children[i].style.color = "white";
               let key = document.getElementById(guess)
-              if (key.style.backgroundColor != "var(--green)" || key.style.backgroundColor == "var(--yellow)"){ //As long as the corresponding key is not colored,
+              if (key.style.backgroundColor != "var(--green)" || key.style.backgroundColor == "var(--yellow)"){
                 document.getElementById(guess).style.transition = transition
-                key.style.backgroundColor = "var(--darkgrey)"//Changes the key to be the gray
+                key.style.backgroundColor = "var(--darkgrey)"
                 key.style.borderColor = "var(--darkgrey)"
                 document.getElementById(guess).style.color = "white"
               }
             }
           }
-          target_row += 1 //Adds one to the target row because you will need to go to the next row when you guess the previous one
-          if (target_row == box.parentElement.parentElement.children.length || correctCount == 4) { //If you have reached the end or you have guessed the code correctly, finished is true
+          target_row += 1
+          if (target_row == box.parentElement.parentElement.children.length || correctCount == 4) { 
             finished = true;
           }
-          if (target_row == 6 && correctCount != 4) {//If you have reached the end and not all are correct, correct is false
+          if (target_row == 6 && correctCount != 4) {
             correct = false;
-          } else if (correctCount == 4) {//If all four all correct, correct is true
+          } else if (correctCount == 4) {
             correct = true;
             window.localStorage.setItem("updateGraph", "true")
           }
-          if (target_row < box.parentElement.parentElement.children.length && correct == false){ //If the game continues after this instance of enter being pressed,
+          if (target_row < box.parentElement.parentElement.children.length && correct == false){
             window.setTimeout(moveDel, (3000*durationModif+1000))
           }
-          target = "letter_box_"+target_row+"_"+0 //Moves the target to the first box in the next row
-          if (finished == true) { //Calls the Endscreen after a short delay if the game is done
+          target = "letter_box_"+target_row+"_"+0
+          if (finished == true) { 
             updateStats(target_row,correct)
             timer = window.setTimeout(endScreen, 3000*durationModif+1100)
           }
-        } else { //If the guess is not in the code array (or it is already guessed)
-          if (typeof(document.getElementById("not_a_code_msg")) == 'undefined' || document.getElementById("not_a_code_msg") == null){ //As long as the message is not already there,
-            let error = document.createElement("div") //Creates a div
-            error.id = "not_a_code_msg" //Styling stuff
+        } else {
+          if (typeof(document.getElementById("not_a_code_msg")) == 'undefined' || document.getElementById("not_a_code_msg") == null){
+            let error = document.createElement("div")
+            error.id = "not_a_code_msg"
             if (guessedCodes.includes(guess)){
               error.textContent = "Code Already Guessed"
             }else {
@@ -423,9 +433,9 @@ function renderLetter(key) {
             }
             error.style.top = (document.getElementById("main_container").offsetTop *1.25) + "px";
             error.style.opacity = 1;
-            document.body.append(error) //Appends it
-            error.style.left = (((document.body.clientWidth + 15) / 2) - (error.clientWidth / 2)) + "px"; // Sets the box to the middle of the documnet
-            window.setTimeout(fadeError,800) //Fades it after a set amount of time
+            document.body.append(error)
+            error.style.left = (((document.body.clientWidth + 15) / 2) - (error.clientWidth / 2)) + "px"; 
+            window.setTimeout(fadeError,800)
           }
         }
       }
@@ -433,8 +443,10 @@ function renderLetter(key) {
   }
 }
 
+
+//When you move to the next row, the delete row button needs to move as well
 function moveDel(){
-  let del_btn = document.getElementById("clear_row_button") //Moves the clear row button down a row
+  let del_btn = document.getElementById("clear_row_button")
   let top = parseInt(del_btn.style.top)
   let box
   if (target_row != 6){
@@ -444,6 +456,9 @@ function moveDel(){
   del_btn.style.transition = "top 0.1s linear"
   del_btn.style.top = top + "px"
 }
+
+
+//--Dev Functions--
 
 function clearStats(){
   let isDev
@@ -477,6 +492,9 @@ function makeDev(){
 function demote(){
   window.localStorage.setItem("isDev","false")
 }
+//--End of Dev Functions--
+
+//When you end a game, local storage stuff updates
 
 function updateStats(last_row,correct){
   checkStorage()
@@ -504,6 +522,9 @@ function updateStats(last_row,correct){
   games += 1
   window.localStorage.setItem("Games",JSON.stringify(games))
 }
+
+
+//Makes sure everything that should be in local storage is there.
 
 function checkStorage(){
   if (!window.localStorage.getItem("Lengths")){
@@ -533,16 +554,16 @@ function checkStorage(){
   if (!window.localStorage.getItem("updateGraph")){
     window.localStorage.setItem("updateGraph","true");
   }
-  if (!window.localStorage.getItem("hardMode")){
-    window.localStorage.setItem("hardMode","false")
-  }
   if (!window.localStorage.getItem("Hints_Used")){
     window.localStorage.setItem("Hints_Used","0")
   }
 }
 
+
+//As the name implies
+
 function callAPI() {
-  if (apiIsCalled === false) { //" && finished === true" does not work for whatever reason
+  if (apiIsCalled === false) {
     var request = new XMLHttpRequest();
     request.open('GET', endpoint);
     request.send();
@@ -563,7 +584,7 @@ function callAPI() {
 
 // Does super top secret dev stuff (answer key).
 
-function superTopSecretFunction() { //Shhhhhh...
+function superTopSecretFunction() {
   if (typeof(document.getElementById("secret_code")) == 'undefined' || document.getElementById("secret_code") == null) {
     let error = document.createElement("div")
     error.id = "secret_code"
@@ -576,21 +597,23 @@ function superTopSecretFunction() { //Shhhhhh...
   }
 }
 
-function fadeSecret(){ //Shhhhhhhh again
+function fadeSecret(){
     errorFade = window.setInterval(function(){
       fade(document.getElementById("secret_code"),errorFade);
     },1)
 }
 
-function fadeError(){ //Creates the interval (after the delay from creation) that fades it
+//Middleman between the fade function and the error messages
+function fadeError(){
     errorFade = window.setInterval(function(){
       fade(document.getElementById("not_a_code_msg"),errorFade);
     },1)
 }
 
-function fade(element,timer){ //Every milisecond it removes 0.02 opacity from the box
+//JS equiv of something that should be transfered to a css transition
+function fade(element,timer){
   element.style.opacity -= 0.02
-  if (element.style.opacity <= 0){ //If the box is fully transparent, it removes the box, and ends the interval
+  if (element.style.opacity <= 0){
     clearInterval(timer)
     element.remove()
   }
@@ -600,19 +623,19 @@ function fade(element,timer){ //Every milisecond it removes 0.02 opacity from th
 // Creates the answer screen.
 
 function endScreen() {
-  let popUp = document.createElement("div"); //The actual box containing the info
-  let overlay = document.createElement("div"); //An overlay to semi-hide the background
+  let popUp = document.createElement("div");
+  let overlay = document.createElement("div");
   popUp.className = "pop_up";
   popUp.id = "pop_up_id";
   popUp.style.visibility = "hidden"
-  overlay.className = "overlay"; // May want to apply this: filter: blur(4px);   However, it only blurs the object it is attached to, it cannot blur items behind it, even if it is not opaque
+  overlay.className = "overlay";
   overlay.id = "overlay_id";
   document.body.append(overlay)
   document.body.append(popUp)
   popUp.style.left = ((document.body.clientWidth / 2) - (popUp.clientWidth / 2)) + "px";
-  popUp.style.top = window.outerHeight + "px"; // find mid-height
+  popUp.style.top = window.outerHeight + "px";
 
-  let exitDiv = document.createElement("div"); //Creates all the other divs used for the actual displaying and formatting of the text
+  let exitDiv = document.createElement("div");
   exitDiv.className = "exit_div";
   popUp.append(exitDiv);
 
@@ -633,9 +656,9 @@ function endScreen() {
   spacer0.className = "spacer";
   popUp.append(spacer0);
 
-  if (finished == true) { //Won't actually display airport info unless it is know what the airport is
+  if (finished == true) {
 
-    let airportTitle = document.createElement("a"); //Divs for info
+    let airportTitle = document.createElement("a");
     airportTitle.className = "pop_up_grand_title";
     if (airportLink != "" && airportHomeLink != "") {
       airportTitle.href = airportLink;
@@ -708,7 +731,7 @@ function endScreen() {
     countryContainer.textContent = "Country";
     airportContainerRight.appendChild(countryContainer);
     
-  } else { //Otherwise, it will just say that you cannot see this until you know the answer
+  } else {
 
     let airportTitle = document.createElement("div");
     airportTitle.className = "pop_up_title";
@@ -722,7 +745,7 @@ function endScreen() {
     
   }
 
-  let spacer1 = document.createElement("div"); //More divs!
+  let spacer1 = document.createElement("div");
   spacer1.className = "spacer";
   popUp.append(spacer1);
 
@@ -766,7 +789,6 @@ function endScreen() {
   if (win_percent == "NaN"){
     win_percent = "N/A"
   }
-  //console.log(parseInt(window.localStorage.getItem("Wins")),parseInt(window.localStorage.getItem("Games")),win_percent)
   innerLeftStatsField.textContent = win_percent
   statsContainerInnerLeft.appendChild(innerLeftStatsField);
 
@@ -831,12 +853,12 @@ function endScreen() {
 
 // Exits/hides the answer screen.
 
-function exitEndScreen() { //Used to completly remove the elements from the screen, could eventually replace with just a simple visible CSS styling.
+function exitEndScreen() {
   let popUpContainer = document.getElementById("pop_up_id");
   let overlay = document.getElementById("overlay_id");
   popUpContainer.style.visibility = "visible"
   toggleElement(popUpContainer)
-  window.setTimeout(function(){popUpContainer.remove(); //Deletes the containers
+  window.setTimeout(function(){popUpContainer.remove();
   overlay.remove();
   isEndScreenOpen = false;},500)
 }
@@ -877,23 +899,21 @@ function barGraphCreate(){
 }
 
 
-// Creates the hint menu and all subsequent "drop-outs."
+// Creates the hint menu and all subsequent "pop-outs."
 
 function openHintMenu() {
-  let hintDropdown = document.createElement("div"); // Creates the dropdown menu
-  //let iconOpen = "var(--black)";
+  let hintDropdown = document.createElement("div");
   hintDropdown.className = "hint_dropdown";
   hintDropdown.id = "hint_dropdown_id";
   document.body.append(hintDropdown)
   hintDropdown.style.height = "160px"
   window.setTimeout(function(){
-    let elevationIcon = document.createElement("i"); // The different hints icons
+    let elevationIcon = document.createElement("i"); 
     elevationIcon.className = "fa-solid fa-mountain";
     elevationIcon.id = "elevation_icon";
     elevationIcon.classList.add("dropdownButton")
     elevationIcon.style.top = "35%"
     elevationIcon.style.cursor = "pointer";
-    //elevationIcon.style.color = iconOpen;
     hintDropdown.appendChild(elevationIcon);
     let offset = (elevationIcon.parentElement.clientWidth-elevationIcon.clientWidth)/elevationIcon.parentElement.clientWidth * 50
     elevationIcon.style.left = offset +"%"
@@ -1035,9 +1055,8 @@ function openHintMenu() {
 // Closes/hides the hint menu.
 
 function closeHintMenu() {
-  let hintDropdown = document.getElementById("hint_dropdown_id"); //Gets the dropdown
+  let hintDropdown = document.getElementById("hint_dropdown_id");
   hintDropdown.remove();
-  /*document.getElementById("hint_dropdown_id").style.visibility = "hidden";*/
   hintOpen = false;
 }
 
@@ -1148,58 +1167,6 @@ function createSettingsMenu() {
   let settingsSpacer = document.createElement("div")
   settingsSpacer.className = "settings_spacer";
   settingsSub.append(settingsSpacer);
-
-  /*
-
-  let settingsRow1 = document.createElement("div");
-  settingsRow1.className = "settings_row";
-  settingsSub.append(settingsRow1);
-
-  let settingsRow1Left = document.createElement("div");
-  settingsRow1Left.className = "settings_row_left";
-  settingsRow1.append(settingsRow1Left);
-
-  let settingsRow1Right = document.createElement("div");
-  settingsRow1Right.className = "settings_row_right";
-  settingsRow1.append(settingsRow1Right);
-
-  let slider1 = document.createElement("label");
-  slider1.className = "switch";
-  settingsRow1Right.append(slider1);
-
-  let slider1Input = document.createElement("input");
-  slider1Input.type = "checkbox";
-  slider1Input.checked = JSON.parse(window.localStorage.getItem("hardMode"));
-  slider1.append(slider1Input);
-
-  let slider1Span = document.createElement("span");
-  slider1Span.className = "slider round";
-  slider1.append(slider1Span);
-
-  slider1Input.onclick = function() {
-    //toggleHardmode();
-    if (localStorage.getItem("hardMode") == "false") {
-      window.localStorage.setItem("hardMode", "true");
-    } else {
-      window.localStorage.setItem("hardMode", "false");
-    }
-  }
-
-  let settingsRow1LeftRow1 = document.createElement("div");
-  settingsRow1LeftRow1.className = "settings_row_left_one";
-  settingsRow1LeftRow1.textContent = "Hard Mode";
-  settingsRow1Left.append(settingsRow1LeftRow1);
-
-  let settingsRow1LeftRow2 = document.createElement("div");
-  settingsRow1LeftRow2.className = "settings_row_left_two";
-  settingsRow1LeftRow2.textContent = "Any revealed hints must be used in subsequent guesses.";
-  settingsRow1Left.append(settingsRow1LeftRow2);
-
-  let line1 = document.createElement("div");
-  line1.className = "settings_line";
-  settingsSub.append(line1);
-
-  */
 
   let settingsRow2 = document.createElement("div");
   settingsRow2.className = "settings_row";
@@ -1474,6 +1441,9 @@ function createTutorialPage() {
   tutorialSub.append(par4);
 }
 
+
+//Pops the tutorial up on the first load of the page
+
 function tutorialPopup() {
   if (window.localStorage.getItem("Games") == "0"){
     toggleElement(document.getElementById("tutorial_container"))
@@ -1487,6 +1457,9 @@ function tutorialPopup() {
   },350)
   }
 }
+
+
+//Function used to slide an element off the bottom of the screen, or pull it up from the bottom.
 
 function toggleElement(element,top = 0){
   if (element.style.visibility == "visible" && !animatingMenu){
@@ -1511,6 +1484,9 @@ function toggleElement(element,top = 0){
     },500);
   }
 }
+
+
+//Onclick functions for things that don't get created in JS
 
 function addClicks(){
   document.getElementById("menu_icon").onclick = function(){
