@@ -4,11 +4,20 @@ changelog:
   exclude:
     labels:
       - exclude
+      - cleanup
+      - developer
+      - documentation
+      - duplicate
+      - invalid
+      - notabug
+      - wontfix
+      - question
+      - performance
   categories:
-    - title: Exciting New Features 🎉
+    - title: New Features
       labels:
         - enhancement
-    - title: Bug Fixes 🛠
+    - title: Bug Fixes
       labels:
         - bug
         
