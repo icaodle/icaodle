@@ -1559,14 +1559,15 @@ function addClicks(){
       airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
       while (usedCodes.includes(airportCode)){
         airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
-        answer = airportCode.split("");
       }
+      answer = airportCode.split("");
       if (hintOpen){
         closeHintMenu()
       }
       hasOpenedElev = false
       hasOpenedCountry = false
       hasOpenedCity = false
+      finished = false
       endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
       callAPI()
   }
