@@ -560,6 +560,9 @@ function callAPI() {
   }
 }
 
+
+// Does super top secret dev stuff (answer key).
+
 function superTopSecretFunction() { //Shhhhhh...
   if (typeof(document.getElementById("secret_code")) == 'undefined' || document.getElementById("secret_code") == null) {
     let error = document.createElement("div")
@@ -592,6 +595,9 @@ function fade(element,timer){ //Every milisecond it removes 0.02 opacity from th
     element.remove()
   }
 }
+
+
+// Creates the answer screen.
 
 function endScreen() {
   let popUp = document.createElement("div"); //The actual box containing the info
@@ -822,6 +828,9 @@ function endScreen() {
   isEndScreenOpen = true;
 }
 
+
+// Exits/hides the answer screen.
+
 function exitEndScreen() { //Used to completly remove the elements from the screen, could eventually replace with just a simple visible CSS styling.
   let popUpContainer = document.getElementById("pop_up_id");
   let overlay = document.getElementById("overlay_id");
@@ -831,6 +840,9 @@ function exitEndScreen() { //Used to completly remove the elements from the scre
   overlay.remove();
   isEndScreenOpen = false;},500)
 }
+
+
+// Creates the bar graph on the answer screen.
 
 function barGraphCreate(){
   let array = window.localStorage.getItem("Lengths")
@@ -863,6 +875,9 @@ function barGraphCreate(){
   }
   window.localStorage.setItem("updateGraph", "false")
 }
+
+
+// Creates the hint menu and all subsequent "drop-outs."
 
 function openHintMenu() {
   let hintDropdown = document.createElement("div"); // Creates the dropdown menu
@@ -1016,12 +1031,18 @@ function openHintMenu() {
   },001)
 }
 
+
+// Closes/hides the hint menu.
+
 function closeHintMenu() {
   let hintDropdown = document.getElementById("hint_dropdown_id"); //Gets the dropdown
   hintDropdown.remove();
   /*document.getElementById("hint_dropdown_id").style.visibility = "hidden";*/
   hintOpen = false;
 }
+
+
+// Toggles high contrast mode across whole site.
 
 function toggleColorblind() {
   let body = document.body;
@@ -1045,6 +1066,9 @@ function toggleColorblind() {
   }
 }
 
+
+// Toggles dark mode across whole site.
+
 function toggleDarkmode() {
   let body = document.body;
   let keyboard = document.getElementById("keyboard_container")
@@ -1067,6 +1091,9 @@ function toggleDarkmode() {
   }
 }
 
+
+// Sets view mode (dark mode / high contrast mode) based on local storage.
+
 function setViewMode() {
   let body = document.body;
   if (window.localStorage.getItem("altColor") == "true") {
@@ -1076,6 +1103,9 @@ function setViewMode() {
     body.classList.toggle("darkmode");
   }
 }
+
+
+// Creates settings menu content.
 
 function createSettingsMenu() {
   let body = document.body;
@@ -1298,6 +1328,9 @@ function createSettingsMenu() {
   version.textContent = "v1.0";
   settingsFooter.append(version);
 }
+
+
+// Creates tutorial content.
 
 function createTutorialPage() {
   let body = document.body;
