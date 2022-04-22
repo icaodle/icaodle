@@ -6,7 +6,7 @@ window.onload = function() {
   checkStorage()
   addClicks()
   tutorialPopup()
-  //callAPI()
+  callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size.
@@ -24,6 +24,7 @@ let hintOpen = false;
 let correctCount = 0;
 let apiIsCalled = false;
 let guessedCodes = [];
+let usedCodes = [];
 let hasOpenedElev = false
 let hasOpenedCountry = false
 let hasOpenedCity = false
@@ -32,10 +33,10 @@ let countryCursor = false;
 let cityCursor = false;
 
 let airportName = "Placeholder Airport";
-let airportCity = "Place";
+let airportCity = "-----";
 let airportState = "";
-let airportCountry = "Holder";
-let airportElevation = "420";
+let airportCountry = "-----";
+let airportElevation = "-----";
 let airportLink = "";
 let airportHomeLink = "";
 let animatingBox = false;
@@ -161,7 +162,7 @@ function resize(){ //Changes all the sizes/positions to be acurate with the new 
     }
     for (let r = 0; r<row.children.length;r++){
       row.children[r].style.height = "84.4%"
-      if (row.children[r].clientHeight <20){
+      if (row.children[r].clientHeight <20) {
         row.children[r].style.height = "20px"
       }
       row.children[r].style.width = row.children[r].clientHeight + "px"
@@ -314,6 +315,7 @@ function renderLetter(key) {
       if (box.textContent == ""){
         box.textContent = key;
         box.style.backgroundColor = "var(--white)";
+        box.style.transition = ""
         box.style.borderColor = "var(--filledborder)";
         box.style.color = "var(--black)";
         let new_id = parseInt(target.substring(13))
@@ -560,26 +562,21 @@ function checkStorage(){
   }
 }
 
-
-//As the name implies
-
 function callAPI() {
-  if (apiIsCalled === false) {
-    var request = new XMLHttpRequest();
-    request.open('GET', endpoint);
-    request.send();
-    request.onload = ()=>{
-      let data = JSON.parse(request.response); //VAKP missing Municipality
-      airportName = data.name;
-      airportCity = data.municipality;
-      airportState = data.region.name;
-      airportCountry = data.country.name;
-      airportElevation = data.elevation_ft;
-      airportLink = data.wikipedia_link;
-      airportHomeLink = data.home_link;
-    }
-    apiIsCalled = true;
+  var request = new XMLHttpRequest();
+  request.open('GET', endpoint);
+  request.send();
+  request.onload = ()=>{
+    let data = JSON.parse(request.response); //VAKP missing Municipality
+    airportName = data.name;
+    airportCity = data.municipality;
+    airportState = data.region.name;
+    airportCountry = data.country.name;
+    airportElevation = data.elevation_ft;
+    airportLink = data.wikipedia_link;
+    airportHomeLink = data.home_link;
   }
+  apiIsCalled = true;
 }
 
 
@@ -938,6 +935,13 @@ function openHintMenu() {
   
     elevationIcon.onclick = function() {
       if (elevationDropdown.style.visibility == "hidden") {
+        /*
+        if (apiIsCalled == false) {
+          callAPI();
+          apiIsCalled = true;
+        }
+        */
+
         hasOpenedElev = true
         let hints = JSON.parse(window.localStorage.getItem("Hints_Used"))
         hints += 1
@@ -1512,5 +1516,61 @@ function addClicks(){
   
   document.getElementById("settings_icon").onclick = function(){
     toggleElement(document.getElementById("settings_container"));
+  }
+
+  document.getElementById("new_airport_icon").onclick = function(){
+    if (!animatingBox && !animatingMenu){
+      let box_cont = document.getElementById("letter_box_container")
+      animatingBox = true
+      for (let i = 0; i<box_cont.children.length;i++){
+        let row = box_cont.children[i]
+        for (let h = 0; h<row.children.length; h++){
+          let box = row.children[h]
+          box.style.transform = "rotate3d(1,0,0,0deg)"
+          window.setTimeout(function(){
+            box.textContent = "";
+            if (h == 3){
+              animatingBox = false
+            }
+          },900+(h*200))
+          box.style.backgroundColor = "var(--white)";
+          box.style.borderColor = "var(--defaultborder)";
+        }
+      }
+      target_row = 0
+      target = "letter_box_0_0"
+      let box = document.getElementById(target)
+      let del_row = document.getElementById("clear_row_button")
+      let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
+      del_row.style.top = top + "px"
+
+      let keyboard = document.getElementById("keyboard_container")
+      for (let i = 0; i<keyboard.children.length;i++){
+        let row = keyboard.children[i]
+        for (let h = 0; h<row.children.length;h++){
+          let key = row.children[h]
+          key.style.transition = ""
+          key.style.backgroundColor = "var(--lightgrey)"
+          key.style.borderColor = "var(--lightgrey)"
+          key.style.color = "black"
+        }
+      }
+      guessedCodes = []
+      usedCodes.push(airportCode)
+      airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+      while (usedCodes.includes(airportCode)){
+        airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+      }
+      answer = airportCode.split("");
+      if (hintOpen){
+        closeHintMenu()
+      }
+      hasOpenedElev = false
+      hasOpenedCountry = false
+      hasOpenedCity = false
+      finished = false
+      endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
+      callAPI()
+  }
   }
 }

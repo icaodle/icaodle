@@ -67,6 +67,7 @@ html {
 
 .middle_menu {
   width: 100%;
+  margin-left: 35px;
 }
 
 .right_menu {
@@ -88,6 +89,12 @@ html {
   padding-left: 5px;
   padding-right: 5px;
   z-index: 1;
+}
+
+#new_airport_icon {
+  line-height: 30px;
+  padding-left: 5px;
+  padding-right: 10px;
 }
 
 #location_icon {
