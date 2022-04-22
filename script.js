@@ -33,10 +33,10 @@ let countryCursor = false;
 let cityCursor = false;
 
 let airportName = "Placeholder Airport";
-let airportCity = "Place";
+let airportCity = "-----";
 let airportState = "";
-let airportCountry = "Holder";
-let airportElevation = "420";
+let airportCountry = "-----";
+let airportElevation = "-----";
 let airportLink = "";
 let airportHomeLink = "";
 let animatingBox = false;
