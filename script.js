@@ -6,7 +6,7 @@ window.onload = function() {
   checkStorage()
   addClicks()
   tutorialPopup()
-  callAPI()
+  //callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
@@ -24,6 +24,7 @@ let hintOpen = false;
 let correctCount = 0;
 let apiIsCalled = false;
 let guessedCodes = [];
+let usedCodes = [];
 let hasOpenedElev = false
 let hasOpenedCountry = false
 let hasOpenedCity = false
@@ -301,6 +302,7 @@ function renderLetter(key) {
       if (box.textContent == ""){ //Used mainly for checking if the last box is already filled once it reaches the end of the row
         box.textContent = key; //Changes some styling and add the letter into the box
         box.style.backgroundColor = "var(--white)";
+        box.style.transition = ""
         box.style.borderColor = "var(--filledborder)";
         box.style.color = "var(--black)";
         let new_id = parseInt(target.substring(13)) //Just gets the current box number and adds one to it
@@ -1433,47 +1435,6 @@ function createTutorialPage() {
 }
 
 function tutorialPopup() {
-  let overlay = document.createElement("div");
-  let popup = document.createElement("div");
-
-  overlay.className = "overlay";
-  overlay.id = "tutorial_overlay_id";
-  overlay.style.visibility = "hidden";
-
-  popup.className = "pop_up";
-  popup.id = "tutorial_pop_up_id";
-  popup.style.visibility = "hidden";
-
-  document.body.append(overlay);
-  document.body.append(popup);
-
-  popup.style.left = ((document.body.clientWidth / 2) - (popup.clientWidth / 2)) + "px";
-  popup.style.top = window.outerHeight + "px";
-
-  let exitDiv = document.createElement("div"); 
-  exitDiv.className = "exit_div";
-  popup.append(exitDiv);
-
-  let exitFiller = document.createElement("div");
-  exitFiller.className = "exit_filler";
-  popup.firstChild.append(exitFiller);
-
-  let exitButton = document.createElement("i");
-  exitButton.className = "fa-solid fa-xmark fa-xl";
-  exitButton.id = "tutorial_popup_exit_button";
-  popup.firstChild.append(exitButton);
-
-  let exitTutorialPopupButton = document.getElementById("tutorial_popup_exit_button");
-  exitTutorialPopupButton.onclick = exitTutorialPopup;
-
-  let spacer0 = document.createElement("div");
-  spacer0.className = "spacer";
-  popup.append(spacer0);
-
-  let popupTitle = document.createElement("div");
-  popupTitle.className = "pop_up_title";
-  popupTitle.textContent = "HOW TO PLAY";
-  popup.append(popupTitle);
 }
 
 function toggleElement(element,top = 0){
@@ -1523,5 +1484,57 @@ function addClicks(){
   
   document.getElementById("settings_icon").onclick = function(){
     toggleElement(document.getElementById("settings_container"));
+  }
+
+  document.getElementById("new_airport_icon").onclick = function(){
+    let box_cont = document.getElementById("letter_box_container")
+    animating = true
+    for (let i = 0; i<box_cont.children.length;i++){
+      let row = box_cont.children[i]
+      for (let h = 0; h<row.children.length; h++){
+        let box = row.children[h]
+        box.style.transform = "rotate3d(1,0,0,0deg)"
+        window.setTimeout(function(){
+          box.textContent = "";
+          if (h == 3){
+            animating = false
+          }
+        },900+(h*200))
+        box.style.backgroundColor = "var(--white)";
+        box.style.borderColor = "var(--defaultborder)";
+      }
+    }
+    target_row = 0
+    target = "letter_box_0_0"
+    let box = document.getElementById(target)
+    let del_row = document.getElementById("clear_row_button")
+    let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
+    del_row.style.top = top + "px"
+
+    let keyboard = document.getElementById("keyboard_container")
+    for (let i = 0; i<keyboard.children.length;i++){
+      let row = keyboard.children[i]
+      for (let h = 0; h<row.children.length;h++){
+        let key = row.children[h]
+        key.style.transition = ""
+        key.style.backgroundColor = "var(--lightgrey)"
+        key.style.borderColor = "var(--lightgrey)"
+        key.style.color = "black"
+      }
+    }
+    guessedCodes = []
+    usedCodes.push(airportCode)
+    airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+    while (usedCodes.includes(airportCode)){
+      airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+    }
+    if (hintOpen){
+      closeHintMenu()
+    }
+    hasOpenedElev = false
+    hasOpenedCountry = false
+    hasOpenedCity = false
+
+    //callAPI()
   }
 }
