@@ -6,7 +6,7 @@ window.onload = function() {
   checkStorage()
   addClicks()
   tutorialPopup()
-  //callAPI()
+  callAPI()
 }
 
 window.onresize = function() { //Otherwise, elements will be in the wrong position when you change window size
@@ -1559,6 +1559,7 @@ function addClicks(){
       airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
       while (usedCodes.includes(airportCode)){
         airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+        answer = airportCode.split("");
       }
       if (hintOpen){
         closeHintMenu()
