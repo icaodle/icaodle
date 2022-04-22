@@ -192,7 +192,7 @@ function resize(){ //Changes all the sizes/positions to be acurate with the new 
 }
 
 
- //Creates each row, and the boxes in it
+//Creates each row, and the boxes in it
 
 function createRow() {
   let container = document.getElementById("letter_box_container");
@@ -210,7 +210,7 @@ function createRow() {
 }
 
 
-  //Adds the button following the rows to allow deletion of the content of all the boxes there
+//Adds the button following the rows to allow deletion of the content of all the boxes there
 
 function createRowDeletion(){
   let box = document.getElementById(target)
@@ -304,7 +304,7 @@ function keyDown(event) {
 }
 
 
- //Big function, anything typing and box related pretty much
+//Big function, anything typing and box related pretty much
 
 function renderLetter(key) {
   if (!finished && !isEndScreenOpen && !animatingBox) {
@@ -445,6 +445,7 @@ function renderLetter(key) {
 
 
 //When you move to the next row, the delete row button needs to move as well
+
 function moveDel(){
   let del_btn = document.getElementById("clear_row_button")
   let top = parseInt(del_btn.style.top)
