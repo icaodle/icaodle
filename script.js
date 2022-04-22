@@ -29,6 +29,9 @@ let hasOpenedElev = false
 let hasOpenedCountry = false
 let hasOpenedCity = false
 
+let countryCursor = false;
+let cityCursor = false;
+
 let airportName = "Placeholder Airport";
 let airportCity = "Place";
 let airportState = "";
@@ -618,6 +621,7 @@ function endScreen() {
 
   let exitEndScreenButton = document.getElementById("exit_button");
   exitEndScreenButton.onclick = exitEndScreen;
+  overlay.onclick = exitEndScreen;
 
   let spacer0 = document.createElement("div");
   spacer0.className = "spacer";
@@ -917,6 +921,7 @@ function openHintMenu() {
         window.localStorage.setItem("Hints_Used",hints.toString())
         document.getElementById("country_icon").style.color = "var(--black)"
         document.getElementById("country_icon").style.cursor = "pointer";
+        countryCursor = true;
         elevationDropdown.style.visibility = "visible";
         elevationHider.style.visibility = "visible"
       }
@@ -927,6 +932,9 @@ function openHintMenu() {
     countryIcon.classList.add("dropdownButton")
     countryIcon.id = "country_icon";
     countryIcon.style.top = "60%"
+    if (countryCursor == true) {
+      countryIcon.style.cursor = "pointer";
+    }
     if (hasOpenedElev){
       countryIcon.style.color = "var(--black)"
     }else {
@@ -963,6 +971,7 @@ function openHintMenu() {
         window.localStorage.setItem("Hints_Used",hints.toString())
         document.getElementById("city_icon").style.color = "var(--black)"
         document.getElementById("city_icon").style.cursor = "pointer";
+        cityCursor = true;
         countryDropdown.style.visibility = "visible";
         countryHider.style.visibility = "visible"
       }
@@ -973,6 +982,9 @@ function openHintMenu() {
     cityIcon.id = "city_icon";
     cityIcon.classList.add("dropdownButton")
     cityIcon.style.top = "85%"
+    if (cityCursor == true) {
+      cityIcon.style.cursor = "pointer";
+    }
     hintDropdown.appendChild(cityIcon);
     width = (cityIcon.parentElement.clientWidth-cityIcon.clientWidth)/cityIcon.parentElement.clientWidth * 50
     cityIcon.style.left = width +"%"
@@ -1356,6 +1368,10 @@ function createTutorialPage() {
   par2.textContent = "Each guess must be a valid four-letter ICAO code. Hit the enter button to submit.";
   tutorialSub.append(par2);
 
+  let par2point5 = document.createElement("p");
+  par2point5.textContent = "If you wish to change your guess before submitting, click the delete icon next to the active row to clear the row's content or simply delete each space one-by-one as normal."
+  tutorialSub.append(par2point5);
+
   let par3 = document.createElement("p");
   par3.textContent = "After each guess, the color of the tiles will change to show how close your guess was to the word.";
   tutorialSub.append(par3);
@@ -1429,12 +1445,27 @@ function createTutorialPage() {
   tutorialSpacer2.className = "tutorial_spacer_2";
   tutorialSub.append(tutorialSpacer2);
 
+  let par3point5 = document.createElement("p");
+  par3point5.textContent = "If you need, click the lightbulb in the menu bar for hints!";
+  tutorialSub.append(par3point5);
+
   let par4 = document.createElement("p");
-  par4.textContent = "A new icaodle will be available each day!";
+  par4.textContent = "Load a new ICAO code by either clicking on the plus icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
 }
 
 function tutorialPopup() {
+  if (window.localStorage.getItem("Games") == "0"){
+    toggleElement(document.getElementById("tutorial_container"))
+    window.setTimeout(function(){
+    document.getElementById("tutorial_box_1_0").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_1_0").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_2_1").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_2_1").style.transform = "rotate3d(1,0,0,360deg)"
+    document.getElementById("tutorial_box_3_3").style.transition = "transform 1s ease-in-out"
+    document.getElementById("tutorial_box_3_3").style.transform = "rotate3d(1,0,0,360deg)"
+  },350)
+  }
 }
 
 function toggleElement(element,top = 0){
