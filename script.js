@@ -18,6 +18,7 @@ let target = "letter_box_0_0"
 let target_row = 0
 let finished = false
 let correct = false
+let errorFade = null
 let isEndScreenOpen = false;
 let hintOpen = false;
 let correctCount = 0;
@@ -433,13 +434,10 @@ function renderLetter(key) {
               error.textContent = "Invalid/Missing ICAO Code"
             }
             error.style.top = (document.getElementById("main_container").offsetTop *1.25) + "px";
+            error.style.opacity = 1;
             document.body.append(error)
             error.style.left = (((document.body.clientWidth + 15) / 2) - (error.clientWidth / 2)) + "px"; 
-            error.style.transition = "opacity 1s 1s"
-            error.style.opacity = 0
-            window.setTimeout(function(){
-              error.remove()
-            },2000)
+            window.setTimeout(fadeError,800)
           }
         }
       }
@@ -593,11 +591,29 @@ function superTopSecretFunction() {
     error.style.opacity = 1;
     document.body.append(error)
     error.style.left = (((document.body.clientWidth + 15) / 2) - Math.round(63 / 2)) + "px";
-    error.style.transition = "opacity 1s 1s"
-    error.style.opacity = 0
-    window.setTimeout(function(){
-      error.remove()
-    },2000)
+    window.setTimeout(fadeSecret,1000)
+  }
+}
+
+function fadeSecret(){
+    errorFade = window.setInterval(function(){
+      fade(document.getElementById("secret_code"),errorFade);
+    },1)
+}
+
+//Middleman between the fade function and the error messages
+function fadeError(){
+    errorFade = window.setInterval(function(){
+      fade(document.getElementById("not_a_code_msg"),errorFade);
+    },1)
+}
+
+//JS equiv of something that should be transfered to a css transition
+function fade(element,timer){
+  element.style.opacity -= 0.02
+  if (element.style.opacity <= 0){
+    clearInterval(timer)
+    element.remove()
   }
 }
 
