@@ -613,7 +613,14 @@ function endScreen() {
   overlay.className = "overlay";
   overlay.id = "overlay_id";
   document.body.append(overlay)
+  overlay.style.opacity = 0.5
   document.body.append(popUp)
+    document.getElementById("main_container").style.transition = "filter 0.5"
+    document.getElementById("main_container").style.filter = "blur(1px)"
+    document.getElementById("menu").style.transition = "filter 0.5"
+    document.getElementById("menu").style.filter = "blur(1px)"
+    document.getElementById("clear_row_button").style.transition = "filter 0.5, top 0.1 linear"
+    document.getElementById("clear_row_button").style.filter = "blur(1px)"
   popUp.style.left = ((document.body.clientWidth / 2) - (popUp.clientWidth / 2)) + "px";
   popUp.style.top = window.outerHeight + "px";
 
@@ -839,6 +846,11 @@ function exitEndScreen() {
   let popUpContainer = document.getElementById("pop_up_id");
   let overlay = document.getElementById("overlay_id");
   popUpContainer.style.visibility = "visible"
+  document.getElementById("main_container").style.filter = ""
+  document.getElementById("menu").style.filter = ""
+  document.getElementById("clear_row_button").style.filter = ""
+  overlay.style.transition = "opacity 0.5s"
+  overlay.style.opacity = 0
   toggleElement(popUpContainer)
   window.setTimeout(function(){popUpContainer.remove();
   overlay.remove();

@@ -289,11 +289,12 @@ html {
   top: 0px;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0;
   background-color: var(--white);
   align-items: center;
   text-align: center;
   z-index: 1;
+  transition: opacity 0.5s;
 }
 
 .pop_up_title {
