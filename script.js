@@ -622,12 +622,72 @@ function endScreen() {
   popUp.append(spacer0);
 
   if (finished == true) { //Won't actually display airport info unless it is know what the airport is
-    /*
+    
     if (apiIsCalled == false) {
-      callAPI();
+      function callAPI2() {
+        return new Promise(function (resolve, reject) {
+          axios.get(endpoint).then(
+            (data) => {
+              airportName = data.name;
+              airportCity = data.municipality;
+              airportState = data.region.name;
+              airportCountry = data.country.name;
+              airportElevation = data.elevation_ft;
+              airportLink = data.wikipedia_link;
+              airportHomeLink = data.home_link;
+              console.log("Processing Request");
+              resolve(result);
+            },
+              (error) => {
+              reject(error);
+            }
+          );
+        });
+      }
+
+      async function main() {
+        var result = await makeGetRequest("http://127.0.0.1:5500/index.html");
+        console.log(airportName);
+        console.log(airportCity);
+        console.log(airportCountry);
+      }
+      main();
+
+      /*
+      
+      var request = new XMLHttpRequest();
+      request.open('GET', endpoint);
+      request.send();
+      request.onload = ()=>{
+        let data = JSON.parse(request.response); //VAKP missing Municipality
+        airportName = data.name;
+        airportCity = data.municipality;
+        airportState = data.region.name;
+        airportCountry = data.country.name;
+        airportElevation = data.elevation_ft;
+        airportLink = data.wikipedia_link;
+        airportHomeLink = data.home_link;
+      }
       apiIsCalled = true;
+
+      let p = new Promise((resolve, reject) => {
+        callAPI();
+        if (airportName == "Placeholder Airport") {
+          reject("Failed");
+        } else {
+          resolve("Success");
+        }
+      })
+
+      p.then((message) => {
+        console.log("This is in the then " + message);
+        apiIsCalled = true;
+      }).catch((message) => {
+        console.log("This is in the catch " + message);
+      })
+
+      */
     }
-    */
 
     let airportTitle = document.createElement("a"); //Divs for info
     airportTitle.className = "pop_up_grand_title";
