@@ -1,6 +1,6 @@
 # icaodle
 
-As a part of the 2022 AP Computer Science Principles test, we are developing icaodle primarily with JavaScript. The site is a play off of the popular [Wordle](https://www.nytimes.com/games/wordle/index.html). The goal of the game is to guess an ICAO airport code in six tries with clues along the way. We have added additional features such as hints and a clear row button, and we expect to add a lot more interesting components in the near future.
+As a part of the 2022 AP Computer Science Principles Exam, we are developing icaodle primarily with JavaScript. The site is a play off of the popular [Wordle](https://www.nytimes.com/games/wordle/index.html). The goal of the game is to guess an ICAO airport code in six tries with clues along the way. We have added additional features such as hints and a clear row button, and we expect to add a lot more interesting components in the near future.
 
 ## Contributing
 
