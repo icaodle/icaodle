@@ -157,13 +157,18 @@ function resize(){
     if (row.clientHeight < 23.6966824){
       row.style.height = "23.6966824px"
       document.getElementById("keyboard_container").style.visibility = "hidden"
-    } else {
+    } else if (row.clientHeight > 88.8625592415){
+      row.style.height = "88.8625592415px"
+      document.getElementById("keyboard_container").style.visibility = "visible"
+    }else{
       document.getElementById("keyboard_container").style.visibility = "visible"
     }
     for (let r = 0; r<row.children.length;r++){
       row.children[r].style.height = "84.4%"
       if (row.children[r].clientHeight <20){
         row.children[r].style.height = "20px"
+      } else if (row.children[r].clientHeight >75){
+        row.children[r].style.height = "75px"
       }
       row.children[r].style.width = row.children[r].clientHeight + "px"
       row.children[r].style.margin = (row.children[r].clientWidth*0.083) + "px"
@@ -188,7 +193,12 @@ function resize(){
   let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
   del.style.top = top + "px"
   del.style.left = left + "px"
-  del.style.transform = "scale("+box.clientHeight/50+")"
+  let scale = box.clientHeight/50
+  if (scale <= 1.5){
+    del.style.transform = "scale("+scale+")"
+  }else {
+    del.style.transform = "scale(1.5)"
+  }
 }
 
 function createRow() {
