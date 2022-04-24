@@ -1200,12 +1200,12 @@ function createSettingsMenu() {
 
   let settingsRow1LeftRow1 = document.createElement("div");
   settingsRow1LeftRow1.className = "settings_row_left_one";
-  settingsRow1LeftRow1.textContent = "Hard Mode";
+  settingsRow1LeftRow1.textContent = "International Mode";
   settingsRow1Left.append(settingsRow1LeftRow1);
 
   let settingsRow1LeftRow2 = document.createElement("div");
   settingsRow1LeftRow2.className = "settings_row_left_two";
-  settingsRow1LeftRow2.textContent = "Use ALL Airports, not just international ones.";
+  settingsRow1LeftRow2.textContent = "Limit airports to international airports.";
   settingsRow1Left.append(settingsRow1LeftRow2);
 
   let line1 = document.createElement("div");
