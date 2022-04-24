@@ -132,13 +132,13 @@ function resize(){
     for (let x = 0; x<row.children.length; x++){
       let key = row.children[x]
       key.style.height = "84.4%"
-      if (key.id != "ENTER" && key.id != "DELETE"){
+      /*if (key.id != "ENTER" && key.id != "DELETE"){
         key.style.width = (window.innerWidth/Math.pow(row.children.length,2)) + "px"
         if (key.clientWidth > key.clientHeight){
           key.style.width = key.clientHeight + "px"
         }
       }
-      key.style.margin = (key.clientWidth*0.083) + "px"
+      key.style.margin = (key.clientWidth*0.083) + "px"*/
       key.style.fontSize = (key.clientHeight/3.6) + "px"
       key.style.paddingLeft = ((key.clientHeight-parseInt(Math.sqrt(key.style.fontSize)))) + "px"
       key.style.paddingRight = key.style.paddingLeft
@@ -156,12 +156,15 @@ function resize(){
     row.style.height = (document.getElementById("keyboard_container").offsetTop/9) + "px"
     if (row.clientHeight < 23.6966824){
       row.style.height = "23.6966824px"
-      document.getElementById("keyboard_container").style.visibility = "hidden"
-    } else if (row.clientHeight > 88.8625592415){
-      row.style.height = "88.8625592415px"
-      document.getElementById("keyboard_container").style.visibility = "visible"
     }else{
-      document.getElementById("keyboard_container").style.visibility = "visible"
+      if (row.clientHeight > 88.8625592415){
+        row.style.height = "88.8625592415px"
+      }
+      if (keyboard.offsetTop<row_container.offsetTop+row_container.clientHeight){
+        keyboard.style.visibility = "hidden"
+      }else {
+        keyboard.style.visibility = "visible"
+      }
     }
     for (let r = 0; r<row.children.length;r++){
       row.children[r].style.height = "84.4%"
