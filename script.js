@@ -132,13 +132,6 @@ function resize(){
     for (let x = 0; x<row.children.length; x++){
       let key = row.children[x]
       key.style.height = "84.4%"
-      /*if (key.id != "ENTER" && key.id != "DELETE"){
-        key.style.width = (window.innerWidth/Math.pow(row.children.length,2)) + "px"
-        if (key.clientWidth > key.clientHeight){
-          key.style.width = key.clientHeight + "px"
-        }
-      }
-      key.style.margin = (key.clientWidth*0.083) + "px"*/
       key.style.fontSize = (key.clientHeight/3.6) + "px"
       key.style.paddingLeft = ((key.clientHeight-parseInt(Math.sqrt(key.style.fontSize)))) + "px"
       key.style.paddingRight = key.style.paddingLeft
@@ -196,7 +189,7 @@ function resize(){
   let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
   del.style.top = top + "px"
   del.style.left = left + "px"
-  let scale = box.clientHeight/50
+  let scale = box.clientHeight/65
   if (scale <= 1.5){
     del.style.transform = "scale("+scale+")"
   }else {
