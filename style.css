@@ -56,7 +56,7 @@ html {
   text-align: center;
   font-family: 'Merriweather', serif;
   line-height: 0px;
-  cursor: pointer;
+  /*cursor: pointer;*/
   align-items: center;
   color: var(--black);
 }
@@ -77,24 +77,28 @@ html {
 #menu_icon {
   padding-left: 5px;
   padding-right: 5px;
+  cursor: pointer;
 }
 
 #stats_icon {
   line-height: 30px;
   padding-left: 5px;
   padding-right: 5px;
+  cursor: pointer;
 }
 
 #hint_icon {
   padding-left: 5px;
   padding-right: 5px;
   z-index: 1;
+  cursor: pointer;
 }
 
 #new_airport_icon {
   line-height: 30px;
   padding-left: 5px;
   padding-right: 10px;
+  cursor: pointer;
 }
 
 #location_icon {
