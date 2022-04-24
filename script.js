@@ -1483,6 +1483,10 @@ function createTutorialPage() {
   let par4 = document.createElement("p");
   par4.textContent = "Load a new ICAO code by either clicking on the plus icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
+
+  let par5 = document.createElement("p");
+  par5.textContent = "Note: By default, only international codes will be used, but if you are up for the challenge, you can turn on the option to use all ICAO codes in settings.";
+  tutorialSub.append(par5);
 }
 
 
