@@ -456,7 +456,9 @@ function moveDel(){
   let box
   if (target_row != 6){
     box = document.getElementById(target)
-  }else box = document.getElementById("letter_box_5_0")
+  }else {
+    box = document.getElementById("letter_box_5_0")
+  }
   top += box.parentElement.parentElement.clientHeight/box.parentElement.parentElement.children.length
   del_btn.style.transition = "top 0.1s linear"
   del_btn.style.top = top + "px"
@@ -1553,6 +1555,7 @@ function addClicks(){
       hasOpenedCountry = false
       hasOpenedCity = false
       finished = false
+      correct = false
       endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
       callAPI()
   }
