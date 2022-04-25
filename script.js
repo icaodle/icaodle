@@ -588,7 +588,7 @@ function checkStorage(){
     window.localStorage.setItem("Hints_Used","0")
   }
   if (!window.localStorage.getItem("onlyInternationalCodes")){
-    window.localStorage.setItem("onlyInternationalCodes", "true");
+    window.localStorage.setItem("onlyInternationalCodes", "false");
   }
 }
 
