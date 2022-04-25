@@ -143,13 +143,6 @@ function resize(){ //Changes all the sizes/positions to be acurate with the new 
     for (let x = 0; x<row.children.length; x++){
       let key = row.children[x]
       key.style.height = "84.4%"
-      if (key.id != "ENTER" && key.id != "DELETE"){
-        key.style.width = (window.innerWidth/Math.pow(row.children.length,2)) + "px"
-        if (key.clientWidth > key.clientHeight){
-          key.style.width = key.clientHeight + "px"
-        }
-      }
-      key.style.margin = (key.clientWidth*0.083) + "px"
       key.style.fontSize = (key.clientHeight/3.6) + "px"
       key.style.paddingLeft = ((key.clientHeight-parseInt(Math.sqrt(key.style.fontSize)))) + "px"
       key.style.paddingRight = key.style.paddingLeft
@@ -168,14 +161,22 @@ function resize(){ //Changes all the sizes/positions to be acurate with the new 
     row.style.height = (document.getElementById("keyboard_container").offsetTop/9) + "px"
     if (row.clientHeight < 23.6966824){
       row.style.height = "23.6966824px"
-      document.getElementById("keyboard_container").style.visibility = "hidden"
-    } else {
-      document.getElementById("keyboard_container").style.visibility = "visible"
+    }else{
+      if (row.clientHeight > 88.8625592415){
+        row.style.height = "88.8625592415px"
+      }
+      if (keyboard.offsetTop<row_container.offsetTop+row_container.clientHeight){
+        keyboard.style.visibility = "hidden"
+      }else {
+        keyboard.style.visibility = "visible"
+      }
     }
     for (let r = 0; r<row.children.length;r++){
       row.children[r].style.height = "84.4%"
       if (row.children[r].clientHeight <20) {
         row.children[r].style.height = "20px"
+      } else if (row.children[r].clientHeight >75){
+        row.children[r].style.height = "75px"
       }
       row.children[r].style.width = row.children[r].clientHeight + "px"
       row.children[r].style.margin = (row.children[r].clientWidth*0.083) + "px"
@@ -201,7 +202,12 @@ function resize(){ //Changes all the sizes/positions to be acurate with the new 
   let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
   del.style.top = top + "px"
   del.style.left = left + "px"
-  del.style.transform = "scale("+box.clientHeight/50+")"
+  let scale = box.clientHeight/55
+  if (scale <= 1.5){
+    del.style.transform = "scale("+scale+")"
+  }else {
+    del.style.transform = "scale(1.5)"
+  }
 }
 
 

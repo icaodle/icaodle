@@ -648,6 +648,8 @@ a:active {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
+  overflow: auto;
+  margin-bottom: 40px;
   /*border: 1px dashed blue;*/
 }
 
