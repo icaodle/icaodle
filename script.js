@@ -16,6 +16,9 @@ window.onresize = function() { //Otherwise, elements will be in the wrong positi
 }
 
 //Global Variables
+
+let icaodleVersion = "v1.0.0"
+
 let target = "letter_box_0_0"
 let target_row = 0
 let finished = false
@@ -1358,7 +1361,7 @@ function createSettingsMenu() {
 
   let version = document.createElement("div");
   version.id = "version";
-  version.textContent = "v1.0.0";
+  version.textContent = icaodleVersion;
   settingsFooter.append(version);
 }
 
