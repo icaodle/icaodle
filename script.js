@@ -189,7 +189,7 @@ function resize(){
   let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
   del.style.top = top + "px"
   del.style.left = left + "px"
-  let scale = box.clientHeight/65
+  let scale = box.clientHeight/55
   if (scale <= 1.5){
     del.style.transform = "scale("+scale+")"
   }else {
