@@ -898,7 +898,7 @@ function barGraphCreate(){
     barContainer.append(barNumber)
     let bar = document.createElement("div")
     bar.className = "bar_graph_bar"
-    if (i+1 == target_row){
+    if (i+1 == target_row && correct){
       bar.style.backgroundColor = "var(--green)"
     }
     bar.id = "bar" + (i+1).toString()
@@ -1612,14 +1612,15 @@ function reset(instant = false){
       for (let h = 0; h<row.children.length; h++){
         let box = row.children[h]
         if (instant){
-          box.style.transition = ""
-          animatingBox = false          
+          box.style.transition = "";
+          animatingBox = false;
         }
         box.style.transform = "rotate3d(1,0,0,0deg)"
         if (!instant){
         window.setTimeout(function(){
           box.textContent = "";
           if (h == 3){
+            animatingBox = false
           }
         },900+(h*200))
         }else {
