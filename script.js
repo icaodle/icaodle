@@ -34,6 +34,7 @@ let hasOpenedCountry = false
 let hasOpenedCity = false
 let allCodes = false
 let intlCodes = false
+let menuOpen = false
 
 let countryCursor = false;
 let cityCursor = false;
@@ -329,7 +330,7 @@ function keyDown(event) {
 //Big function, anything typing and box related pretty much
 
 function renderLetter(key) {
-  if (!finished && !isEndScreenOpen && !animatingBox) {
+  if (!finished && !isEndScreenOpen && !animatingBox && !menuOpen) {
     let box = document.getElementById(target);
     let qwerty = ["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Z","X","C","V","B","N","M"];
     if (qwerty.includes(key) == true) {
@@ -1543,6 +1544,7 @@ function tutorialPopup() {
 function toggleElement(element,top = 0){
   if (element.style.visibility == "visible" && !animatingMenu){
     animatingMenu = true
+    menuOpen = false
     element.style.transition = "opacity 0.4s 0.1s, top 0.5s"
     element.style.top = window.outerHeight + "px"
     element.style.opacity = 0
@@ -1551,6 +1553,7 @@ function toggleElement(element,top = 0){
       animatingMenu = false
     },500);
   } else if (element.style.visibility == "hidden" && !animatingMenu) {
+    menuOpen = true
     animatingMenu = true
     element.style.top = window.outerHeight + "px"
     element.style.opacity = 0
