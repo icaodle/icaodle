@@ -1217,9 +1217,15 @@ function createSettingsMenu() {
     if (localStorage.getItem("onlyInternationalCodes") == "false") {
       window.localStorage.setItem("onlyInternationalCodes", "true");
       intlCodes = true
+      if (target_row == 0){
+        reset(true)
+      }
     } else {
       window.localStorage.setItem("onlyInternationalCodes", "false");
       allCodes = true
+      if (target_row == 0){
+        reset(true)
+      }
     }
   }
 
@@ -1587,64 +1593,75 @@ function addClicks(){
   }
 
   document.getElementById("new_airport_icon").onclick = function(){
-    if (!animatingBox && !animatingMenu){
-      let box_cont = document.getElementById("letter_box_container")
-      animatingBox = true
-      for (let i = 0; i<box_cont.children.length;i++){
-        let row = box_cont.children[i]
-        for (let h = 0; h<row.children.length; h++){
-          let box = row.children[h]
-          box.style.transform = "rotate3d(1,0,0,0deg)"
-          window.setTimeout(function(){
-            box.textContent = "";
-            if (h == 3){
-              animatingBox = false
-            }
-          },900+(h*200))
-          box.style.backgroundColor = "var(--white)";
-          box.style.borderColor = "var(--defaultborder)";
-        }
-      }
-      target_row = 0
-      target = "letter_box_0_0"
-      let box = document.getElementById(target)
-      let del_row = document.getElementById("clear_row_button")
-      let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
-      del_row.style.top = top + "px"
-
-      let keyboard = document.getElementById("keyboard_container")
-      for (let i = 0; i<keyboard.children.length;i++){
-        let row = keyboard.children[i]
-        for (let h = 0; h<row.children.length;h++){
-          let key = row.children[h]
-          key.style.transition = ""
-          key.style.backgroundColor = "var(--lightgrey)"
-          key.style.borderColor = "var(--lightgrey)"
-          key.style.color = "black"
-        }
-      }
-      guessedCodes = []
-      usedCodes.push(airportCode)
-      if (intlCodes){
-        airportArray = intlCodesArray
-      }else if (allCodes){
-        airportArray = allCodesArray
-      }
-      airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
-      while (usedCodes.includes(airportCode)){
-        airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
-      }
-      answer = airportCode.split("");
-      if (hintOpen){
-        closeHintMenu()
-      }
-      hasOpenedElev = false
-      hasOpenedCountry = false
-      hasOpenedCity = false
-      finished = false
-      correct = false
-      endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
-      callAPI()
+    reset()
   }
+}
+
+function reset(instant = false){
+  if (!animatingBox && !animatingMenu){
+    let box_cont = document.getElementById("letter_box_container")
+    animatingBox = true
+    for (let i = 0; i<box_cont.children.length;i++){
+      let row = box_cont.children[i]
+      for (let h = 0; h<row.children.length; h++){
+        let box = row.children[h]
+        if (instant){
+          box.style.transition = ""
+          animatingBox = false          
+        }
+        box.style.transform = "rotate3d(1,0,0,0deg)"
+        if (!instant){
+        window.setTimeout(function(){
+          box.textContent = "";
+          if (h == 3){
+          }
+        },900+(h*200))
+        }else {
+          box.textContent = "";
+        }
+        box.style.backgroundColor = "var(--white)";
+        box.style.borderColor = "var(--defaultborder)";
+      }
+    }
+    target_row = 0
+    target = "letter_box_0_0"
+    let box = document.getElementById(target)
+    let del_row = document.getElementById("clear_row_button")
+    let top = (box.parentElement.getBoundingClientRect().top + (box.parentElement.clientHeight/2))
+    del_row.style.top = top + "px"
+
+    let keyboard = document.getElementById("keyboard_container")
+    for (let i = 0; i<keyboard.children.length;i++){
+      let row = keyboard.children[i]
+      for (let h = 0; h<row.children.length;h++){
+        let key = row.children[h]
+        key.style.transition = ""
+        key.style.backgroundColor = "var(--lightgrey)"
+        key.style.borderColor = "var(--lightgrey)"
+        key.style.color = "black"
+      }
+    }
+    guessedCodes = []
+    usedCodes.push(airportCode)
+    if (intlCodes){
+      airportArray = intlCodesArray
+    }else if (allCodes){
+      airportArray = allCodesArray
+    }
+    airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+    while (usedCodes.includes(airportCode)){
+      airportCode = airportArray[Math.floor(Math.random() * airportArray.length)]
+    }
+    answer = airportCode.split("");
+    if (hintOpen){
+      closeHintMenu()
+    }
+    hasOpenedElev = false
+    hasOpenedCountry = false
+    hasOpenedCity = false
+    finished = false
+    correct = false
+    endpoint = "https://airportdb.io/api/v1/airport/" + airportCode + "?apiToken=" + token;
+    callAPI()
   }
 }
