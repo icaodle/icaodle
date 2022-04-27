@@ -1218,13 +1218,13 @@ function createSettingsMenu() {
       window.localStorage.setItem("onlyInternationalCodes", "true");
       intlCodes = true
       if (target_row == 0){
-        reset()
+        reset(true)
       }
     } else {
       window.localStorage.setItem("onlyInternationalCodes", "false");
       allCodes = true
       if (target_row == 0){
-        reset()
+        reset(true)
       }
     }
   }
@@ -1597,7 +1597,7 @@ function addClicks(){
   }
 }
 
-function reset(){
+function reset(instant = false){
   if (!animatingBox && !animatingMenu){
     let box_cont = document.getElementById("letter_box_container")
     animatingBox = true
@@ -1605,13 +1605,20 @@ function reset(){
       let row = box_cont.children[i]
       for (let h = 0; h<row.children.length; h++){
         let box = row.children[h]
+        if (instant){
+          box.style.transition = ""
+          animatingBox = false          
+        }
         box.style.transform = "rotate3d(1,0,0,0deg)"
+        if (!instant){
         window.setTimeout(function(){
           box.textContent = "";
           if (h == 3){
-            animatingBox = false
           }
         },900+(h*200))
+        }else {
+          box.textContent = "";
+        }
         box.style.backgroundColor = "var(--white)";
         box.style.borderColor = "var(--defaultborder)";
       }
