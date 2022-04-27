@@ -898,6 +898,9 @@ function barGraphCreate(){
     barContainer.append(barNumber)
     let bar = document.createElement("div")
     bar.className = "bar_graph_bar"
+    if (i+1 == target_row && correct){
+      bar.style.backgroundColor = "var(--green)"
+    }
     bar.id = "bar" + (i+1).toString()
     bar.textContent = counts[i];
     barContainer.append(bar)
@@ -1282,7 +1285,7 @@ function createSettingsMenu() {
   settingsRow2LeftRow2.className = "settings_row_left_two";
   settingsRow2LeftRow2.textContent = "For night owls.";
   settingsRow2Left.append(settingsRow2LeftRow2);
-
+  
   let line2 = document.createElement("div");
   line2.className = "settings_line";
   settingsSub.append(line2);
@@ -1609,14 +1612,15 @@ function reset(instant = false){
       for (let h = 0; h<row.children.length; h++){
         let box = row.children[h]
         if (instant){
-          box.style.transition = ""
-          animatingBox = false          
+          box.style.transition = "";
+          animatingBox = false;
         }
         box.style.transform = "rotate3d(1,0,0,0deg)"
         if (!instant){
         window.setTimeout(function(){
           box.textContent = "";
           if (h == 3){
+            animatingBox = false
           }
         },900+(h*200))
         }else {
