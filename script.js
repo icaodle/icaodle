@@ -385,31 +385,31 @@ function feedback(box) {
 			}
 			correctCount = 0;
 			for (let i = 0; i<box.parentElement.children.length;i++) {
-			box.parentElement.children[i].style.transition = "transform " + (i*durationModif+1) + "s ease-in-out, background-color 0.2s " + (i*durationModif+0.8) + "s, border-color 0.2s " + (i*durationModif+0.8) + "s, color 0.2s " + (i*durationModif+0.8) + "s"
-			box.parentElement.children[i].style.transform = "rotate3d(1,0,0,"+ (Math.round((i+3)*360))+"deg)"
-			if (!animatingBox){
-				animatingBox = true
-				window.setTimeout(function(){animatingBox = false},(3000*durationModif+1000))
-			}
-			let guess = box.parentElement.children[i].textContent;
-			let transition = "background-color 0.2s " + (3*durationModif+1.1) + "s, border-color 0.2s "+(3*durationModif+1.1)+"s, color 0.2s "+(3*durationModif+1.1)+"s"
-			if (guess == fluidAnswer[i]) {
-				turnGreen(box.parentElement.children[i], guess, transition);
-				fluidAnswer[i] = "";
-				correctCount += 1;
-			} else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
-				let location = fluidAnswer.indexOf(guess); 
-				if (box.parentElement.children[location].textContent != fluidAnswer[location]){
-					turnYellow(box.parentElement.children[i], guess, transition);
-					fluidAnswer[location] = "";
-				} else {
-					box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
-					box.parentElement.children[i].style.borderColor = "var(--darkgrey)";
-					box.parentElement.children[i].style.color = "white";
-				}
-			} else if (fluidAnswer.includes(guess) == false) {
-				turnGrey(box.parentElement.children[i], guess, transition);
-			}
+        box.parentElement.children[i].style.transition = "transform " + (i*durationModif+1) + "s ease-in-out, background-color 0.2s " + (i*durationModif+0.8) + "s, border-color 0.2s " + (i*durationModif+0.8) + "s, color 0.2s " + (i*durationModif+0.8) + "s"
+        box.parentElement.children[i].style.transform = "rotate3d(1,0,0,"+ (Math.round((i+3)*360))+"deg)"
+        if (!animatingBox){
+          animatingBox = true
+          window.setTimeout(function(){animatingBox = false},(3000*durationModif+1000))
+        }
+        let guess = box.parentElement.children[i].textContent;
+        let transition = "background-color 0.2s " + (3*durationModif+1.1) + "s, border-color 0.2s "+(3*durationModif+1.1)+"s, color 0.2s "+(3*durationModif+1.1)+"s"
+        if (guess == fluidAnswer[i]) {
+          turnGreen(box.parentElement.children[i], guess, transition);
+          fluidAnswer[i] = "";
+          correctCount += 1;
+        } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
+          let location = fluidAnswer.indexOf(guess); 
+          if (box.parentElement.children[location].textContent != fluidAnswer[location]){
+            turnYellow(box.parentElement.children[i], guess, transition);
+            fluidAnswer[location] = "";
+          } else {
+            box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
+            box.parentElement.children[i].style.borderColor = "var(--darkgrey)";
+            box.parentElement.children[i].style.color = "white";
+          }
+        } else if (fluidAnswer.includes(guess) == false) {
+          turnGrey(box.parentElement.children[i], guess, transition);
+        }
 			}
 			target_row += 1
 			if (target_row == box.parentElement.parentElement.children.length || correctCount == 4) { 
