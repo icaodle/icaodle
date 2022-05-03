@@ -12,7 +12,7 @@ Feel free to report bugs by opening an issue in [Issues](https://github.com/icao
 
 icaodle is developed and maintained by Frank Faulkner ([@FossaFun](https://github.com/FossaFun)) and Luca Caviness ([@lucaviness](https://github.com/lucaviness)).
 
-[AirportDB API](https://airportdb.io) • [OurAirports Database](https://ourairports.com/)
+[AirportDB API](https://airportdb.io) • [OurAirports Database](https://ourairports.com/) • [Font Awesome Icons](https://fontawesome.com/)
 
 ## License
 
