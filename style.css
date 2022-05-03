@@ -1,36 +1,36 @@
 :root {
   --black: black;
   --white: white;
-  --lightgrey: #D4D6DB;
-  --darkgrey: #787C7E;
-  --yellow: #C9B459;
-  --green: #6BAA64;
-  --boxborder: #D4D6DB;
+  --lightgrey: #d4d6db;
+  --darkgrey: #787c7e;
+  --yellow: #c9b459;
+  --green: #6baa64;
+  --boxborder: #d4d6db;
   --clearbutton: black;
   --popup: white;
-  --defaultborder: #D4D6DB;
-  --filledborder: #787C7E;
-  --guessdist: #787C7E;
-  --settingsSubtext: #787C7E;
+  --defaultborder: #d4d6db;
+  --filledborder: #787c7e;
+  --guessdist: #787c7e;
+  --settingsSubtext: #787c7e;
 }
 
 .darkmode {
   --black: white;
-  --white: #23272A; /*improve darkmode*/
+  --white: #23272a; /*improve darkmode*/
   --lightgrey: #818384;
-  --darkgrey: #3A3A3C;
-  --boxborder: #3A3A3C;
+  --darkgrey: #3a3a3c;
+  --boxborder: #3a3a3c;
   --clearbutton: #818384;
-  --popup: #23272A;
-  --defaultborder: #3A3A3C;
+  --popup: #23272a;
+  --defaultborder: #3a3a3c;
   --filledborder: #818384;
-  --guessdist: #3A3A3C;
+  --guessdist: #3a3a3c;
   --settingsSubtext: #818384;
 }
 
 .colorblind {
-  --yellow: #85C0F9;
-  --green: #F5793B;
+  --yellow: #85c0f9;
+  --green: #f5793b;
 }
 
 body {
@@ -49,12 +49,11 @@ html {
   user-select: none;
 }
 
-
 .menu {
   display: flex;
   flex-direction: row;
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   line-height: 0px;
   /*cursor: pointer;*/
   align-items: center;
@@ -109,7 +108,7 @@ html {
 .title {
   text-align: center;
   text-indent: 15px;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   line-height: 0px;
   cursor: default;
   color: var(--black);
@@ -138,7 +137,7 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height:50%;
+  height: 50%;
   margin-top: 15px;
 }
 
@@ -191,7 +190,7 @@ html {
   border-radius: 2px;
   margin: 5px;
   text-align: center;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 200%;
   line-height: 60px;
@@ -209,7 +208,7 @@ html {
   border-radius: 2px;
   margin: 5px;
   text-align: center;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 200%;
   line-height: 40px;
@@ -231,7 +230,7 @@ html {
   margin: 3px;
   text-align: center;
   align-items: center;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   cursor: pointer;
   font-size: 100%;
@@ -251,12 +250,12 @@ html {
   margin: 3px;
   align-items: center;
   text-align: center;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   cursor: pointer;
   font-size: 100%;
   line-height: 50px;
-  justify-content: center; 
+  justify-content: center;
 }
 
 #spacing_container {
@@ -303,13 +302,13 @@ html {
 }
 
 .pop_up_title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   color: var(--black);
 }
 
 .pop_up_grand_title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   cursor: pointer;
   color: var(--settingsSubtext);
@@ -340,7 +339,7 @@ a:active {
   margin: 10px;
   display: flex;
   flex-direction: row;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
 
@@ -370,7 +369,7 @@ a:active {
   width: 95%;
   height: 150px;
   padding: 10px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   align-items: left;
   text-align: center;
@@ -395,9 +394,9 @@ a:active {
   margin: 10px;
   display: flex;
   flex-direction: row;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .airport_subcontainer {
@@ -427,7 +426,7 @@ a:active {
 .airport_container_unfinished {
   width: 95%;
   height: 90px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   background-color: pink;
   opacity: 0.5;
   border: 2px solid purple;
@@ -505,7 +504,7 @@ a:active {
 }
 
 #not_a_code_msg {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   position: absolute;
   border-radius: 5px;
@@ -518,7 +517,7 @@ a:active {
 }
 
 #secret_code {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   position: absolute;
   border-radius: 5px;
@@ -530,7 +529,7 @@ a:active {
   padding: 10px;
 }
 
-.dropdownButton{
+.dropdownButton {
   position: absolute;
   cursor: pointer;
 }
@@ -570,7 +569,7 @@ a:active {
   text-align: right;
   /*align-items: center;*/
   font-size: 12px;
-} 
+}
 
 #settings_container {
   position: absolute;
@@ -716,7 +715,7 @@ a:active {
 }
 
 .settings_row_right_text {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   color: var(--settingsSubtext);
   font-size: 18px;
   position: absolute;
@@ -731,7 +730,7 @@ a:active {
 }
 
 .settings_row_left_one {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 20px;
   /*margin-top: 20px;*/
   font-weight: 400;
@@ -740,7 +739,7 @@ a:active {
 }
 
 .settings_row_left_two {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 13px;
   /*margin-top: 20px;*/
   font-weight: 300;
@@ -750,21 +749,21 @@ a:active {
 }
 
 .settings_title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 18px;
   width: 100%;
 }
 
 .tutorial_title {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   font-size: 18px;
   width: 100%;
 }
 
 .settings_option {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 20px;
   margin-top: 20px;
   font-weight: 400;
@@ -829,8 +828,8 @@ a:active {
   right: 0;
   bottom: 0;
   background-color: var(--darkgrey);
-  -webkit-transition: transform .4s, background .4s;
-  transition: transform .4s, background .4s;
+  -webkit-transition: transform 0.4s, background 0.4s;
+  transition: transform 0.4s, background 0.4s;
 }
 
 .slider:before {
@@ -841,8 +840,8 @@ a:active {
   left: 3px;
   bottom: 3px;
   background-color: white;
-  -webkit-transition: transform .4s , background .4s;
-  transition: transform .4s , background .4s;
+  -webkit-transition: transform 0.4s, background 0.4s;
+  transition: transform 0.4s, background 0.4s;
 }
 
 input:checked + .slider {
@@ -876,7 +875,7 @@ input:checked + .slider:before {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 13px;
   font-weight: 300;
   color: var(--settingsSubtext);
@@ -922,7 +921,7 @@ input:checked + .slider:before {
   line-height: 20px;
   padding-right: 5px;
   padding-left: 25px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 13px;
   white-space: nowrap;
 }
@@ -942,7 +941,7 @@ input:checked + .slider:before {
   line-height: 20px;
   padding-right: 5px;
   padding-left: 25px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 13px;
   white-space: nowrap;
 }
@@ -960,7 +959,7 @@ input:checked + .slider:before {
   line-height: 20px;
   padding-right: 5px;
   padding-left: 25px;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 13px;
   white-space: nowrap;
 }
@@ -1009,7 +1008,7 @@ input:checked + .slider:before {
 }
 
 p {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   margin-top: 5px;
   margin-bottom: 5px;
   left: 0px;
