@@ -50,7 +50,7 @@ let animatingBox = false;
 let animatingMenu = false;
 let durationModif = 0.25;
 
-let greenArray = [];
+let greenArray = ["", "", "", ""];
 let yellowArray = [];
 
 //For typing
@@ -464,14 +464,13 @@ function feedback(box) {
         if (guess == fluidAnswer[i]) {
           turnGreen(box.parentElement.children[i], guess, transition);
           fluidAnswer[i] = "";
-          greenArray.push(guess);
+          greenArray[i] = guess;
           correctCount += 1;
         } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
           let location = fluidAnswer.indexOf(guess); 
           if (box.parentElement.children[location].textContent != fluidAnswer[location]){
             turnYellow(box.parentElement.children[i], guess, transition);
             fluidAnswer[location] = "";
-            greenArray.push("");
             yellowArray.push(guess);
           } else {
             box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
@@ -480,7 +479,6 @@ function feedback(box) {
           }
         } else if (fluidAnswer.includes(guess) == false) {
           turnGrey(box.parentElement.children[i], guess, transition);
-          greenArray.push("");
         }
 			}
 			target_row += 1
