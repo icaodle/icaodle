@@ -18,7 +18,7 @@ window.onresize = function () {
 
 //Global Variables
 
-let icaodleVersion = "v1.0.0";
+let icaodleVersion = "v1.1.0";
 
 let target = "letter_box_0_0";
 let target_row = 0;
