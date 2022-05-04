@@ -110,7 +110,7 @@ function resize() {
   let line = document.getElementById("bottom_header_line");
 
   //Message for not a real code
-  let codeMsg = document.getElementById("not_a_code_msg");
+  let codeMsg = document.getElementById("error_msg");
   if (codeMsg != null || codeMsg != undefined) {
     codeMsg.style.left =
       document.body.clientWidth / 2 - error.clientWidth / 2 + "px";
@@ -488,9 +488,9 @@ function feedback(box) {
 }
 
 function throwError(guess) {
-	if (typeof(document.getElementById("not_a_code_msg")) == 'undefined' || document.getElementById("not_a_code_msg") == null) {
+	if (typeof(document.getElementById("error_msg")) == 'undefined' || document.getElementById("error_msg") == null) {
 		let error = document.createElement("div")
-		error.id = "not_a_code_msg"
+		error.id = "error_msg"
 		if (guessedCodes.includes(guess)){
 			error.textContent = "Code Already Guessed"
 		}else {
@@ -693,7 +693,7 @@ function superTopSecretFunction() {
     document.getElementById("secret_code") == null
   ) {
     let error = document.createElement("div");
-    error.id = "secret_code";
+    error.id = "error_msg";
     error.textContent = airportCode;
     error.style.top =
       document.getElementById("main_container").offsetTop * 1.25 + "px";
@@ -1253,11 +1253,11 @@ function createSettingsMenu() {
   settingsUnflex.append(settingsSub);
 
   let settingsRow = document.createElement("div");
-  settingsRow.className = "settings_row";
+  settingsRow.className = "menu_row";
   settingsSub.append(settingsRow);
 
   let titleDiv = document.createElement("div");
-  titleDiv.className = "settings_title";
+  titleDiv.className = "menu_title";
   titleDiv.textContent = "SETTINGS";
   titleDiv.align = "center";
   titleDiv.width = "100%";
@@ -1274,11 +1274,11 @@ function createSettingsMenu() {
   };
 
   let settingsSpacer = document.createElement("div");
-  settingsSpacer.className = "settings_spacer";
+  settingsSpacer.className = "menu_spacer";
   settingsSub.append(settingsSpacer);
 
   let settingsRow1 = document.createElement("div");
-  settingsRow1.className = "settings_row";
+  settingsRow1.className = "menu_row";
   settingsSub.append(settingsRow1);
 
   let settingsRow1Left = document.createElement("div");
@@ -1332,11 +1332,11 @@ function createSettingsMenu() {
   settingsRow1Left.append(settingsRow1LeftRow2);
 
   let line1 = document.createElement("div");
-  line1.className = "settings_line";
+  line1.className = "menu_line";
   settingsSub.append(line1);
 
   let settingsRow2 = document.createElement("div");
-  settingsRow2.className = "settings_row";
+  settingsRow2.className = "menu_row";
   settingsSub.append(settingsRow2);
 
   let settingsRow2Left = document.createElement("div");
@@ -1375,11 +1375,11 @@ function createSettingsMenu() {
   settingsRow2Left.append(settingsRow2LeftRow2);
 
   let line2 = document.createElement("div");
-  line2.className = "settings_line";
+  line2.className = "menu_line";
   settingsSub.append(line2);
 
   let settingsRow3 = document.createElement("div");
-  settingsRow3.className = "settings_row";
+  settingsRow3.className = "menu_row";
   settingsSub.append(settingsRow3);
 
   let settingsRow3Left = document.createElement("div");
@@ -1418,11 +1418,11 @@ function createSettingsMenu() {
   settingsRow3Left.append(settingsRow3LeftRow2);
 
   let line3 = document.createElement("div");
-  line3.className = "settings_line";
+  line3.className = "menu_line";
   settingsSub.append(line3);
 
   let settingsRow4 = document.createElement("div");
-  settingsRow4.className = "settings_row";
+  settingsRow4.className = "menu_row";
   settingsSub.append(settingsRow4);
 
   let settingsRow4Left = document.createElement("div");
@@ -1442,7 +1442,7 @@ function createSettingsMenu() {
   settingsRow4Left.append(settingsRow4LeftRow1);
 
   let line4 = document.createElement("div");
-  line4.className = "settings_line";
+  line4.className = "menu_line";
   line4.id = "last_line_aka_franks_special";
   settingsSub.append(line4);
 
@@ -1451,10 +1451,8 @@ function createSettingsMenu() {
   settingsSub.append(settingsFooter);
 
   let credits = document.createElement("div");
-  credits.className = "credits";
   credits.id = "credits";
   credits.textContent = "icaodle developed by Frank Faulkner and Luca Caviness";
-  credits.style.visibility = "visible";
   settingsFooter.append(credits);
 
   let version = document.createElement("div");
@@ -1483,11 +1481,11 @@ function createTutorialPage() {
   tutorialUnflex.append(tutorialSub);
 
   let tutorialRow = document.createElement("div");
-  tutorialRow.className = "tutorial_row";
+  tutorialRow.className = "menu_row";
   tutorialSub.append(tutorialRow);
 
   let titleDiv = document.createElement("div");
-  titleDiv.className = "tutorial_title";
+  titleDiv.className = "menu_title";
   titleDiv.textContent = "HOW TO PLAY";
   titleDiv.align = "center";
   titleDiv.width = "100%";
@@ -1500,20 +1498,20 @@ function createTutorialPage() {
   tutorialUnflex.append(exitButton);
 
   exitButton.onclick = function () {
-    document.getElementById("tutorial_box_1_0").style.transition = "";
-    document.getElementById("tutorial_box_1_0").style.transform =
+    document.getElementById("tutorial_box_0_0").style.transition = "";
+    document.getElementById("tutorial_box_0_0").style.transform =
       "rotate3d(1,0,0,0deg)";
-    document.getElementById("tutorial_box_2_1").style.transition = "";
-    document.getElementById("tutorial_box_2_1").style.transform =
+    document.getElementById("tutorial_box_1_1").style.transition = "";
+    document.getElementById("tutorial_box_1_1").style.transform =
       "rotate3d(1,0,0,0deg)";
-    document.getElementById("tutorial_box_3_3").style.transition = "";
-    document.getElementById("tutorial_box_3_3").style.transform =
+    document.getElementById("tutorial_box_2_3").style.transition = "";
+    document.getElementById("tutorial_box_2_3").style.transform =
       "rotate3d(1,0,0,0deg)";
     toggleElement(document.getElementById("tutorial_container"));
   };
 
   let tutorialSpacer = document.createElement("div");
-  tutorialSpacer.className = "tutorial_spacer";
+  tutorialSpacer.className = "menu_spacer";
   tutorialSub.append(tutorialSpacer);
 
   let par1 = document.createElement("p");
@@ -1536,7 +1534,7 @@ function createTutorialPage() {
   tutorialSub.append(par3);
 
   let line1 = document.createElement("div");
-  line1.className = "tutorial_line";
+  line1.className = "menu_line";
   tutorialSub.append(line1);
 
   let example = document.createElement("p");
@@ -1544,64 +1542,37 @@ function createTutorialPage() {
   example.textContent = "Examples";
   example.style.marginTop = "10px";
   tutorialSub.append(example);
-
-  let row1 = document.createElement("div");
-  row1.id = "row_1";
-  row1.className = "tutorial_box_row";
-  let rowCode1 = ["K", "S", "F", "O"];
-  for (r = 0; r < 4; r++) {
-    let elem = document.createElement("div");
-    elem.id = "tutorial_box_1_" + r;
-    elem.className = "tutorial_box";
-    elem.textContent = rowCode1[r];
-    row1.append(elem);
+  let rowCodes = [["K", "S", "F", "O"],["L", "T", "B", "S"],["V", "Q", "P", "R"]]
+  let currentBox = [0,1,3]
+  let explanations = ["The letter K is in the code and in the correct spot.","The letter T is in the code but in the wrong spot.","The letter R is not in the code in any spot."]
+  for (let i = 0; i<3; i++){
+    let row = document.createElement("div");
+    row.id = "row_" + i;
+    row.className = "tutorial_box_row";
+    let rowCode = rowCodes[i];
+    for (r = 0; r < 4; r++) {
+      let elem = document.createElement("div");
+      elem.id = "tutorial_box_"+i+"_" + r;
+      elem.className = "tutorial_box";
+      if (r !== currentBox[i]){
+        elem.classList.add("tutorial_box_blank")
+      }
+      elem.textContent = rowCode[r];
+      row.append(elem);
+    }
+    tutorialSub.append(row);
+  
+    let explain = document.createElement("p");
+    explain.textContent = explanations[i];
+    tutorialSub.append(explain);
   }
-  tutorialSub.append(row1);
-
-  let explan1 = document.createElement("p");
-  explan1.textContent = "The letter K is in the code and in the correct spot.";
-  tutorialSub.append(explan1);
-
-  let row2 = document.createElement("div");
-  row2.id = "row_2";
-  row2.className = "tutorial_box_row";
-  let rowCode2 = ["L", "T", "B", "S"];
-  for (r = 0; r < 4; r++) {
-    let elem = document.createElement("div");
-    elem.id = "tutorial_box_2_" + r;
-    elem.className = "tutorial_box";
-    elem.textContent = rowCode2[r];
-    row2.append(elem);
-  }
-  tutorialSub.append(row2);
-
-  let explan2 = document.createElement("p");
-  explan2.textContent = "The letter T is in the code but in the wrong spot.";
-  tutorialSub.append(explan2);
-
-  let row3 = document.createElement("div");
-  row3.id = "row_3";
-  row3.className = "tutorial_box_row";
-  let rowCode3 = ["V", "Q", "P", "R"];
-  for (r = 0; r < 4; r++) {
-    let elem = document.createElement("div");
-    elem.id = "tutorial_box_3_" + r;
-    elem.className = "tutorial_box";
-    elem.textContent = rowCode3[r];
-    row3.append(elem);
-  }
-  tutorialSub.append(row3);
-
-  let explan3 = document.createElement("p");
-  explan3.textContent = "The letter R is not in the code in any spot.";
-  tutorialSub.append(explan3);
 
   let line2 = document.createElement("div");
-  line2.className = "tutorial_line";
+  line2.className = "menu_line";
   tutorialSub.append(line2);
 
   let tutorialSpacer2 = document.createElement("div");
-  tutorialSpacer2.className = "tutorial_spacer_2";
+  tutorialSpacer2.className = "menu_spacer_2";
   tutorialSub.append(tutorialSpacer2);
 
   let par3point5 = document.createElement("p");
@@ -1613,10 +1584,6 @@ function createTutorialPage() {
   par4.textContent =
     "Load a new ICAO code by either clicking on the plus icon in our menu bar or refreshing the site in your browser.";
   tutorialSub.append(par4);
-
-  /*let par5 = document.createElement("p");
-  par5.textContent = "Note: By default, only international codes will be used, but if you are up for the challenge, you can turn on the option to use all ICAO codes in settings.";
-  tutorialSub.append(par5);*/
 }
 
 //Pops the tutorial up on the first load of the page
@@ -1625,17 +1592,17 @@ function tutorialPopup() {
   if (window.localStorage.getItem("Games") == "0") {
     toggleElement(document.getElementById("tutorial_container"));
     window.setTimeout(function () {
-      document.getElementById("tutorial_box_1_0").style.transition =
+      document.getElementById("tutorial_box_0_0").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_1_0").style.transform =
+      document.getElementById("tutorial_box_0_0").style.transform =
         "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_2_1").style.transition =
+      document.getElementById("tutorial_box_1_1").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_2_1").style.transform =
+      document.getElementById("tutorial_box_1_1").style.transform =
         "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_3_3").style.transition =
+      document.getElementById("tutorial_box_2_3").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_3_3").style.transform =
+      document.getElementById("tutorial_box_2_3").style.transform =
         "rotate3d(1,0,0,360deg)";
     }, 350);
   }
@@ -1675,17 +1642,17 @@ function addClicks() {
   document.getElementById("menu_icon").onclick = function () {
     toggleElement(document.getElementById("tutorial_container"));
     window.setTimeout(function () {
-      document.getElementById("tutorial_box_1_0").style.transition =
+      document.getElementById("tutorial_box_0_0").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_1_0").style.transform =
+      document.getElementById("tutorial_box_0_0").style.transform =
         "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_2_1").style.transition =
+      document.getElementById("tutorial_box_1_1").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_2_1").style.transform =
+      document.getElementById("tutorial_box_1_1").style.transform =
         "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_3_3").style.transition =
+      document.getElementById("tutorial_box_2_3").style.transition =
         "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_3_3").style.transform =
+      document.getElementById("tutorial_box_2_3").style.transform =
         "rotate3d(1,0,0,360deg)";
     }, 350);
   };
