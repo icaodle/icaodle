@@ -110,7 +110,7 @@ function resize() {
   let line = document.getElementById("bottom_header_line");
 
   //Message for not a real code
-  let codeMsg = document.getElementById("not_a_code_msg");
+  let codeMsg = document.getElementById("error_msg");
   if (codeMsg != null || codeMsg != undefined) {
     codeMsg.style.left =
       document.body.clientWidth / 2 - error.clientWidth / 2 + "px";
@@ -488,9 +488,9 @@ function feedback(box) {
 }
 
 function throwError(guess) {
-	if (typeof(document.getElementById("not_a_code_msg")) == 'undefined' || document.getElementById("not_a_code_msg") == null) {
+	if (typeof(document.getElementById("error_msg")) == 'undefined' || document.getElementById("error_msg") == null) {
 		let error = document.createElement("div")
-		error.id = "not_a_code_msg"
+		error.id = "error_msg"
 		if (guessedCodes.includes(guess)){
 			error.textContent = "Code Already Guessed"
 		}else {
@@ -693,7 +693,7 @@ function superTopSecretFunction() {
     document.getElementById("secret_code") == null
   ) {
     let error = document.createElement("div");
-    error.id = "secret_code";
+    error.id = "error_msg";
     error.textContent = airportCode;
     error.style.top =
       document.getElementById("main_container").offsetTop * 1.25 + "px";
