@@ -50,6 +50,9 @@ let animatingBox = false;
 let animatingMenu = false;
 let durationModif = 0.25;
 
+let greenArray = [];
+let yellowArray = [];
+
 //For typing
 document.addEventListener("keydown", keyDown);
 
@@ -421,11 +424,20 @@ function renderLetter(key) {
 			box.style.borderColor = "var(--defaultborder)";
 			box.style.color = "var(--black)";
 		} else if (key == "ENTER" || key == "Enter") {
-			feedback(box);
+      if (hardModeCheck(box)) {
+        feedback(box);
+      } else {
+        throwError("hardMode");
+      }
 		}
 	}
 }
 
+function hardModeCheck(box) {
+  // loop through boxes
+  // check each index value against greenArray and yellowArray
+  // return true/false
+}
 
 function feedback(box) {
 	if (box == box.parentElement.lastChild && box.textContent != ""){
@@ -452,12 +464,15 @@ function feedback(box) {
         if (guess == fluidAnswer[i]) {
           turnGreen(box.parentElement.children[i], guess, transition);
           fluidAnswer[i] = "";
+          greenArray.push(guess);
           correctCount += 1;
         } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
           let location = fluidAnswer.indexOf(guess); 
           if (box.parentElement.children[location].textContent != fluidAnswer[location]){
             turnYellow(box.parentElement.children[i], guess, transition);
             fluidAnswer[location] = "";
+            greenArray.push("");
+            yellowArray.push(guess);
           } else {
             box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
             box.parentElement.children[i].style.borderColor = "var(--darkgrey)";
@@ -465,6 +480,7 @@ function feedback(box) {
           }
         } else if (fluidAnswer.includes(guess) == false) {
           turnGrey(box.parentElement.children[i], guess, transition);
+          greenArray.push("");
         }
 			}
 			target_row += 1
@@ -497,10 +513,12 @@ function throwError(guess) {
 		error.id = "not_a_code_msg"
 		if (guessedCodes.includes(guess)){
 			error.textContent = "Code Already Guessed"
-		}else {
+		} else {
 			if (airportArray == intlCodesArray && allCodesArray.includes(guess)){
 			error.textContent = "Only intl. codes allowed. See settings to change."
-			}else {
+      } else if (guess == "hardMode") {
+        error.textContent = "Hard Mode; Must use previous feedback in guess."
+      } else {
 			error.textContent = "Invalid/Missing ICAO Code"
 			}
 		}
