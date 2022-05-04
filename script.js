@@ -3,7 +3,6 @@ window.onload = function () {
   createTutorialPage();
   loadWindow();
   setViewMode();
-  checkStorage();
   addClicks();
   tutorialPopup();
   callAPI();
@@ -82,6 +81,11 @@ if (JSON.parse(window.localStorage.getItem("onlyInternationalCodes"))) {
 //Choses the airport, and stores it in two ways, an array and a string
 let airportCode = airportArray[Math.floor(Math.random() * airportArray.length)];
 let answer = airportCode.split("");
+
+if (JSON.parse(window.localStorage.getItem("updateHardMode"))){
+  window.localStorage.setItem("hardMode",JSON.stringify(!JSON.parse(window.localStorage.getItem("hardMode"))))
+  window.localStorage.setItem("updateHardMode", "false")
+}
 
 //API for getting info about the airports for the endscreen
 let token =
@@ -424,7 +428,7 @@ function renderLetter(key) {
 
 
 function feedback(box) {
-	if (box == box.parentElement.lastChild && box.textContent != ""){ 
+	if (box == box.parentElement.lastChild && box.textContent != ""){
 		let guess = ""
 		for (let i = 0; i<box.parentElement.children.length;i++){ 
 			guess += box.parentElement.children[i].textContent
@@ -665,6 +669,12 @@ function checkStorage() {
   }
   if (!window.localStorage.getItem("onlyInternationalCodes")) {
     window.localStorage.setItem("onlyInternationalCodes", "false");
+  }
+  if (!window.localStorage.getItem("hardMode")){
+    window.localStorage.setItem("hardMode", "false");
+  }
+  if (!window.localStorage.getItem("updateHardMode")){
+    window.localStorage.setItem("updateHardMode", "false");
   }
 }
 
@@ -1277,149 +1287,94 @@ function createSettingsMenu() {
   settingsSpacer.className = "settings_spacer";
   settingsSub.append(settingsSpacer);
 
-  let settingsRow1 = document.createElement("div");
-  settingsRow1.className = "settings_row";
-  settingsSub.append(settingsRow1);
+  let rows_titles = ["International Mode","Hard Mode", "Dark Mode", "High Contrast Mode"];
+  let rows_descriptions = ["Limit airports to international airports.","Guesses must include previously revealed hints.","For night owls.","For improved color vision."]
+  let storages = ["onlyInternationalCodes","hardMode","darkMode","altColor"]
 
-  let settingsRow1Left = document.createElement("div");
-  settingsRow1Left.className = "settings_row_left";
-  settingsRow1.append(settingsRow1Left);
+  for (let i = 0; i<rows_titles.length; i++){
+    let settingsRow = document.createElement("div");
+    settingsRow.className = "settings_row";
+    settingsSub.append(settingsRow);
 
-  let settingsRow1Right = document.createElement("div");
-  settingsRow1Right.className = "settings_row_right";
-  settingsRow1.append(settingsRow1Right);
+    let settingsRowLeft = document.createElement("div");
+    settingsRowLeft.className = "settings_row_left";
+    settingsRow.append(settingsRowLeft);
 
-  let slider1 = document.createElement("label");
-  slider1.className = "switch";
-  settingsRow1Right.append(slider1);
+    let settingsRowRight = document.createElement("div");
+    settingsRowRight.className = "settings_row_right";
+    settingsRow.append(settingsRowRight);
 
-  let slider1Input = document.createElement("input");
-  slider1Input.type = "checkbox";
-  slider1Input.checked = JSON.parse(
-    window.localStorage.getItem("onlyInternationalCodes")
-  );
-  slider1.append(slider1Input);
+    let slider = document.createElement("label");
+    slider.className = "switch";
+    settingsRowRight.append(slider);
 
-  let slider1Span = document.createElement("span");
-  slider1Span.className = "slider round";
-  slider1.append(slider1Span);
+    let sliderInput = document.createElement("input");
+    sliderInput.type = "checkbox";
+    sliderInput.checked = JSON.parse(
+      window.localStorage.getItem(storages[i])
+    );
+    slider.append(sliderInput);
 
-  slider1Input.onclick = function () {
-    if (localStorage.getItem("onlyInternationalCodes") == "false") {
-      window.localStorage.setItem("onlyInternationalCodes", "true");
-      intlCodes = true;
-      if (target_row == 0) {
-        reset(true);
+    let sliderSpan = document.createElement("span");
+    sliderSpan.className = "slider round";
+    slider.append(sliderSpan);
+    if (i == 0){
+      sliderInput.onclick = function () {
+        if (localStorage.getItem("onlyInternationalCodes") == "false") {
+          window.localStorage.setItem("onlyInternationalCodes", "true");
+          intlCodes = true;
+          if (target_row == 0) {
+            reset(true);
+          }
+        } else {
+          window.localStorage.setItem("onlyInternationalCodes", "false");
+          allCodes = true;
+          if (target_row == 0) {
+            reset(true);
+          }
+        }
+      };
+    } else if (i == 1){
+      sliderInput.onclick = function () {
+        if (localStorage.getItem("hardMode") == "false") {
+          window.localStorage.setItem("updateHardMode","true")
+          if (target_row == 0) {
+            window.localStorage.setItem("hardMode",JSON.stringify(!JSON.parse(window.localStorage.getItem("hardMode"))))
+            window.localStorage.setItem("updateHardMode", "false")
+          }
+        } else {
+          window.localStorage.setItem("updateHardMode","true")
+          if (target_row == 0) {
+            window.localStorage.setItem("hardMode",JSON.stringify(!JSON.parse(window.localStorage.getItem("hardMode"))))
+            window.localStorage.setItem("updateHardMode", "false")
+          }
+        }
+      };
+    } else if (i == 2){
+      sliderInput.onclick = function(){
+        toggleDarkmode()
       }
-    } else {
-      window.localStorage.setItem("onlyInternationalCodes", "false");
-      allCodes = true;
-      if (target_row == 0) {
-        reset(true);
+    }else if (i == 3){
+      sliderInput.onclick = function(){
+        toggleColorblind()
       }
     }
-  };
 
-  let settingsRow1LeftRow1 = document.createElement("div");
-  settingsRow1LeftRow1.className = "settings_row_left_one";
-  settingsRow1LeftRow1.textContent = "International Mode";
-  settingsRow1Left.append(settingsRow1LeftRow1);
+    let settingsRowLeftRow1 = document.createElement("div");
+    settingsRowLeftRow1.className = "settings_row_left_one";
+    settingsRowLeftRow1.textContent = rows_titles[i];
+    settingsRowLeft.append(settingsRowLeftRow1);
 
-  let settingsRow1LeftRow2 = document.createElement("div");
-  settingsRow1LeftRow2.className = "settings_row_left_two";
-  settingsRow1LeftRow2.textContent =
-    "Limit airports to international airports.";
-  settingsRow1Left.append(settingsRow1LeftRow2);
+    let settingsRowLeftRow2 = document.createElement("div");
+    settingsRowLeftRow2.className = "settings_row_left_two";
+    settingsRowLeftRow2.textContent =
+      rows_descriptions[i];
+    settingsRowLeft.append(settingsRowLeftRow2);
 
-  let line1 = document.createElement("div");
-  line1.className = "settings_line";
-  settingsSub.append(line1);
-
-  let settingsRow2 = document.createElement("div");
-  settingsRow2.className = "settings_row";
-  settingsSub.append(settingsRow2);
-
-  let settingsRow2Left = document.createElement("div");
-  settingsRow2Left.className = "settings_row_left";
-  settingsRow2.append(settingsRow2Left);
-
-  let settingsRow2Right = document.createElement("div");
-  settingsRow2Right.className = "settings_row_right";
-  settingsRow2.append(settingsRow2Right);
-
-  let slider2 = document.createElement("label");
-  slider2.className = "switch";
-  settingsRow2Right.append(slider2);
-
-  let slider2Input = document.createElement("input");
-  slider2Input.type = "checkbox";
-  slider2Input.checked = JSON.parse(window.localStorage.getItem("darkMode"));
-  slider2.append(slider2Input);
-
-  let slider2Span = document.createElement("span");
-  slider2Span.className = "slider round";
-  slider2.append(slider2Span);
-
-  slider2Input.onclick = function () {
-    toggleDarkmode();
-  };
-
-  let settingsRow2LeftRow1 = document.createElement("div");
-  settingsRow2LeftRow1.className = "settings_row_left_one";
-  settingsRow2LeftRow1.textContent = "Dark Mode";
-  settingsRow2Left.append(settingsRow2LeftRow1);
-
-  let settingsRow2LeftRow2 = document.createElement("div");
-  settingsRow2LeftRow2.className = "settings_row_left_two";
-  settingsRow2LeftRow2.textContent = "For night owls.";
-  settingsRow2Left.append(settingsRow2LeftRow2);
-
-  let line2 = document.createElement("div");
-  line2.className = "settings_line";
-  settingsSub.append(line2);
-
-  let settingsRow3 = document.createElement("div");
-  settingsRow3.className = "settings_row";
-  settingsSub.append(settingsRow3);
-
-  let settingsRow3Left = document.createElement("div");
-  settingsRow3Left.className = "settings_row_left";
-  settingsRow3.append(settingsRow3Left);
-
-  let settingsRow3Right = document.createElement("div");
-  settingsRow3Right.className = "settings_row_right";
-  settingsRow3.append(settingsRow3Right);
-
-  let slider3 = document.createElement("label");
-  slider3.className = "switch";
-  settingsRow3Right.append(slider3);
-
-  let slider3Input = document.createElement("input");
-  slider3Input.type = "checkbox";
-  slider3Input.checked = JSON.parse(window.localStorage.getItem("altColor"));
-  slider3.append(slider3Input);
-
-  let slider3Span = document.createElement("span");
-  slider3Span.className = "slider round";
-  slider3.append(slider3Span);
-
-  slider3Input.onclick = function () {
-    toggleColorblind();
-  };
-
-  let settingsRow3LeftRow1 = document.createElement("div");
-  settingsRow3LeftRow1.className = "settings_row_left_one";
-  settingsRow3LeftRow1.textContent = "High Contrast Mode";
-  settingsRow3Left.append(settingsRow3LeftRow1);
-
-  let settingsRow3LeftRow2 = document.createElement("div");
-  settingsRow3LeftRow2.className = "settings_row_left_two";
-  settingsRow3LeftRow2.textContent = "For improved color vision.";
-  settingsRow3Left.append(settingsRow3LeftRow2);
-
-  let line3 = document.createElement("div");
-  line3.className = "settings_line";
-  settingsSub.append(line3);
+    let line = document.createElement("div");
+    line.className = "settings_line";
+    settingsSub.append(line);
+  }
 
   let settingsRow4 = document.createElement("div");
   settingsRow4.className = "settings_row";
@@ -1769,6 +1724,10 @@ function reset(instant = false) {
     answer = airportCode.split("");
     if (hintOpen) {
       closeHintMenu();
+    }
+    if (JSON.parse(window.localStorage.getItem("updateHardMode"))){
+      window.localStorage.setItem("hardMode",JSON.stringify(!JSON.parse(window.localStorage.getItem("hardMode"))))
+      window.localStorage.setItem("updateHardMode", "false")
     }
     hasOpenedElev = false;
     hasOpenedCountry = false;
