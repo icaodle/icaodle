@@ -1,3 +1,5 @@
+let clicks = new Clicks()
+
 window.onload = function () {
   createSettingsMenu();
   createTutorialPage();
@@ -56,10 +58,7 @@ document.addEventListener("keydown", keyDown);
 
 //Stats and such
 let endScreenButton = document.getElementById("stats_icon");
-endScreenButton.onclick = function () {
-  checkStorage();
-  endScreen();
-};
+endScreenButton.onclick = clicks.endScreenButton
 
 //The actual array to source codes from.
 
@@ -271,10 +270,7 @@ function createRowDeletion() {
   let del = document.createElement("i");
   del.className = "fa-solid fa-delete-left fa-xl";
   del.id = "clear_row_button";
-  del.onclick = function () {
-    deleteRow();
-  };
-
+  del.onclick = deleteRow
   document.body.append(del);
   let top =
     box.parentElement.offsetHeight +
@@ -327,12 +323,7 @@ function createKeyboard() {
       } else {
         key.className = "key";
       }
-      key.onclick = function () {
-        renderLetter(event.target.id);
-      };
-      key.ontouch = function () {
-        renderLetter(event.target.id);
-      };
+      key.onclick,key.ontouch = clicks.key;
       row.append(key);
     }
     container.append(row);
@@ -1028,26 +1019,7 @@ function openHintMenu() {
     }
     hintDropdown.append(elevationHider);
 
-    elevationIcon.onclick = function () {
-      if (elevationDropdown.style.visibility == "hidden") {
-        /*
-        if (apiIsCalled == false) {
-          callAPI();
-          apiIsCalled = true;
-        }
-        */
-
-        hasOpenedElev = true;
-        let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-        hints += 1;
-        window.localStorage.setItem("Hints_Used", hints.toString());
-        document.getElementById("country_icon").style.color = "var(--black)";
-        document.getElementById("country_icon").style.cursor = "pointer";
-        countryCursor = true;
-        elevationDropdown.style.visibility = "visible";
-        elevationHider.style.visibility = "visible";
-      }
-    };
+    elevationIcon.onclick = clicks.elevIcon
 
     let countryIcon = document.createElement("i");
     countryIcon.className = "fa-solid fa-earth-europe";
@@ -1088,19 +1060,7 @@ function openHintMenu() {
       countryDropdown.style.visibility = "visible";
     }
 
-    countryIcon.onclick = function () {
-      if (countryDropdown.style.visibility == "hidden" && hasOpenedElev) {
-        hasOpenedCountry = true;
-        let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-        hints += 1;
-        window.localStorage.setItem("Hints_Used", hints.toString());
-        document.getElementById("city_icon").style.color = "var(--black)";
-        document.getElementById("city_icon").style.cursor = "pointer";
-        cityCursor = true;
-        countryDropdown.style.visibility = "visible";
-        countryHider.style.visibility = "visible";
-      }
-    };
+    countryIcon.onclick = clicks.countryIcon
 
     let cityIcon = document.createElement("i");
     cityIcon.className = "fa-solid fa-city";
@@ -1144,20 +1104,7 @@ function openHintMenu() {
 
     hintOpen = true;
 
-    cityIcon.onclick = function () {
-      if (
-        cityDropdown.style.visibility == "hidden" &&
-        hasOpenedElev &&
-        hasOpenedCountry
-      ) {
-        hasOpenedCity = true;
-        let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-        hints += 1;
-        window.localStorage.setItem("Hints_Used", hints.toString());
-        cityDropdown.style.visibility = "visible";
-        cityHider.style.visibility = "visible";
-      }
-    };
+    cityIcon.onclick = clicks.cityIcon
   }, 001);
 }
 
@@ -1265,9 +1212,7 @@ function createSettingsMenu() {
   exitButton.right = "0px";
   settingsUnflex.append(exitButton);
 
-  exitButton.onclick = function () {
-    toggleElement(document.getElementById("settings_container"));
-  };
+  exitButton.onclick = clicks.settingsExitBtn
 
   let settingsSpacer = document.createElement("div");
   settingsSpacer.className = "menu_spacer";
@@ -1300,21 +1245,7 @@ function createSettingsMenu() {
   slider1Span.className = "slider round";
   slider1.append(slider1Span);
 
-  slider1Input.onclick = function () {
-    if (localStorage.getItem("onlyInternationalCodes") == "false") {
-      window.localStorage.setItem("onlyInternationalCodes", "true");
-      intlCodes = true;
-      if (target_row == 0) {
-        reset(true);
-      }
-    } else {
-      window.localStorage.setItem("onlyInternationalCodes", "false");
-      allCodes = true;
-      if (target_row == 0) {
-        reset(true);
-      }
-    }
-  };
+  slider1Input.onclick = clicks.slider1Input
 
   let settingsRow1LeftRow1 = document.createElement("div");
   settingsRow1LeftRow1.className = "settings_row_left_one";
@@ -1356,9 +1287,7 @@ function createSettingsMenu() {
   slider2Span.className = "slider round";
   slider2.append(slider2Span);
 
-  slider2Input.onclick = function () {
-    toggleDarkmode();
-  };
+  slider2Input.onclick = toggleDarkmode
 
   let settingsRow2LeftRow1 = document.createElement("div");
   settingsRow2LeftRow1.className = "settings_row_left_one";
@@ -1399,9 +1328,7 @@ function createSettingsMenu() {
   slider3Span.className = "slider round";
   slider3.append(slider3Span);
 
-  slider3Input.onclick = function () {
-    toggleColorblind();
-  };
+  slider3Input.onclick = toggleColorblind()
 
   let settingsRow3LeftRow1 = document.createElement("div");
   settingsRow3LeftRow1.className = "settings_row_left_one";
@@ -1493,19 +1420,7 @@ function createTutorialPage() {
   exitButton.right = "0px";
   tutorialUnflex.append(exitButton);
 
-  exitButton.onclick = function () {
-    document.getElementById("tutorial_box_0_0").style.transition = "";
-    document.getElementById("tutorial_box_0_0").style.transform =
-      "rotate3d(1,0,0,0deg)";
-    document.getElementById("tutorial_box_1_1").style.transition = "";
-    document.getElementById("tutorial_box_1_1").style.transform =
-      "rotate3d(1,0,0,0deg)";
-    document.getElementById("tutorial_box_2_3").style.transition = "";
-    document.getElementById("tutorial_box_2_3").style.transform =
-      "rotate3d(1,0,0,0deg)";
-    toggleElement(document.getElementById("tutorial_container"));
-  };
-
+  exitButton.onclick = clicks.tutorialExitBtn
   let tutorialSpacer = document.createElement("div");
   tutorialSpacer.className = "menu_spacer";
   tutorialSub.append(tutorialSpacer);
@@ -1635,39 +1550,13 @@ function toggleElement(element, top = 0) {
 //Onclick functions for things that don't get created in JS
 
 function addClicks() {
-  document.getElementById("menu_icon").onclick = function () {
-    toggleElement(document.getElementById("tutorial_container"));
-    window.setTimeout(function () {
-      document.getElementById("tutorial_box_0_0").style.transition =
-        "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_0_0").style.transform =
-        "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_1_1").style.transition =
-        "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_1_1").style.transform =
-        "rotate3d(1,0,0,360deg)";
-      document.getElementById("tutorial_box_2_3").style.transition =
-        "transform 1s ease-in-out";
-      document.getElementById("tutorial_box_2_3").style.transform =
-        "rotate3d(1,0,0,360deg)";
-    }, 350);
-  };
+  document.getElementById("menu_icon").onclick = clicks.menuIcon
 
-  document.getElementById("hint_icon").onclick = function () {
-    if (!hintOpen) {
-      openHintMenu();
-    } else if (hintOpen) {
-      closeHintMenu();
-    }
-  };
+  document.getElementById("hint_icon").onclick = clicks.hintIcon
 
-  document.getElementById("settings_icon").onclick = function () {
-    toggleElement(document.getElementById("settings_container"));
-  };
+  document.getElementById("settings_icon").onclick = clicks.settingsIcon
 
-  document.getElementById("new_airport_icon").onclick = function () {
-    reset();
-  };
+  document.getElementById("new_airport_icon").onclick = reset
 }
 
 function reset(instant = false) {
