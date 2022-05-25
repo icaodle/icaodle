@@ -1,4 +1,5 @@
 let clicks = new Clicks()
+let dev = new Dev()
 
 window.onload = function () {
   createSettingsMenu();
@@ -349,7 +350,7 @@ function keyDown(event) {
     keyCode == "Backquote" &&
     JSON.parse(window.localStorage.getItem("isDev"))
   ) {
-    superTopSecretFunction();
+    dev.superTopSecretMethod();
   } else if (
     keyCode == "Backslash" &&
     JSON.parse(window.localStorage.getItem("isDev"))
@@ -552,42 +553,6 @@ function moveDel() {
   del_btn.style.top = top + "px";
 }
 
-//--Dev Functions--
-
-function clearStats() {
-  let isDev;
-  let darkMode;
-  let colors;
-  if (JSON.parse(window.localStorage.getItem("isDev"))) {
-    isDev = true;
-  }
-  if (window.localStorage.getItem("darkMode") == "true") {
-    darkMode = true;
-  }
-  if (JSON.parse(window.localStorage.getItem("altColor"))) {
-    colors = true;
-  }
-  window.localStorage.clear();
-  if (isDev) {
-    window.localStorage.setItem("isDev", "true");
-  }
-  if (darkMode) {
-    window.localStorage.setItem("darkMode", "true");
-  }
-  if (colors) {
-    window.localStorage.setItem("altColor", "true");
-  }
-}
-
-function makeDev() {
-  window.localStorage.setItem("isDev", "true");
-}
-
-function demote() {
-  window.localStorage.setItem("isDev", "false");
-}
-//--End of Dev Functions--
-
 //When you end a game, local storage stuff updates
 
 function updateStats(last_row, correct) {
@@ -670,31 +635,6 @@ function callAPI() {
     airportHomeLink = data.home_link;
   };
   apiIsCalled = true;
-}
-
-// Does super top secret dev stuff (answer key).
-
-function superTopSecretFunction() {
-  if (
-    typeof document.getElementById("secret_code") == "undefined" ||
-    document.getElementById("secret_code") == null
-  ) {
-    let error = document.createElement("div");
-    error.id = "error_msg";
-    error.textContent = airportCode;
-    error.style.top =
-      document.getElementById("main_container").offsetTop * 1.25 + "px";
-    ``;
-    error.style.opacity = 1;
-    document.body.append(error);
-    error.style.left =
-      (document.body.clientWidth + 15) / 2 - Math.round(63 / 2) + "px";
-    error.style.transition = "opacity 1s 1s";
-    error.style.opacity = 0;
-    window.setTimeout(function () {
-      error.remove();
-    }, 2000);
-  }
 }
 
 // Creates the answer screen.
