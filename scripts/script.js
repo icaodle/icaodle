@@ -1,65 +1,29 @@
-let clicks = new Clicks()
 let dev = new Dev()
+let app = new App()
 
 window.onload = function () {
   createSettingsMenu();
   createTutorialPage();
   loadWindow();
   setViewMode();
-  checkStorage();
+  app.localStorageManager.checkStorage();
   addClicks();
   tutorialPopup();
   callAPI();
 };
 
-checkStorage();
+app.localStorageManager.checkStorage();
 
 window.onresize = function () {
   //Otherwise, elements will be in the wrong position when you change window size.
   resize();
 };
 
-//Global Variables
-
-let icaodleVersion = "v1.0.0";
-
-let target = "letter_box_0_0";
-let target_row = 0;
-let finished = false;
-let correct = false;
-let isEndScreenOpen = false;
-let hintOpen = false;
-let correctCount = 0;
-let apiIsCalled = false;
-let guessedCodes = [];
-let usedCodes = [];
-let hasOpenedElev = false;
-let hasOpenedCountry = false;
-let hasOpenedCity = false;
-let allCodes = false;
-let intlCodes = false;
-let menuOpen = false;
-
-let countryCursor = false;
-let cityCursor = false;
-
-let airportName = "Placeholder Airport";
-let airportCity = "-----";
-let airportState = "";
-let airportCountry = "-----";
-let airportElevation = "-----";
-let airportLink = "";
-let airportHomeLink = "";
-let animatingBox = false;
-let animatingMenu = false;
-let durationModif = 0.25;
-
 //For typing
 document.addEventListener("keydown", keyDown);
-
 //Stats and such
 let endScreenButton = document.getElementById("stats_icon");
-endScreenButton.onclick = clicks.endScreenButton
+endScreenButton.onclick = app.endScreen.endScreenButton
 
 //The actual array to source codes from.
 
@@ -324,7 +288,7 @@ function createKeyboard() {
       } else {
         key.className = "key";
       }
-      key.onclick,key.ontouch = clicks.key;
+      key.onclick,key.ontouch = app.keyboard.key;
       row.append(key);
     }
     container.append(row);
@@ -466,8 +430,8 @@ function feedback(box) {
 			}
 			target = "letter_box_"+target_row+"_"+0
 			if (finished == true) { 
-			updateStats(target_row,correct)
-			timer = window.setTimeout(endScreen, 3000*durationModif+1100)
+			app.localStorageManager.updateStats(target_row,correct)
+			timer = window.setTimeout(app.endScreen.endScreen, 3000*durationModif+1100)
 			}
 		} else {
 			throwError(guess);
@@ -553,73 +517,6 @@ function moveDel() {
   del_btn.style.top = top + "px";
 }
 
-//When you end a game, local storage stuff updates
-
-function updateStats(last_row, correct) {
-  checkStorage();
-
-  if (correct) {
-    let wins = JSON.parse(window.localStorage.getItem("Wins"));
-    wins += 1;
-    window.localStorage.setItem("Wins", JSON.stringify(wins));
-
-    let streak = JSON.parse(window.localStorage.getItem("Streak"));
-    streak += 1;
-    window.localStorage.setItem("Streak", JSON.stringify(streak));
-
-    if (streak > parseInt(window.localStorage.getItem("High_Streak"))) {
-      window.localStorage.setItem("High_Streak", JSON.stringify(streak));
-    }
-
-    let arrayGuess = JSON.parse(window.localStorage.getItem("Lengths"));
-    arrayGuess.push(last_row);
-    window.localStorage.setItem("Lengths", JSON.stringify(arrayGuess));
-  } else {
-    window.localStorage.setItem("Streak", "0");
-  }
-  let games = JSON.parse(window.localStorage.getItem("Games"));
-  games += 1;
-  window.localStorage.setItem("Games", JSON.stringify(games));
-}
-
-//Makes sure everything that should be in local storage is there.
-
-function checkStorage() {
-  if (!window.localStorage.getItem("Lengths")) {
-    window.localStorage.setItem("Lengths", "[]");
-  }
-  if (!window.localStorage.getItem("Wins")) {
-    window.localStorage.setItem("Wins", "0");
-  }
-  if (!window.localStorage.getItem("Games")) {
-    window.localStorage.setItem("Games", "0");
-  }
-  if (!window.localStorage.getItem("Streak")) {
-    window.localStorage.setItem("Streak", "0");
-  }
-  if (!window.localStorage.getItem("High_Streak")) {
-    window.localStorage.setItem("High_Streak", "0");
-  }
-  if (!window.localStorage.getItem("isDev")) {
-    window.localStorage.setItem("isDev", "false");
-  }
-  if (!window.localStorage.getItem("darkMode")) {
-    window.localStorage.setItem("darkMode", "false");
-  }
-  if (!window.localStorage.getItem("altColor")) {
-    window.localStorage.setItem("altColor", "false");
-  }
-  if (!window.localStorage.getItem("updateGraph")) {
-    window.localStorage.setItem("updateGraph", "true");
-  }
-  if (!window.localStorage.getItem("Hints_Used")) {
-    window.localStorage.setItem("Hints_Used", "0");
-  }
-  if (!window.localStorage.getItem("onlyInternationalCodes")) {
-    window.localStorage.setItem("onlyInternationalCodes", "false");
-  }
-}
-
 function callAPI() {
   var request = new XMLHttpRequest();
   request.open("GET", endpoint);
@@ -635,289 +532,6 @@ function callAPI() {
     airportHomeLink = data.home_link;
   };
   apiIsCalled = true;
-}
-
-// Creates the answer screen.
-
-function endScreen() {
-  let popUp = document.createElement("div");
-  let overlay = document.createElement("div");
-  popUp.className = "pop_up";
-  popUp.id = "pop_up_id";
-  popUp.style.visibility = "hidden";
-  overlay.className = "overlay";
-  overlay.id = "overlay_id";
-  document.body.append(overlay);
-  document.body.append(popUp);
-  popUp.style.left =
-    document.body.clientWidth / 2 - popUp.clientWidth / 2 + "px";
-  popUp.style.top = window.outerHeight + "px";
-
-  let exitDiv = document.createElement("div");
-  exitDiv.className = "exit_div";
-  popUp.append(exitDiv);
-
-  let exitFiller = document.createElement("div");
-  exitFiller.className = "exit_filler";
-  popUp.firstChild.append(exitFiller);
-
-  let exitButton = document.createElement("i");
-  exitButton.className = "fa-solid fa-xmark fa-xl";
-  exitButton.id = "exit_button";
-  popUp.firstChild.append(exitButton);
-
-  let exitEndScreenButton = document.getElementById("exit_button");
-  exitEndScreenButton.onclick = exitEndScreen;
-  overlay.onclick = exitEndScreen;
-
-  let spacer0 = document.createElement("div");
-  spacer0.className = "spacer";
-  popUp.append(spacer0);
-
-  if (finished == true) {
-    let airportTitle = document.createElement("a");
-    airportTitle.className = "pop_up_grand_title";
-    if (airportLink != "" && airportHomeLink != "") {
-      airportTitle.href = airportLink;
-      airportTitle.target = "_blank";
-    } else if (airportLink == "" && airportHomeLink != "") {
-      airportTitle.href = airportHomeLink;
-      airportTitle.target = "_blank";
-    } else if (airportLink != "" && airportHomeLink == "") {
-      airportTitle.href = airportLink;
-      airportTitle.target = "_blank";
-    }
-    airportTitle.textContent = airportName + " (" + airportCode + ")";
-    popUp.append(airportTitle);
-
-    let airportContainer = document.createElement("div");
-    airportContainer.className = "airport_container_finished";
-    popUp.append(airportContainer);
-
-    let airportContainerLeft = document.createElement("div");
-    airportContainerLeft.className = "airport_subcontainer";
-    airportContainer.appendChild(airportContainerLeft);
-
-    let airportContainerMid = document.createElement("div");
-    airportContainerMid.className = "airport_subcontainer";
-    airportContainer.appendChild(airportContainerMid);
-
-    let airportContainerRight = document.createElement("div");
-    airportContainerRight.className = "airport_subcontainer";
-    airportContainer.appendChild(airportContainerRight);
-
-    let airportElevationContainer = document.createElement("div");
-    airportElevationContainer.className = "airport_details";
-    if (airportElevation == "" || airportElevation == null) {
-      airportElevationContainer.textContent = "[Missing]";
-    } else {
-      airportElevationContainer.textContent = airportElevation + "ft";
-    }
-    airportContainerLeft.appendChild(airportElevationContainer);
-
-    let airportCityContainer = document.createElement("div");
-    airportCityContainer.className = "airport_details";
-    if (airportCity == "" || airportCity == null) {
-      airportCityContainer.textContent = "[Missing]";
-    } else {
-      airportCityContainer.textContent = airportCity;
-    }
-    airportContainerMid.appendChild(airportCityContainer);
-
-    let airportCountryContainer = document.createElement("div");
-    airportCountryContainer.className = "airport_details";
-    if (airportCountry == "" || airportCountry == null) {
-      airportCountryContainer.textContent = "[Missing]";
-    } else {
-      airportCountryContainer.textContent = airportCountry;
-    }
-    airportContainerRight.appendChild(airportCountryContainer);
-
-    let elevationContainer = document.createElement("div");
-    elevationContainer.className = "details";
-    elevationContainer.textContent = "Elevation";
-    airportContainerLeft.appendChild(elevationContainer);
-
-    let cityContainer = document.createElement("div");
-    cityContainer.className = "details";
-    cityContainer.textContent = "Municipality";
-    airportContainerMid.appendChild(cityContainer);
-
-    let countryContainer = document.createElement("div");
-    countryContainer.className = "details";
-    countryContainer.textContent = "Country";
-    airportContainerRight.appendChild(countryContainer);
-  } else {
-    let airportTitle = document.createElement("div");
-    airportTitle.className = "pop_up_title";
-    airportTitle.textContent = "icaodle (ICAO)";
-    popUp.append(airportTitle);
-
-    let airportContainer = document.createElement("div");
-    airportContainer.className = "airport_container_unfinished";
-    airportContainer.textContent =
-      "Content Hidden Until Current Game is Finished";
-    popUp.append(airportContainer);
-  }
-
-  let spacer1 = document.createElement("div");
-  spacer1.className = "spacer";
-  popUp.append(spacer1);
-
-  let statsTitle = document.createElement("div");
-  statsTitle.className = "pop_up_title";
-  statsTitle.textContent = "STATISTICS";
-  popUp.append(statsTitle);
-
-  let statsContainer = document.createElement("div");
-  statsContainer.className = "stats_container";
-  popUp.append(statsContainer);
-
-  let statsContainerLeft = document.createElement("div");
-  statsContainerLeft.className = "stats_subcontainer";
-  statsContainer.appendChild(statsContainerLeft);
-
-  let statsContainerInnerLeft = document.createElement("div");
-  statsContainerInnerLeft.className = "stats_subcontainer";
-  statsContainer.appendChild(statsContainerInnerLeft);
-
-  let statsContainerInnerRight = document.createElement("div");
-  statsContainerInnerRight.className = "stats_subcontainer";
-  statsContainer.appendChild(statsContainerInnerRight);
-
-  let statsContainerRight = document.createElement("div");
-  statsContainerRight.className = "stats_subcontainer";
-  statsContainer.appendChild(statsContainerRight);
-
-  let statsContainerFarRight = document.createElement("div");
-  statsContainerFarRight.className = "stats_subcontainer";
-  statsContainer.appendChild(statsContainerFarRight);
-
-  let leftStatsField = document.createElement("div");
-  leftStatsField.className = "stats_field";
-  leftStatsField.textContent = window.localStorage.getItem("Games");
-  statsContainerLeft.appendChild(leftStatsField);
-
-  let innerLeftStatsField = document.createElement("div");
-  innerLeftStatsField.className = "stats_field";
-  let win_percent = Math.round(
-    (parseInt(window.localStorage.getItem("Wins")) /
-      parseInt(window.localStorage.getItem("Games"))) *
-      100
-  ).toString();
-  if (win_percent == "NaN") {
-    win_percent = "N/A";
-  }
-  innerLeftStatsField.textContent = win_percent;
-  statsContainerInnerLeft.appendChild(innerLeftStatsField);
-
-  let innerRightStatsField = document.createElement("div");
-  innerRightStatsField.className = "stats_field";
-  innerRightStatsField.textContent = window.localStorage.getItem("Streak");
-  statsContainerInnerRight.appendChild(innerRightStatsField);
-
-  let rightStatsField = document.createElement("div");
-  rightStatsField.className = "stats_field";
-  rightStatsField.textContent = window.localStorage.getItem("High_Streak");
-  statsContainerRight.appendChild(rightStatsField);
-
-  let farRightStatsField = document.createElement("div");
-  farRightStatsField.className = "stats_field";
-  farRightStatsField.textContent = window.localStorage.getItem("Hints_Used");
-  statsContainerFarRight.appendChild(farRightStatsField);
-
-  let leftStatsDescr = document.createElement("div");
-  leftStatsDescr.className = "stats_descr";
-  leftStatsDescr.textContent = "Played";
-  statsContainerLeft.appendChild(leftStatsDescr);
-
-  let innerLeftStatsDescr = document.createElement("div");
-  innerLeftStatsDescr.className = "stats_descr";
-  innerLeftStatsDescr.textContent = "Win %";
-  statsContainerInnerLeft.appendChild(innerLeftStatsDescr);
-
-  let innerRightStatsDescr = document.createElement("div");
-  innerRightStatsDescr.className = "stats_descr";
-  innerRightStatsDescr.textContent = "Streak";
-  statsContainerInnerRight.appendChild(innerRightStatsDescr);
-
-  let rightStatsDescr = document.createElement("div");
-  rightStatsDescr.className = "stats_descr";
-  rightStatsDescr.textContent = "Max Streak";
-  statsContainerRight.appendChild(rightStatsDescr);
-
-  let farRightStatsDescr = document.createElement("div");
-  farRightStatsDescr.className = "stats_descr";
-  farRightStatsDescr.textContent = "Hints";
-  statsContainerFarRight.appendChild(farRightStatsDescr);
-
-  let spacer2 = document.createElement("div");
-  spacer2.className = "spacer";
-  popUp.append(spacer2);
-
-  let guessTitle = document.createElement("div");
-  guessTitle.className = "pop_up_title";
-  guessTitle.textContent = "GUESS DISTRIBUTION";
-  popUp.append(guessTitle);
-
-  let guessContainer = document.createElement("div");
-  guessContainer.id = "guess_container";
-  popUp.append(guessContainer);
-
-  barGraphCreate();
-  toggleElement(popUp, document.body.clientHeight / 2 - popUp.clientHeight / 2);
-  isEndScreenOpen = true;
-}
-
-// Exits/hides the answer screen.
-
-function exitEndScreen() {
-  let popUpContainer = document.getElementById("pop_up_id");
-  let overlay = document.getElementById("overlay_id");
-  popUpContainer.style.visibility = "visible";
-  toggleElement(popUpContainer);
-  window.setTimeout(function () {
-    popUpContainer.remove();
-    overlay.remove();
-    isEndScreenOpen = false;
-  }, 500);
-}
-
-// Creates the bar graph on the answer screen.
-
-function barGraphCreate() {
-  let array = window.localStorage.getItem("Lengths");
-  let container = document.getElementById("guess_container");
-  let counts = [0, 0, 0, 0, 0, 0];
-  for (let i = 0; i < array.length; i++) {
-    counts[array[i] - 1] += 1;
-  }
-  let most_common = Math.max(...counts);
-  for (let i = 0; i < 6; i++) {
-    let barContainer = document.createElement("div");
-    barContainer.className = "bar_graph_bar_container";
-    container.append(barContainer);
-    let barNumber = document.createElement("div");
-    barNumber.className = "bar_graph_bar_number";
-    barNumber.textContent = i + 1;
-    barContainer.append(barNumber);
-    let bar = document.createElement("div");
-    bar.className = "bar_graph_bar";
-    if (i + 1 == target_row && correct) {
-      bar.style.backgroundColor = "var(--green)";
-    }
-    bar.id = "bar" + (i + 1).toString();
-    bar.textContent = counts[i];
-    barContainer.append(bar);
-    let segment = (container.clientWidth * 0.9) / most_common;
-    bar.style.width = counts[i] * segment + "px";
-    if (JSON.parse(window.localStorage.getItem("updateGraph"))) {
-      bar.style.transition = "width 1s ease-out";
-    } else {
-      bar.style.transition = "";
-    }
-  }
-  window.localStorage.setItem("updateGraph", "false");
 }
 
 // Creates the hint menu and all subsequent "pop-outs."
@@ -959,7 +573,7 @@ function openHintMenu() {
     }
     hintDropdown.append(elevationHider);
 
-    elevationIcon.onclick = clicks.elevIcon
+    elevationIcon.onclick = app.hints.elevIcon
 
     let countryIcon = document.createElement("i");
     countryIcon.className = "fa-solid fa-earth-europe";
@@ -1000,7 +614,7 @@ function openHintMenu() {
       countryDropdown.style.visibility = "visible";
     }
 
-    countryIcon.onclick = clicks.countryIcon
+    countryIcon.onclick = app.hints.countryIcon
 
     let cityIcon = document.createElement("i");
     cityIcon.className = "fa-solid fa-city";
@@ -1044,7 +658,7 @@ function openHintMenu() {
 
     hintOpen = true;
 
-    cityIcon.onclick = clicks.cityIcon
+    cityIcon.onclick = app.hints.cityIcon
   }, 001);
 }
 
@@ -1152,7 +766,7 @@ function createSettingsMenu() {
   exitButton.right = "0px";
   settingsUnflex.append(exitButton);
 
-  exitButton.onclick = clicks.settingsExitBtn
+  exitButton.onclick = app.settings.settingsExitBtn
 
   let settingsSpacer = document.createElement("div");
   settingsSpacer.className = "menu_spacer";
@@ -1185,7 +799,7 @@ function createSettingsMenu() {
   slider1Span.className = "slider round";
   slider1.append(slider1Span);
 
-  slider1Input.onclick = clicks.slider1Input
+  slider1Input.onclick = app.settings.slider1Input
 
   let settingsRow1LeftRow1 = document.createElement("div");
   settingsRow1LeftRow1.className = "settings_row_left_one";
@@ -1360,7 +974,7 @@ function createTutorialPage() {
   exitButton.right = "0px";
   tutorialUnflex.append(exitButton);
 
-  exitButton.onclick = clicks.tutorialExitBtn
+  exitButton.onclick = app.tutorial.tutorialExitBtn
   let tutorialSpacer = document.createElement("div");
   tutorialSpacer.className = "menu_spacer";
   tutorialSub.append(tutorialSpacer);
@@ -1490,11 +1104,11 @@ function toggleElement(element, top = 0) {
 //Onclick functions for things that don't get created in JS
 
 function addClicks() {
-  document.getElementById("menu_icon").onclick = clicks.menuIcon
+  document.getElementById("menu_icon").onclick = app.tutorial.menuIcon
 
-  document.getElementById("hint_icon").onclick = clicks.hintIcon
+  document.getElementById("hint_icon").onclick = app.hints.hintIcon
 
-  document.getElementById("settings_icon").onclick = clicks.settingsIcon
+  document.getElementById("settings_icon").onclick = app.settings.settingsIcon
 
   document.getElementById("new_airport_icon").onclick = reset
 }

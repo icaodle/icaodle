@@ -1,4 +1,4 @@
-class App{
+class EndScreen{
     constructor(){
         
     }

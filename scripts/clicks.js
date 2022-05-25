@@ -1,0 +1,7 @@
+class Clicks {
+    constructor(){
+
+    }
+
+    
+}
