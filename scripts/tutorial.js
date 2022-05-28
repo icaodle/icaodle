@@ -111,7 +111,7 @@ createTutorialPage() {
       row.id = "row_" + i;
       row.className = "tutorial_box_row";
       let rowCode = rowCodes[i];
-      for (r = 0; r < 4; r++) {
+      for (let r = 0; r < 4; r++) {
         let elem = document.createElement("div");
         elem.id = "tutorial_box_"+i+"_" + r;
         elem.className = "tutorial_box";

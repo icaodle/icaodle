@@ -112,7 +112,7 @@ class Settings{
     slider2Span.className = "slider round";
     slider2.append(slider2Span);
   
-    slider2Input.onclick = toggleDarkmode
+    slider2Input.onclick = this.toggleDarkmode
   
     let settingsRow2LeftRow1 = document.createElement("div");
     settingsRow2LeftRow1.className = "settings_row_left_one";
@@ -153,7 +153,7 @@ class Settings{
     slider3Span.className = "slider round";
     slider3.append(slider3Span);
   
-    slider3Input.onclick = toggleColorblind()
+    slider3Input.onclick = this.toggleColorblind
   
     let settingsRow3LeftRow1 = document.createElement("div");
     settingsRow3LeftRow1.className = "settings_row_left_one";
@@ -205,7 +205,7 @@ class Settings{
   
     let version = document.createElement("div");
     version.id = "version";
-    version.textContent = icaodleVersion;
+    version.textContent = app.icaodleVersion;
     settingsFooter.append(version);
 }
 

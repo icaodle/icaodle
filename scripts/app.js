@@ -40,6 +40,7 @@ class App{
         this.endScreen = new EndScreen()
         this.keyboard = new Keyboard()
         this.airportHandler = new AirportHandler()
+        this.game = new Game()
     }
 
   //Onclicks for things that don't get created in JS
@@ -348,18 +349,18 @@ class App{
     }
 
     load(){
-        createSettingsMenu();
-        createTutorialPage();
-        for (i = 0; i < 6; i++) {
-            createRow();
+        this.settings.createSettingsMenu();
+        this.tutorial.createTutorialPage();
+        for (let i = 0; i < 6; i++) {
+            this.game.createRow();
           }
-        createRowDeletion();
-        createKeyboard();
-        resize();
-        setViewMode();
-        app.localStorageManager.checkStorage();
-        addClicks();
-        tutorialPopup();
-        callAPI();
+        this.game.createRowDeletion();
+        this.game.createKeyboard();
+        this.resize();
+        this.settings.setViewMode();
+        this.localStorageManager.checkStorage();
+        this.addClicks();
+        this.tutorial.tutorialPopup();
+        this.airportHandler.callAPI();
     }
 }
