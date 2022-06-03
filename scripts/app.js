@@ -55,19 +55,19 @@ class App{
   }
 
   toggleElement(element, top = 0) {
-    if (element.style.visibility == "visible" && !animatingMenu) {
-      animatingMenu = true;
-      menuOpen = false;
+    if (element.style.visibility == "visible" && !this.animatingMenu) {
+      this.animatingMenu = true;
+      this.menuOpen = false;
       element.style.transition = "opacity 0.4s 0.1s, top 0.5s";
       element.style.top = window.outerHeight + "px";
       element.style.opacity = 0;
       window.setTimeout(function () {
         element.style.visibility = "hidden";
-        animatingMenu = false;
+        this.animatingMenu = false;
       }, 500);
-    } else if (element.style.visibility == "hidden" && !animatingMenu) {
-      menuOpen = true;
-      animatingMenu = true;
+    } else if (element.style.visibility == "hidden" && !this.animatingMenu) {
+      this.menuOpen = true;
+      this.animatingMenu = true;
       element.style.top = window.outerHeight + "px";
       element.style.opacity = 0;
       element.style.transition = "opacity 0.4s 0.1s, top 0.5s";
@@ -75,7 +75,7 @@ class App{
       element.style.top = top + "px";
       element.style.opacity = 1;
       window.setTimeout(function () {
-        animatingMenu = false;
+        this.animatingMenu = false;
       }, 500);
     }
   }
@@ -84,10 +84,10 @@ class App{
         box.style.backgroundColor = "var(--green)";
         box.style.borderColor = "var(--green)";
         box.style.color = "white";
-        document.getElementById(guess).style.transition = transition
-        document.getElementById(guess).style.backgroundColor = "var(--green)"
-        document.getElementById(guess).style.borderColor = "var(--green)"
-        document.getElementById(guess).style.color = "white"
+        document.getElementById(this.guess).style.transition = transition
+        document.getElementById(this.guess).style.backgroundColor = "var(--green)"
+        document.getElementById(this.guess).style.borderColor = "var(--green)"
+        document.getElementById(this.guess).style.color = "white"
     }
 
 
@@ -95,11 +95,11 @@ class App{
         box.style.backgroundColor = "var(--yellow)"; 
         box.style.borderColor = "var(--yellow)";
         box.style.color = "white";
-        if (document.getElementById(guess).style.backgroundColor != "var(--green)"){
-            document.getElementById(guess).style.transition = transition
-            document.getElementById(guess).style.backgroundColor = "var(--yellow)"
-            document.getElementById(guess).style.borderColor = "var(--yellow)"
-            document.getElementById(guess).style.color = "white"
+        if (document.getElementById(this.guess).style.backgroundColor != "var(--green)"){
+            document.getElementById(this.guess).style.transition = transition
+            document.getElementById(this.guess).style.backgroundColor = "var(--yellow)"
+            document.getElementById(this.guess).style.borderColor = "var(--yellow)"
+            document.getElementById(this.guess).style.color = "white"
         }
     }
 
@@ -107,12 +107,12 @@ class App{
         box.style.backgroundColor = "var(--darkgrey)";
         box.style.borderColor = "var(--darkgrey)";
         box.style.color = "white";
-        let key = document.getElementById(guess)
+        let key = document.getElementById(this.guess)
         if (key.style.backgroundColor != "var(--green)" || key.style.backgroundColor == "var(--yellow)") {
-            document.getElementById(guess).style.transition = transition
+            document.getElementById(this.guess).style.transition = transition
             key.style.backgroundColor = "var(--darkgrey)"
             key.style.borderColor = "var(--darkgrey)"
-            document.getElementById(guess).style.color = "white"
+            document.getElementById(this.guess).style.color = "white"
         }
     }
 
@@ -120,8 +120,8 @@ class App{
     let del_btn = document.getElementById("clear_row_button");
     let top = parseInt(del_btn.style.top);
     let box;
-    if (target_row != 6) {
-        box = document.getElementById(target);
+    if (this.target_row != 6) {
+        box = document.getElementById(this.target);
     } else {
         box = document.getElementById("letter_box_5_0");
     }
@@ -199,8 +199,8 @@ class App{
     resize() {
         //Changes all the sizes/positions to be acurate with the new window
         let box;
-        if (target_row != 6) {
-          box = document.getElementById(target);
+        if (this.target_row != 6) {
+          box = document.getElementById(this.target);
         } else {
           box = document.getElementById("letter_box_5_3");
         }

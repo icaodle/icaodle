@@ -111,14 +111,14 @@ createTutorialPage() {
       row.id = "row_" + i;
       row.className = "tutorial_box_row";
       let rowCode = rowCodes[i];
-      for (let r = 0; r < 4; r++) {
+      for (let rows = 0; rows < 4; rows++) {
         let elem = document.createElement("div");
-        elem.id = "tutorial_box_"+i+"_" + r;
+        elem.id = "tutorial_box_"+i+"_" + rows;
         elem.className = "tutorial_box";
-        if (r !== currentBox[i]){
+        if (rows !== currentBox[i]){
           elem.classList.add("tutorial_box_blank")
         }
-        elem.textContent = rowCode[r];
+        elem.textContent = rowCode[rows];
         row.append(elem);
       }
       tutorialSub.append(row);
