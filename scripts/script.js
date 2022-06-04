@@ -5,7 +5,7 @@ app.localStorageManager.checkStorage();
 window.onload = app.load.bind(app)
 
 window.onresize = function () {
-  resize();
+  app.resize();
 };
 
 document.addEventListener("keydown", app.keyDown.bind(app));

@@ -55,7 +55,7 @@ class Game{
       } else if (app.allCodes) {
         app.airportHandler.airportArray = app.airportHandler.allCodesArray;
       }
-      let airportCode = airportArray[Math.floor(Math.random() * airportArray.length)];
+      let airportCode = app.airportHandler.airportArray[Math.floor(Math.random() * app.airportHandler.airportArray.length)];
       while (app.usedCodes.includes(airportCode)) {
         airportCode = airportArray[Math.floor(Math.random() * airportArray.length)];
       }
@@ -85,7 +85,7 @@ class Game{
         box.style.transition = ""
         box.style.borderColor = "var(--filledborder)";
         box.style.color = "var(--black)";
-        let new_id = parseInt(target.substring(13))
+        let new_id = parseInt(app.target.substring(13))
         new_id += 1
         if (new_id>=box.parentElement.children.length){
           new_id = box.parentElement.children.length-1
@@ -93,7 +93,7 @@ class Game{
         app.target = "letter_box_"+app.target_row+"_"+new_id
         }
       } else if (key == "DELETE" || key == "Backspace") {
-        let new_id = parseInt(target.substring(13))
+        let new_id = parseInt(app.target.substring(13))
         if (new_id != 3){
         new_id -= 1
         if (new_id<0){
@@ -102,15 +102,15 @@ class Game{
         app.target = "letter_box_"+app.target_row+"_"+new_id
         }else if (new_id == 3 && !qwerty.includes(box.textContent)){
           new_id -= 1
-          target = "letter_box_"+target_row+"_"+new_id
+          app.target = "letter_box_"+app.target_row+"_"+new_id
         }
-        box = document.getElementById(target);
+        box = document.getElementById(app.target);
         box.textContent = "";
         box.style.backgroundColor = "var(--white)";
         box.style.borderColor = "var(--defaultborder)";
         box.style.color = "var(--black)";
       } else if (key == "ENTER" || key == "Enter") {
-        app.feedback(box);
+        app.feedbackHandler.feedback(box);
       }
     }
   }
@@ -121,7 +121,7 @@ class Game{
     let row = document.createElement("div");
     row.id = "letter_row" + children.length;
     row.className = "row";
-    for (r = 0; r < 4; r++) {
+    for (let r = 0; r < 4; r++) {
       let elem = document.createElement("div");
       elem.id = "letter_box" + "_" + children.length + "_" + r;
       elem.className = "box";
@@ -131,11 +131,11 @@ class Game{
   }
 
   createRowDeletion() {
-    let box = document.getElementById(target);
+    let box = document.getElementById(app.target);
     let del = document.createElement("i");
     del.className = "fa-solid fa-delete-left fa-xl";
     del.id = "clear_row_button";
-    del.onclick = this.deleteRow
+    del.onclick = this.deleteRow.bind(this)
     document.body.append(del);
     let top = box.parentElement.offsetHeight + box.parentElement.clientHeight / 2 + del.clientWidth * (3 / 4);
     let left = box.parentElement.lastChild.getBoundingClientRect().left + box.parentElement.lastChild.clientWidth * 1.33;

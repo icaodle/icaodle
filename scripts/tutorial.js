@@ -62,7 +62,7 @@ class Tutorial{
     exitButton.right = "0px";
     tutorialUnflex.append(exitButton);
   
-    exitButton.onclick = this.tutorialExitBtn
+    exitButton.onclick = this.tutorialExitBtn.bind(this)
     let tutorialSpacer = document.createElement("div");
     tutorialSpacer.className = "menu_spacer";
     tutorialSub.append(tutorialSpacer);

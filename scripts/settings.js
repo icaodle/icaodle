@@ -36,7 +36,7 @@ class Settings{
     exitButton.right = "0px";
     settingsUnflex.append(exitButton);
   
-    exitButton.onclick = this.settingsExitBtn
+    exitButton.onclick = this.settingsExitBtn.bind(this)
   
     let settingsSpacer = document.createElement("div");
     settingsSpacer.className = "menu_spacer";
@@ -69,7 +69,7 @@ class Settings{
     slider1Span.className = "slider round";
     slider1.append(slider1Span);
   
-    slider1Input.onclick = this.slider1Input
+    slider1Input.onclick = this.slider1Input.bind(this)
   
     let settingsRow1LeftRow1 = document.createElement("div");
     settingsRow1LeftRow1.className = "settings_row_left_one";
@@ -111,7 +111,7 @@ class Settings{
     slider2Span.className = "slider round";
     slider2.append(slider2Span);
   
-    slider2Input.onclick = this.toggleDarkmode
+    slider2Input.onclick = this.toggleDarkmode.bind(this)
   
     let settingsRow2LeftRow1 = document.createElement("div");
     settingsRow2LeftRow1.className = "settings_row_left_one";
@@ -152,7 +152,7 @@ class Settings{
     slider3Span.className = "slider round";
     slider3.append(slider3Span);
   
-    slider3Input.onclick = this.toggleColorblind
+    slider3Input.onclick = this.toggleColorblind.bind(this)
   
     let settingsRow3LeftRow1 = document.createElement("div");
     settingsRow3LeftRow1.className = "settings_row_left_one";

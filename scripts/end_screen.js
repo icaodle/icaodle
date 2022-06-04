@@ -35,8 +35,8 @@ class EndScreen{
         popUp.firstChild.append(exitButton);
       
         let exitEndScreenButton = document.getElementById("exit_button");
-        exitEndScreenButton.onclick = this.exitEndScreen;
-        overlay.onclick = this.exitEndScreen;
+        exitEndScreenButton.onclick = this.exitEndScreen.bind(this);
+        overlay.onclick = this.exitEndScreen.bind(this);
       
         let spacer0 = document.createElement("div");
         spacer0.className = "spacer";

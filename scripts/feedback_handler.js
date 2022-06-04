@@ -1,6 +1,5 @@
 class FeedbackHandler{
     constructor(){
-
     }
 
     feedback(box) {
@@ -9,11 +8,11 @@ class FeedbackHandler{
             for (let i = 0; i<box.parentElement.children.length;i++){ 
                 guess += box.parentElement.children[i].textContent
             }
-            if (app.airportHandler.airportArray.includes(guess) && guessedCodes.includes(guess) != true){
+            if (app.airportHandler.airportArray.includes(guess) && app.guessedCodes.includes(guess) != true){
                 let fluidAnswer = [];
-                guessedCodes.push(guess)
-                for (i=0; i < app.airportHandler.answer.length; i++) {
-                fluidAnswer.push(answer[i]); 
+                app.guessedCodes.push(guess)
+                for (let i=0; i < app.airportHandler.answer.length; i++) {
+                  fluidAnswer.push(app.airportHandler.answer[i]); 
                 }
                 app.correctCount = 0;
                 for (let i = 0; i<box.parentElement.children.length;i++) {
@@ -54,7 +53,7 @@ class FeedbackHandler{
                 window.localStorage.setItem("updateGraph", "true")
                 }
                 if (app.target_row < box.parentElement.parentElement.children.length && !app.correct){
-                window.setTimeout(game.moveDel, (3000*app.durationModif+1000))
+                window.setTimeout(app.game.moveDel, (3000*app.durationModif+1000))
                 }
                 app.target = "letter_box_"+app.target_row+"_"+0
                 if (app.finished == true) { 
@@ -71,7 +70,7 @@ class FeedbackHandler{
         if (typeof(document.getElementById("error_msg")) == 'undefined' || document.getElementById("error_msg") == null) {
             let error = document.createElement("div")
             error.id = "error_msg"
-            if (guessedCodes.includes(guess)){
+            if (app.guessedCodes.includes(guess)){
                 error.textContent = "Code Already Guessed"
             }else {
                 if (app.airportHandler.airportArray == app.airportHandler.intlCodesArray && app.airportHandler.allCodesArray.includes(guess)){

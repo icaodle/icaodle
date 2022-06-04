@@ -40,18 +40,19 @@ class App{
         this.endScreen = new EndScreen()
         this.keyboard = new Keyboard()
         this.airportHandler = new AirportHandler()
+        this.feedbackHandler = new FeedbackHandler()
         this.game = new Game()
     }
 
   //Onclicks for things that don't get created in JS
   addClicks() {
-    document.getElementById("menu_icon").onclick = app.tutorial.menuIcon
+    document.getElementById("menu_icon").onclick = this.tutorial.menuIcon.bind(this.tutorial)
   
-    document.getElementById("hint_icon").onclick = app.hints.hintIcon
+    document.getElementById("hint_icon").onclick = this.hints.hintIcon.bind(this.hints)
   
-    document.getElementById("settings_icon").onclick = app.settings.settingsIcon
+    document.getElementById("settings_icon").onclick = this.settings.settingsIcon.bind(this.settings)
   
-    document.getElementById("new_airport_icon").onclick = reset
+    document.getElementById("new_airport_icon").onclick = this.game.reset.bind(this.game)
   }
 
   toggleElement(element, top = 0) {
@@ -84,10 +85,10 @@ class App{
         box.style.backgroundColor = "var(--green)";
         box.style.borderColor = "var(--green)";
         box.style.color = "white";
-        document.getElementById(this.guess).style.transition = transition
-        document.getElementById(this.guess).style.backgroundColor = "var(--green)"
-        document.getElementById(this.guess).style.borderColor = "var(--green)"
-        document.getElementById(this.guess).style.color = "white"
+        document.getElementById(guess).style.transition = transition
+        document.getElementById(guess).style.backgroundColor = "var(--green)"
+        document.getElementById(guess).style.borderColor = "var(--green)"
+        document.getElementById(guess).style.color = "white"
     }
 
 
@@ -95,11 +96,11 @@ class App{
         box.style.backgroundColor = "var(--yellow)"; 
         box.style.borderColor = "var(--yellow)";
         box.style.color = "white";
-        if (document.getElementById(this.guess).style.backgroundColor != "var(--green)"){
-            document.getElementById(this.guess).style.transition = transition
-            document.getElementById(this.guess).style.backgroundColor = "var(--yellow)"
-            document.getElementById(this.guess).style.borderColor = "var(--yellow)"
-            document.getElementById(this.guess).style.color = "white"
+        if (document.getElementById(guess).style.backgroundColor != "var(--green)"){
+            document.getElementById(guess).style.transition = transition
+            document.getElementById(guess).style.backgroundColor = "var(--yellow)"
+            document.getElementById(guess).style.borderColor = "var(--yellow)"
+            document.getElementById(guess).style.color = "white"
         }
     }
 
@@ -107,12 +108,12 @@ class App{
         box.style.backgroundColor = "var(--darkgrey)";
         box.style.borderColor = "var(--darkgrey)";
         box.style.color = "white";
-        let key = document.getElementById(this.guess)
+        let key = document.getElementById(guess)
         if (key.style.backgroundColor != "var(--green)" || key.style.backgroundColor == "var(--yellow)") {
-            document.getElementById(this.guess).style.transition = transition
+            document.getElementById(guess).style.transition = transition
             key.style.backgroundColor = "var(--darkgrey)"
             key.style.borderColor = "var(--darkgrey)"
-            document.getElementById(this.guess).style.color = "white"
+            document.getElementById(guess).style.color = "white"
         }
     }
 
@@ -125,9 +126,7 @@ class App{
     } else {
         box = document.getElementById("letter_box_5_0");
     }
-    top +=
-        box.parentElement.parentElement.clientHeight /
-        box.parentElement.parentElement.children.length;
+    top += box.parentElement.parentElement.clientHeight / box.parentElement.parentElement.children.length;
     del_btn.style.transition = "top 0.1s linear";
     del_btn.style.top = top + "px";
     }
@@ -163,11 +162,11 @@ class App{
         } else {
           key = keyCode;
         }
-        renderLetter(key);
+        this.game.renderLetter(key);
     }
 
     createKeyboard() {
-        for (i = 0; i < 3; i++) {
+        for (let i = 0; i < 3; i++) {
           let container = document.getElementById("keyboard_container");
           let row = document.createElement("div");
           row.id = "keyboard_row" + container.length;
@@ -189,7 +188,7 @@ class App{
             } else {
               key.className = "key";
             }
-            key.onclick,key.ontouch = app.keyboard.key;
+            key.onclick,key.ontouch = this.keyboard.key.bind(this.keyboard);
             row.append(key);
           }
           container.append(row);
@@ -342,7 +341,7 @@ class App{
             this.game.createRow();
           }
         this.game.createRowDeletion();
-        this.game.createKeyboard();
+        this.createKeyboard();
         this.resize();
         this.settings.setViewMode();
         this.localStorageManager.checkStorage();
