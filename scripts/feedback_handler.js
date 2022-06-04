@@ -9,30 +9,30 @@ class FeedbackHandler{
             for (let i = 0; i<box.parentElement.children.length;i++){ 
                 guess += box.parentElement.children[i].textContent
             }
-            if (airportArray.includes(guess) && guessedCodes.includes(guess) != true){
+            if (app.airportHandler.airportArray.includes(guess) && guessedCodes.includes(guess) != true){
                 let fluidAnswer = [];
                 guessedCodes.push(guess)
-                for (i=0; i < answer.length; i++) {
+                for (i=0; i < app.airportHandler.answer.length; i++) {
                 fluidAnswer.push(answer[i]); 
                 }
-                correctCount = 0;
+                app.correctCount = 0;
                 for (let i = 0; i<box.parentElement.children.length;i++) {
-            box.parentElement.children[i].style.transition = "transform " + (i*durationModif+1) + "s ease-in-out, background-color 0.2s " + (i*durationModif+0.8) + "s, border-color 0.2s " + (i*durationModif+0.8) + "s, color 0.2s " + (i*durationModif+0.8) + "s"
+            box.parentElement.children[i].style.transition = "transform " + (i*app.durationModif+1) + "s ease-in-out, background-color 0.2s " + (i*app.durationModif+0.8) + "s, border-color 0.2s " + (i*app.durationModif+0.8) + "s, color 0.2s " + (i*app.durationModif+0.8) + "s"
             box.parentElement.children[i].style.transform = "rotate3d(1,0,0,"+ (Math.round((i+3)*360))+"deg)"
-            if (!animatingBox){
-              animatingBox = true
-              window.setTimeout(function(){animatingBox = false},(3000*durationModif+1000))
+            if (!app.animatingBox){
+              app.animatingBox = true
+              window.setTimeout(function(){app.animatingBox = false},(3000*app.durationModif+1000))
             }
             let guess = box.parentElement.children[i].textContent;
-            let transition = "background-color 0.2s " + (3*durationModif+1.1) + "s, border-color 0.2s "+(3*durationModif+1.1)+"s, color 0.2s "+(3*durationModif+1.1)+"s"
+            let transition = "background-color 0.2s " + (3*app.durationModif+1.1) + "s, border-color 0.2s "+(3*app.durationModif+1.1)+"s, color 0.2s "+(3*app.durationModif+1.1)+"s"
             if (guess == fluidAnswer[i]) {
-              turnGreen(box.parentElement.children[i], guess, transition);
+              app.turnGreen(box.parentElement.children[i], guess, transition);
               fluidAnswer[i] = "";
-              correctCount += 1;
+              app.correctCount += 1;
             } else if (guess != fluidAnswer[i] && fluidAnswer.includes(guess) == true) {
               let location = fluidAnswer.indexOf(guess); 
               if (box.parentElement.children[location].textContent != fluidAnswer[location]){
-                turnYellow(box.parentElement.children[i], guess, transition);
+                app.turnYellow(box.parentElement.children[i], guess, transition);
                 fluidAnswer[location] = "";
               } else {
                 box.parentElement.children[i].style.backgroundColor = "var(--darkgrey)";
@@ -40,29 +40,29 @@ class FeedbackHandler{
                 box.parentElement.children[i].style.color = "white";
               }
             } else if (fluidAnswer.includes(guess) == false) {
-              turnGrey(box.parentElement.children[i], guess, transition);
+              app.turnGrey(box.parentElement.children[i], guess, transition);
             }
                 }
-                target_row += 1
-                if (target_row == box.parentElement.parentElement.children.length || correctCount == 4) { 
-                finished = true;
+                app.target_row += 1
+                if (app.target_row == box.parentElement.parentElement.children.length || app.correctCount == 4) { 
+                app.finished = true;
                 }
-                if (target_row == 6 && correctCount != 4) {
-                correct = false;
-                } else if (correctCount == 4) {
-                correct = true;
+                if (app.target_row == 6 && app.correctCount != 4) {
+                app.correct = false;
+                } else if (app.correctCount == 4) {
+                app.correct = true;
                 window.localStorage.setItem("updateGraph", "true")
                 }
-                if (target_row < box.parentElement.parentElement.children.length && correct == false){
-                window.setTimeout(moveDel, (3000*durationModif+1000))
+                if (app.target_row < box.parentElement.parentElement.children.length && !app.correct){
+                window.setTimeout(game.moveDel, (3000*app.durationModif+1000))
                 }
-                target = "letter_box_"+target_row+"_"+0
-                if (finished == true) { 
-                app.localStorageManager.updateStats(target_row,correct)
-                timer = window.setTimeout(app.endScreen.endScreen, 3000*durationModif+1100)
+                app.target = "letter_box_"+app.target_row+"_"+0
+                if (app.finished == true) { 
+                  app.localStorageManager.updateStats(app.target_row,app.correct)
+                  window.setTimeout(app.endScreen.endScreen, 3000*app.durationModif+1100)
                 }
             } else {
-                throwError(guess);
+                this.throwError(guess);
             }
         }
     }
@@ -74,7 +74,7 @@ class FeedbackHandler{
             if (guessedCodes.includes(guess)){
                 error.textContent = "Code Already Guessed"
             }else {
-                if (airportArray == intlCodesArray && allCodesArray.includes(guess)){
+                if (app.airportHandler.airportArray == app.airportHandler.intlCodesArray && app.airportHandler.allCodesArray.includes(guess)){
                 error.textContent = "Only intl. codes allowed. See settings to change."
                 }else {
                 error.textContent = "Invalid/Missing ICAO Code"

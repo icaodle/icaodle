@@ -209,18 +209,15 @@ class App{
         //Message for not a real code
         let codeMsg = document.getElementById("error_msg");
         if (codeMsg != null || codeMsg != undefined) {
-          codeMsg.style.left =
-            document.body.clientWidth / 2 - error.clientWidth / 2 + "px";
+          codeMsg.style.left = document.body.clientWidth / 2 - error.clientWidth / 2 + "px";
           codeMsg.style.top = line.offsetHeight * 1.1 + "px";
         }
       
         //Stats/End Screen
         let popUp = document.getElementById("pop_up_id");
         if (popUp != null || popUp != undefined) {
-          popUp.style.left =
-            document.body.clientWidth / 2 - popUp.clientWidth / 2 + "px";
-          popUp.style.top =
-            document.body.clientHeight / 2 - popUp.clientHeight / 2 + "px";
+          popUp.style.left = document.body.clientWidth / 2 - popUp.clientWidth / 2 + "px";
+          popUp.style.top = document.body.clientHeight / 2 - popUp.clientHeight / 2 + "px";
         }
       
         let tutorialPopUp = document.getElementById("tutorial_pop_up_id");
@@ -235,28 +232,19 @@ class App{
       
         let elevationIcon = document.getElementById("elev_icon");
         if (elevationIcon != null || elevationIcon != undefined) {
-          let width =
-            ((elevationIcon.parentElement.clientWidth - elevationIcon.clientWidth) /
-              elevationIcon.parentElement.clientWidth) *
-            50;
+          let width = ((elevationIcon.parentElement.clientWidth - elevationIcon.clientWidth) / elevationIcon.parentElement.clientWidth) * 50;
           elevationIcon.style.left = width + "%";
         }
       
         let countryIcon = document.getElementById("country_icon");
         if (countryIcon != null || countryIcon != undefined) {
-          let width =
-            ((countryIcon.parentElement.clientWidth - countryIcon.clientWidth) /
-              countryIcon.parentElement.clientWidth) *
-            50;
+          let width = ((countryIcon.parentElement.clientWidth - countryIcon.clientWidth) / countryIcon.parentElement.clientWidth) * 50;
           countryIcon.style.left = width + "%";
         }
       
         let cityIcon = document.getElementById("city_icon");
         if (cityIcon != null || cityIcon != undefined) {
-          let width =
-            ((cityIcon.parentElement.clientWidth - cityIcon.clientWidth) /
-              cityIcon.parentElement.clientWidth) *
-            50;
+          let width = ((cityIcon.parentElement.clientWidth - cityIcon.clientWidth) / cityIcon.parentElement.clientWidth) * 50;
           cityIcon.style.left = width + "%";
         }
       
@@ -268,8 +256,7 @@ class App{
             let key = row.children[x];
             key.style.height = "84.4%";
             key.style.fontSize = key.clientHeight / 3.6 + "px";
-            key.style.paddingLeft =
-              key.clientHeight - parseInt(Math.sqrt(key.style.fontSize)) + "px";
+            key.style.paddingLeft = key.clientHeight - parseInt(Math.sqrt(key.style.fontSize)) + "px";
             key.style.paddingRight = key.style.paddingLeft;
             key.style.paddingTop = parseInt(key.style.paddingLeft) / 5 + "px";
             key.style.paddingBottom = key.style.paddingTop;
@@ -320,7 +307,7 @@ class App{
         menu.style.left = document.body.clientWidth / 2 - menu.clientWidth / 2 + "px";
         if (
           document.getElementById("settings_footer").offsetTop <
-          document.getElementById("last_line_aka_franks_special").offsetTop
+          document.getElementById("last_line").offsetTop
         ) {
           document.getElementById("settings_footer").style.visibility = "hidden";
         }

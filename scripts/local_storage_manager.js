@@ -3,12 +3,10 @@ class LSM{
 
     }
 
-    //When you end a game, local storage stuff updates
-
     updateStats(last_row, correct) {
         this.checkStorage();
       
-        if (correct) {
+        if (app.correct) {
           let wins = JSON.parse(window.localStorage.getItem("Wins"));
           wins += 1;
           window.localStorage.setItem("Wins", JSON.stringify(wins));

@@ -45,17 +45,17 @@ class EndScreen{
         if (finished == true) {
           let airportTitle = document.createElement("a");
           airportTitle.className = "pop_up_grand_title";
-          if (airportLink != "" && airportHomeLink != "") {
-            airportTitle.href = airportLink;
+          if (app.airportHandler.airportLink != "" && app.airportHandler.airportHomeLink != "") {
+            airportTitle.href = app.airportHandler.airportLink;
             airportTitle.target = "_blank";
-          } else if (airportLink == "" && airportHomeLink != "") {
-            airportTitle.href = airportHomeLink;
+          } else if (app.airportHandler.airportLink == "" && app.airportHandler.airportHomeLink != "") {
+            airportTitle.href = app.airportHandler.airportHomeLink;
             airportTitle.target = "_blank";
-          } else if (airportLink != "" && airportHomeLink == "") {
-            airportTitle.href = airportLink;
+          } else if (app.airportHandler.airportLink != "" && app.airportHandler.airportHomeLink == "") {
+            airportTitle.href = app.airportHandler.airportLink;
             airportTitle.target = "_blank";
           }
-          airportTitle.textContent = airportName + " (" + airportCode + ")";
+          airportTitle.textContent = app.airportHandler.airportName + " (" + app.airportHandler.airportCode + ")";
           popUp.append(airportTitle);
       
           let airportContainer = document.createElement("div");
@@ -76,28 +76,28 @@ class EndScreen{
       
           let airportElevationContainer = document.createElement("div");
           airportElevationContainer.className = "airport_details";
-          if (airportElevation == "" || airportElevation == null) {
+          if (app.airportHandler.airportElevation == "" || airportElevation == null) {
             airportElevationContainer.textContent = "[Missing]";
           } else {
-            airportElevationContainer.textContent = airportElevation + "ft";
+            airportElevationContainer.textContent = app.airportHandler.airportElevation + "ft";
           }
           airportContainerLeft.appendChild(airportElevationContainer);
       
           let airportCityContainer = document.createElement("div");
           airportCityContainer.className = "airport_details";
-          if (airportCity == "" || airportCity == null) {
+          if (app.airportHandler.airportCity == "" || app.airportHandler.airportCity == null) {
             airportCityContainer.textContent = "[Missing]";
           } else {
-            airportCityContainer.textContent = airportCity;
+            airportCityContainer.textContent = app.airportHandler.airportCity;
           }
           airportContainerMid.appendChild(airportCityContainer);
       
           let airportCountryContainer = document.createElement("div");
           airportCountryContainer.className = "airport_details";
-          if (airportCountry == "" || airportCountry == null) {
+          if (app.airportHandler.airportCountry == "" || app.airportHandler.airportCountry == null) {
             airportCountryContainer.textContent = "[Missing]";
           } else {
-            airportCountryContainer.textContent = airportCountry;
+            airportCountryContainer.textContent = app.airportHandler.airportCountry;
           }
           airportContainerRight.appendChild(airportCountryContainer);
       
@@ -168,11 +168,7 @@ class EndScreen{
       
         let innerLeftStatsField = document.createElement("div");
         innerLeftStatsField.className = "stats_field";
-        let win_percent = Math.round(
-          (parseInt(window.localStorage.getItem("Wins")) /
-            parseInt(window.localStorage.getItem("Games"))) *
-            100
-        ).toString();
+        let win_percent = Math.round((parseInt(window.localStorage.getItem("Wins")) / parseInt(window.localStorage.getItem("Games"))) * 100).toString();
         if (win_percent == "NaN") {
           win_percent = "N/A";
         }
@@ -233,7 +229,7 @@ class EndScreen{
         popUp.append(guessContainer);
       
         this.barGraphCreate();
-        toggleElement(popUp, document.body.clientHeight / 2 - popUp.clientHeight / 2);
+        app.toggleElement(popUp, document.body.clientHeight / 2 - popUp.clientHeight / 2);
         isEndScreenOpen = true;
       }
       
@@ -241,11 +237,11 @@ class EndScreen{
         let popUpContainer = document.getElementById("pop_up_id");
         let overlay = document.getElementById("overlay_id");
         popUpContainer.style.visibility = "visible";
-        toggleElement(popUpContainer);
+        app.toggleElement(popUpContainer);
         window.setTimeout(function () {
           popUpContainer.remove();
           overlay.remove();
-          isEndScreenOpen = false;
+          app.isEndScreenOpen = false;
         }, 500);
       }
   
@@ -267,7 +263,7 @@ class EndScreen{
           barContainer.append(barNumber);
           let bar = document.createElement("div");
           bar.className = "bar_graph_bar";
-          if (i + 1 == target_row && correct) {
+          if (i + 1 == app.target_row && app.correct) {
             bar.style.backgroundColor = "var(--green)";
           }
           bar.id = "bar" + (i + 1).toString();

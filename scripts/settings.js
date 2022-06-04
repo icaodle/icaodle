@@ -36,7 +36,7 @@ class Settings{
     exitButton.right = "0px";
     settingsUnflex.append(exitButton);
   
-    exitButton.onclick = app.settings.settingsExitBtn
+    exitButton.onclick = this.settingsExitBtn
   
     let settingsSpacer = document.createElement("div");
     settingsSpacer.className = "menu_spacer";
@@ -69,7 +69,7 @@ class Settings{
     slider1Span.className = "slider round";
     slider1.append(slider1Span);
   
-    slider1Input.onclick = app.settings.slider1Input
+    slider1Input.onclick = this.slider1Input
   
     let settingsRow1LeftRow1 = document.createElement("div");
     settingsRow1LeftRow1.className = "settings_row_left_one";
@@ -190,7 +190,7 @@ class Settings{
   
     let line4 = document.createElement("div");
     line4.className = "menu_line";
-    line4.id = "last_line_aka_franks_special";
+    line4.id = "last_line";
     settingsSub.append(line4);
   
     let settingsFooter = document.createElement("div");
@@ -209,7 +209,7 @@ class Settings{
 }
 
   settingsExitBtn(){
-    toggleElement(document.getElementById("settings_container"));
+    app.toggleElement(document.getElementById("settings_container"));
   }
 
   slider1Input(){
@@ -217,19 +217,19 @@ class Settings{
       window.localStorage.setItem("onlyInternationalCodes", "true");
       intlCodes = true;
       if (target_row == 0) {
-        reset(true);
+        app.reset(true);
       }
     } else {
       window.localStorage.setItem("onlyInternationalCodes", "false");
       allCodes = true;
       if (target_row == 0) {
-        reset(true);
+        app.reset(true);
       }
     }
   }
 
   settingsIcon(){
-    toggleElement(document.getElementById("settings_container"));
+    app.toggleElement(document.getElementById("settings_container"));
   }
   
   toggleColorblind() {
