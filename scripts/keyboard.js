@@ -4,6 +4,6 @@ class Keyboard{
     }
 
     key(){
-        game.renderLetter(event.target.id);
+        app.game.renderLetter(event.target.id);
     }
 }

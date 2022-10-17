@@ -53,7 +53,7 @@ class FeedbackHandler{
                 window.localStorage.setItem("updateGraph", "true")
                 }
                 if (app.target_row < box.parentElement.parentElement.children.length && !app.correct){
-                window.setTimeout(app.game.moveDel, (3000*app.durationModif+1000))
+                window.setTimeout(app.moveDel.bind(app), (3000*app.durationModif+1000))
                 }
                 app.target = "letter_box_"+app.target_row+"_"+0
                 if (app.finished == true) { 

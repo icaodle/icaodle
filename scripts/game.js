@@ -3,7 +3,8 @@ class Game{
 
   }
 
-  reset(instant = false) {
+  reset(instantReset = false) {
+    console.log(instantReset)
     if (!app.animatingBox && !app.animatingMenu) {
       let box_cont = document.getElementById("letter_box_container");
       app.animatingBox = true;
@@ -11,13 +12,16 @@ class Game{
         let row = box_cont.children[i];
         for (let h = 0; h < row.children.length; h++) {
           let box = row.children[h];
-          if (instant) {
+          if (instantReset) {
             box.style.transition = "";
             app.animatingBox = false;
+            box.style.backgroundColor = "var(--white)";
+            box.style.borderColor = "var(--defaultborder)";
           }
           box.style.transform = "rotate3d(1,0,0,0deg)";
-          if (!instant) {
+          if (!instantReset) {
             window.setTimeout(function () {
+              console.log(h)
               box.textContent = "";
               if (h == 3) {
                 app.animatingBox = false;
@@ -149,7 +153,7 @@ class Game{
       for (let i = 0; i < box.parentElement.children.length; i++) {
         box.parentElement.children[i].textContent = "";
         box.parentElement.children[i].style.backgroundColor = "var(--white)";
-        box.parentElement.children[i].style.borderColor = "var(--lightgrey)";
+        box.parentElement.children[i].style.borderColor = "var(--defaultborder)";
         box.parentElement.children[i].style.color = "black";
       }
       app.target = "letter_box_" + app.target_row + "_0";

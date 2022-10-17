@@ -51,7 +51,7 @@ class App{
   
     document.getElementById("settings_icon").onclick = this.settings.settingsIcon.bind(this.settings)
   
-    document.getElementById("new_airport_icon").onclick = this.game.reset.bind(this.game)
+    document.getElementById("new_airport_icon").onclick = function(){app.game.reset()}
 
     document.getElementById("stats_icon").onclick = this.endScreen.endScreen.bind(this.endScreen)
   }
@@ -141,9 +141,7 @@ class App{
           keyCode != "Enter" &&
           keyCode != "Backspace" &&
           keyCode != "Backquote" &&
-          keyCode != "Equal" &&
-          keyCode != "Backslash" &&
-          keyCode != "BracketRight"
+          keyCode != "Equal"
         ) {
           let keyArray = keyCode.split("Key");
           key = keyArray[1];
@@ -152,16 +150,6 @@ class App{
           JSON.parse(window.localStorage.getItem("isDev"))
         ) {
           dev.superTopSecretMethod();
-        } else if (
-          keyCode == "Backslash" &&
-          JSON.parse(window.localStorage.getItem("isDev"))
-        ) {
-          toggleColorblind();
-        } else if (
-          keyCode == "BracketRight" &&
-          JSON.parse(window.localStorage.getItem("isDev"))
-        ) {
-          toggleDarkmode();
         } else {
           key = keyCode;
         }
@@ -191,7 +179,7 @@ class App{
             } else {
               key.className = "key";
             }
-            key.onclick,key.ontouch = this.keyboard.key.bind(this.keyboard);
+            key.onclick = this.keyboard.key.bind(this.keyboard);
             row.append(key);
           }
           container.append(row);
