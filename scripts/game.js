@@ -4,7 +4,6 @@ class Game{
   }
 
   reset(instantReset = false) {
-    console.log(instantReset)
     if (!app.animatingBox && !app.animatingMenu) {
       let box_cont = document.getElementById("letter_box_container");
       app.animatingBox = true;
@@ -21,7 +20,6 @@ class Game{
           box.style.transform = "rotate3d(1,0,0,0deg)";
           if (!instantReset) {
             window.setTimeout(function () {
-              console.log(h)
               box.textContent = "";
               if (h == 3) {
                 app.animatingBox = false;
