@@ -1,6 +1,6 @@
 class App {
   constructor() {
-    this.icaodleVersion = "v1.1.0";
+    this.icaodleVersion = "v1.1.1";
 
     this.target = "letter_box_0_0";
     this.target_row = 0;
