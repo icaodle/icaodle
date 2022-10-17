@@ -139,7 +139,9 @@ class Hints{
     
             app.hasOpenedElev = true;
             let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-            hints += 1;
+            if (!app.finished){
+              hints += 1;
+            }
             window.localStorage.setItem("Hints_Used", hints.toString());
             document.getElementById("country_icon").style.color = "var(--black)";
             document.getElementById("country_icon").style.cursor = "pointer";
@@ -155,7 +157,9 @@ class Hints{
         if (countryDropdown.style.visibility == "hidden" && app.hasOpenedElev) {
             app.hasOpenedCountry = true;
             let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-            hints += 1;
+            if (!app.finished){
+              hints += 1;
+            }
             window.localStorage.setItem("Hints_Used", hints.toString());
             document.getElementById("city_icon").style.color = "var(--black)";
             document.getElementById("city_icon").style.cursor = "pointer";
@@ -171,7 +175,9 @@ class Hints{
         if (cityDropdown.style.visibility == "hidden" && app.hasOpenedElev && app.hasOpenedCountry) {
             app.hasOpenedCity = true;
             let hints = JSON.parse(window.localStorage.getItem("Hints_Used"));
-            hints += 1;
+            if (!app.finished){
+              hints += 1;
+            }
             window.localStorage.setItem("Hints_Used", hints.toString());
             cityDropdown.style.visibility = "visible";
             cityHider.style.visibility = "visible";

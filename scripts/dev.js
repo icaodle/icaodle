@@ -2,13 +2,12 @@ class Dev{
     constructor(){
         
     }
-    
-    // Does super top secret dev stuff (answer key).
+
     superTopSecretMethod() {
         if (typeof document.getElementById("secret_code") == "undefined" || document.getElementById("secret_code") == null) {
           let error = document.createElement("div");
           error.id = "error_msg";
-          error.textContent = airportCode;
+          error.textContent = app.airportHandler.airportCode;
           error.style.top = document.getElementById("main_container").offsetTop * 1.25 + "px";
           error.style.opacity = 1;
           document.body.append(error);

@@ -1,3 +1,5 @@
+//Currently hardcoded to refer to app.endScreen.whatever not this.whatever
+
 class EndScreen{
     constructor(){
         
@@ -14,6 +16,7 @@ class EndScreen{
         popUp.className = "pop_up";
         popUp.id = "pop_up_id";
         popUp.style.visibility = "hidden";
+        popUp.open = false
         overlay.className = "overlay";
         overlay.id = "overlay_id";
         document.body.append(overlay);
@@ -35,14 +38,14 @@ class EndScreen{
         popUp.firstChild.append(exitButton);
       
         let exitEndScreenButton = document.getElementById("exit_button");
-        exitEndScreenButton.onclick = this.exitEndScreen.bind(this);
-        overlay.onclick = this.exitEndScreen.bind(this);
+        exitEndScreenButton.onclick = app.endScreen.exitEndScreen//.bind(this);  <----
+        overlay.onclick = app.endScreen.exitEndScreen//.bind(this);  <----
       
         let spacer0 = document.createElement("div");
         spacer0.className = "spacer";
         popUp.append(spacer0);
       
-        if (finished == true) {
+        if (app.finished == true) {
           let airportTitle = document.createElement("a");
           airportTitle.className = "pop_up_grand_title";
           if (app.airportHandler.airportLink != "" && app.airportHandler.airportHomeLink != "") {
@@ -76,7 +79,7 @@ class EndScreen{
       
           let airportElevationContainer = document.createElement("div");
           airportElevationContainer.className = "airport_details";
-          if (app.airportHandler.airportElevation == "" || airportElevation == null) {
+          if (app.airportHandler.airportElevation == "" || app.airportHandler.airportElevation == null) {
             airportElevationContainer.textContent = "[Missing]";
           } else {
             airportElevationContainer.textContent = app.airportHandler.airportElevation + "ft";
@@ -228,9 +231,9 @@ class EndScreen{
         guessContainer.id = "guess_container";
         popUp.append(guessContainer);
       
-        this.barGraphCreate();
+        app.endScreen.barGraphCreate(); // <----
         app.toggleElement(popUp, document.body.clientHeight / 2 - popUp.clientHeight / 2);
-        isEndScreenOpen = true;
+        app.isEndScreenOpen = true;
       }
       
       exitEndScreen() {

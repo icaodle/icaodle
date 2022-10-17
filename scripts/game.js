@@ -52,7 +52,7 @@ class Game{
       app.usedCodes.push(app.airportHandler.airportCode);
       if (app.intlCodes) {
         app.airportHandler.airportArray = app.airportHandler.intlCodesArray;
-      } else if (app.allCodes) {
+      } else {
         app.airportHandler.airportArray = app.airportHandler.allCodesArray;
       }
       let airportCode = app.airportHandler.airportArray[Math.floor(Math.random() * app.airportHandler.airportArray.length)];

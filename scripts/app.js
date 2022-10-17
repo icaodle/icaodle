@@ -15,7 +15,6 @@ class App{
         this.hasOpenedElev = false;
         this.hasOpenedCountry = false;
         this.hasOpenedCity = false;
-        this.allCodes = false;
         this.intlCodes = false;
         this.menuOpen = false;
 
@@ -53,22 +52,26 @@ class App{
     document.getElementById("settings_icon").onclick = this.settings.settingsIcon.bind(this.settings)
   
     document.getElementById("new_airport_icon").onclick = this.game.reset.bind(this.game)
+
+    document.getElementById("stats_icon").onclick = this.endScreen.endScreen.bind(this.endScreen)
   }
 
   toggleElement(element, top = 0) {
-    if (element.style.visibility == "visible" && !this.animatingMenu) {
+    if (element.open && !this.animatingMenu) {
       this.animatingMenu = true;
       this.menuOpen = false;
+      element.open = false
       element.style.transition = "opacity 0.4s 0.1s, top 0.5s";
       element.style.top = window.outerHeight + "px";
       element.style.opacity = 0;
       window.setTimeout(function () {
         element.style.visibility = "hidden";
-        this.animatingMenu = false;
+        app.animatingMenu = false;
       }, 500);
-    } else if (element.style.visibility == "hidden" && !this.animatingMenu) {
+    } else if (!element.open && !this.animatingMenu) {
       this.menuOpen = true;
       this.animatingMenu = true;
+      element.open = true
       element.style.top = window.outerHeight + "px";
       element.style.opacity = 0;
       element.style.transition = "opacity 0.4s 0.1s, top 0.5s";
@@ -76,7 +79,7 @@ class App{
       element.style.top = top + "px";
       element.style.opacity = 1;
       window.setTimeout(function () {
-        this.animatingMenu = false;
+        app.animatingMenu = false;
       }, 500);
     }
   }

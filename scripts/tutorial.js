@@ -35,6 +35,7 @@ class Tutorial{
     tutorialContainer.style.visibility = "hidden";
     tutorialContainer.style.top = window.outerWidth + "px";
     tutorialContainer.style.opacity = 0;
+    tutorialContainer.open = false
     body.append(tutorialContainer);
   
     let tutorialUnflex = document.createElement("div");

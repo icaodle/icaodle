@@ -9,6 +9,7 @@ class Settings{
     settingsContainer.style.visibility = "hidden";
     settingsContainer.style.top = window.outerWidth + "px";
     settingsContainer.style.opacity = 0;
+    settingsContainer.open = false
     body.append(settingsContainer);
   
     let settingsUnflex = document.createElement("div");
@@ -120,7 +121,7 @@ class Settings{
   
     let settingsRow2LeftRow2 = document.createElement("div");
     settingsRow2LeftRow2.className = "settings_row_left_two";
-    settingsRow2LeftRow2.textContent = "For night owls.";
+    settingsRow2LeftRow2.textContent = ""/*"For night owls."*/;
     settingsRow2Left.append(settingsRow2LeftRow2);
   
     let line2 = document.createElement("div");
@@ -161,7 +162,7 @@ class Settings{
   
     let settingsRow3LeftRow2 = document.createElement("div");
     settingsRow3LeftRow2.className = "settings_row_left_two";
-    settingsRow3LeftRow2.textContent = "For improved color vision.";
+    settingsRow3LeftRow2.textContent = ""/*"For improved color vision."*/;
     settingsRow3Left.append(settingsRow3LeftRow2);
   
     let line3 = document.createElement("div");
@@ -215,15 +216,15 @@ class Settings{
   slider1Input(){
     if (localStorage.getItem("onlyInternationalCodes") == "false") {
       window.localStorage.setItem("onlyInternationalCodes", "true");
-      intlCodes = true;
-      if (target_row == 0) {
-        app.reset(true);
+      app.intlCodes = true;
+      if (app.target_row == 0) {
+        app.game.reset(true);
       }
     } else {
       window.localStorage.setItem("onlyInternationalCodes", "false");
-      allCodes = true;
-      if (target_row == 0) {
-        app.reset(true);
+      app.intlCodes = false;
+      if (app.target_row == 0) {
+        app.game.reset(true);
       }
     }
   }
