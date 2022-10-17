@@ -121,7 +121,7 @@ class Settings{
   
     let settingsRow2LeftRow2 = document.createElement("div");
     settingsRow2LeftRow2.className = "settings_row_left_two";
-    settingsRow2LeftRow2.textContent = ""/*"For night owls."*/;
+    settingsRow2LeftRow2.textContent = "For night owls.";
     settingsRow2Left.append(settingsRow2LeftRow2);
   
     let line2 = document.createElement("div");
@@ -162,7 +162,7 @@ class Settings{
   
     let settingsRow3LeftRow2 = document.createElement("div");
     settingsRow3LeftRow2.className = "settings_row_left_two";
-    settingsRow3LeftRow2.textContent = ""/*"For improved color vision."*/;
+    settingsRow3LeftRow2.textContent = "For improved color vision.";
     settingsRow3Left.append(settingsRow3LeftRow2);
   
     let line3 = document.createElement("div");
