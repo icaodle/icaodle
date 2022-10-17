@@ -1,3 +1,4 @@
+/*Main*/
 :root {
   --black: black;
   --white: white;
@@ -16,7 +17,7 @@
 
 .darkmode {
   --black: white;
-  --white: #23272a; /*improve darkmode*/
+  --white: #23272a;
   --lightgrey: #818384;
   --darkgrey: #3a3a3c;
   --boxborder: #3a3a3c;
@@ -49,13 +50,22 @@ html {
   user-select: none;
 }
 
+p {
+  font-family: "Rubik", sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  left: 0px;
+}
+
+
+/*Top menu bar*/
+
 .menu {
   display: flex;
   flex-direction: row;
   text-align: center;
   font-family: "Merriweather", serif;
   line-height: 0px;
-  /*cursor: pointer;*/
   align-items: center;
   color: var(--black);
 }
@@ -100,11 +110,6 @@ html {
   cursor: pointer;
 }
 
-#location_icon {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
 .title {
   text-align: center;
   text-indent: 15px;
@@ -124,6 +129,9 @@ html {
   background-color: var(--boxborder);
   z-index: -4;
 }
+
+
+/*Boxes and Keyboard*/
 
 #main_container {
   padding-top: 50px;
@@ -169,7 +177,6 @@ html {
   align-items: left;
   margin: 4px;
   margin-left: 0px;
-  /*width: 100%;*/
 }
 
 .keyboard_row {
@@ -197,24 +204,6 @@ html {
   background-color: var(--white);
   color: var(--black);
   transition: transform 1.9s ease-in-out;
-}
-
-.tutorial_box {
-  height: 40px;
-  width: 40px;
-  /*max-height: 120px;
-  max-width: 120px;*/
-  border: 3px solid var(--boxborder);
-  border-radius: 2px;
-  margin: 5px;
-  text-align: center;
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  font-size: 200%;
-  line-height: 40px;
-  background-color: var(--white);
-  color: var(--black);
-  /*transition: transform 1.9s ease-in-out;*/
 }
 
 .key {
@@ -270,6 +259,22 @@ html {
   transform-origin: left top;
   color: var(--clearbutton);
 }
+
+#error_msg {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  border-radius: 5px;
+  background-color: var(--black);
+  color: var(--white);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+/*End Screen*/
 
 .pop_up {
   position: absolute;
@@ -456,84 +461,6 @@ a:active {
   cursor: pointer;
 }
 
-/*.settings_exit_div {
-  position: relative;
-  top: 20px;
-  width: 95%;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-}*/
-
-#settings_exit_button {
-  cursor: pointer;
-  color: var(--black);
-}
-
-/*.tutorial_exit_div {
-  position: relative;
-  top: 20px;
-  width: 95%;
-  height: 20px;
-  display: flex;
-  flex-direction: row;
-}*/
-
-#tutorial_exit_button {
-  cursor: pointer;
-  color: var(--black);
-  position: absolute;
-  right: 0px;
-  top: 25px;
-}
-
-#hint_dropdown_id {
-  position: absolute;
-  left: 40px;
-  top: 10px;
-  width: 28px;
-  height: 28px;
-  border: 2px solid var(--black);
-  border-radius: 10px;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  visibility: visible;
-  transition: height 1s;
-  color: var(--black);
-}
-
-#not_a_code_msg {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  position: absolute;
-  border-radius: 5px;
-  background-color: var(--black);
-  color: var(--white);
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-#secret_code {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  position: absolute;
-  border-radius: 5px;
-  background-color: var(--black);
-  color: var(--white);
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.dropdownButton {
-  position: absolute;
-  cursor: pointer;
-}
-
 .bar_graph_bar_container {
   display: flex;
   flex-direction: row;
@@ -560,31 +487,49 @@ a:active {
   padding-left: 3px;
   min-width: 10px;
   width: 1px;
-  /*padding-right: 5px;
-  margin-top: 5px;*/
   padding-right: 5px;
   height: 100%;
   color: white;
   line-height: 20px;
   text-align: right;
-  /*align-items: center;*/
   font-size: 12px;
 }
 
-#settings_container {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 100%;
+
+/*Shared Settings and Tutorial CSS*/
+
+.menu_row {
   width: 100%;
-  background-color: var(--white);
-  justify-content: center;
-  align-items: center;
-  color: var(--black);
-  z-index: 2;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
 }
 
-#tutorial_container {
+.menu_spacer {
+  width: 100%;
+  height: 15px;
+}
+
+.menu_title {
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  width: 100%;
+}
+
+.menu_line {
+  margin-top: 15px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--boxborder);
+}
+
+
+/*Settings*/
+
+#settings_container {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -606,7 +551,6 @@ a:active {
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  /*border: 1px dashed blue;*/
 }
 
 #settings_unflex {
@@ -616,92 +560,21 @@ a:active {
   top: 0px;
   left: 0px;
   background-color: var(--white);
-  /*border: 1px dashed blue;*/
 }
 
-.settings_row {
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  /*height: 50px;*/
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  /*line-height: 50px;*/
-  /*border: 1px dashed purple;*/
-}
-
-.settings_spacer {
-  width: 100%;
-  height: 15px;
-  /*border: 1px dashed green;*/
-  /*position: absolute;
-  top: 0px;
-  left: 0px;*/
-}
-
-#tutorial_container_sub {
-  height: 100%;
-  width: 500px;
+#settings_exit_button {
+  cursor: pointer;
+  color: var(--black);
   position: absolute;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--white);
-  overflow: auto;
-  margin-bottom: 40px;
-  /*border: 1px dashed blue;*/
-}
-
-#tutorial_unflex {
-  height: 100%;
-  width: 500px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: var(--white);
-  /*border: 2px dotted purple;*/
-}
-
-.tutorial_row {
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  /*height: 50px;*/
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  /*line-height: 50px;*/
-  /*border: 1px dashed purple;*/
-}
-
-.tutorial_spacer {
-  width: 100%;
-  height: 15px;
-  /*border: 1px dashed green;*/
-  /*position: absolute;
-  top: 0px;
-  left: 0px;*/
-}
-
-.tutorial_spacer_2 {
-  width: 100%;
-  height: 10px;
-  /*border: 1px dashed green;*/
-  /*position: absolute;
-  top: 0px;
-  left: 0px;*/
+  right: 0px;
+  top: 25px;
 }
 
 .settings_row_left {
-  /*position: relative;
-  left: 0px;*/
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 90%;
-  /*border: 1px dashed red;*/
 }
 
 .settings_row_right {
@@ -711,7 +584,6 @@ a:active {
   right: 0px;
   height: 41px;
   width: 10%;
-  /*border: 1px dashed blue;*/
 }
 
 .settings_row_right_text {
@@ -726,40 +598,21 @@ a:active {
   height: 45px;
   width: 10%;
   margin-right: 0px;
-  /*border: 1px dashed blue;*/
 }
 
 .settings_row_left_one {
   font-family: "Rubik", sans-serif;
   font-size: 20px;
-  /*margin-top: 20px;*/
   font-weight: 400;
   width: 100%;
-  /*border: 1px dashed green;*/
 }
 
 .settings_row_left_two {
   font-family: "Rubik", sans-serif;
   font-size: 13px;
-  /*margin-top: 20px;*/
   font-weight: 300;
   width: 100%;
   color: var(--settingsSubtext);
-  /*border: 1px dashed green;*/
-}
-
-.settings_title {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  width: 100%;
-}
-
-.tutorial_title {
-  font-family: "Rubik", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  width: 100%;
 }
 
 .settings_option {
@@ -767,36 +620,6 @@ a:active {
   font-size: 20px;
   margin-top: 20px;
   font-weight: 400;
-}
-
-.settings_line {
-  margin-top: 15px;
-  /*position: absolute;
-  left: 0px;
-  top: 55px;*/
-  width: 100%;
-  height: 1px;
-  background-color: var(--boxborder);
-  /*z-index: -1;*/
-}
-
-.tutorial_line {
-  margin-top: 15px;
-  /*position: absolute;
-  left: 0px;
-  top: 55px;*/
-  width: 100%;
-  height: 1px;
-  background-color: var(--boxborder);
-  /*z-index: -1;*/
-}
-
-#settings_exit_button {
-  position: absolute;
-  right: 0px;
-  top: 25px;
-  /*z-index: 1;*/
-  /*background-color: var(--black);*/
 }
 
 /*SLIDER FROM W3 SCHOOLS*/
@@ -867,11 +690,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/*END SLIDER FROM W3 SCHOOLS*/
+
+
 #settings_footer {
   display: flex;
   flex-direction: row;
   width: 100%;
-  /*height: 40px;*/
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -883,30 +708,128 @@ input:checked + .slider:before {
   justify-content: space-between;
 }
 
-.credits {
-  visibility: visible;
-}
-
 #credits {
   visibility: visible;
 }
 
-/*
-#version {
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
-  font-family: 'Rubik', sans-serif;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--settingsSubtext);
-  margin-bottom: 15px;
-}
-*/
 
-/*#elevation_icon {
-  z-index: 4;
-}*/
+/*Tutorial*/
+
+#tutorial_container {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  z-index: 2;
+}
+
+#tutorial_exit_button {
+  cursor: pointer;
+  color: var(--black);
+  position: absolute;
+  right: 0px;
+  top: 25px;
+}
+
+#tutorial_container_sub {
+  height: 100%;
+  width: 500px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+#tutorial_unflex {
+  height: 100%;
+  width: 500px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: var(--white);
+}
+
+.tutorial_box {
+  height: 40px;
+  width: 40px;
+  border: 3px solid var(--boxborder);
+  border-radius: 2px;
+  margin: 5px;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-size: 200%;
+  line-height: 40px;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+#tutorial_box_0_0 {
+  background-color: var(--green);
+  color: white;
+  border-color: var(--green);
+  margin-left: 0px;
+}
+
+.tutorial_box_blank {
+  color: var(--black);
+  border-color: var(--filledborder);
+}
+
+.tutorial_box_start {
+  color: var(--black);
+  border-color: var(--filledborder);
+  margin-left: 0px;
+}
+
+#tutorial_box_1_1 {
+  background-color: var(--yellow);
+  color: white;
+  border-color: var(--yellow);
+}
+
+#tutorial_box_2_3 {
+  background-color: var(--darkgrey);
+  color: white;
+  border-color: var(--darkgrey);
+}
+
+.tutorial_spacer_2 {
+  width: 100%;
+  height: 10px;
+}
+
+/*Hints*/
+
+#hint_dropdown_id {
+  position: absolute;
+  left: 40px;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  visibility: visible;
+  transition: height 1s;
+  color: var(--black);
+}
+
+.dropdownButton {
+  position: absolute;
+  cursor: pointer;
+}
 
 #elevation_dropdown {
   position: absolute;
@@ -937,7 +860,6 @@ input:checked + .slider:before {
   background-color: var(--white);
   z-index: -2;
   text-align: right;
-  /*align-items: center;*/
   line-height: 20px;
   padding-right: 5px;
   padding-left: 25px;
@@ -971,7 +893,6 @@ input:checked + .slider:before {
   left: 25px;
   width: 11px;
   height: 20px;
-  /*border: 1px dashed green;*/
 }
 
 #country_hint_hider {
@@ -981,7 +902,6 @@ input:checked + .slider:before {
   left: 25px;
   width: 11px;
   height: 20px;
-  /*border: 1px dashed green;*/
 }
 
 #city_hint_hider {
@@ -991,7 +911,6 @@ input:checked + .slider:before {
   left: 25px;
   width: 11px;
   height: 20px;
-  /*border: 1px dashed green;*/
 }
 
 #elevation_icon {
@@ -1005,77 +924,4 @@ input:checked + .slider:before {
 
 #country_icon {
   cursor: not-allowed;
-}
-
-p {
-  font-family: "Rubik", sans-serif;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  left: 0px;
-}
-
-#tutorial_box_1_0 {
-  background-color: var(--green);
-  color: white;
-  border-color: var(--green);
-  margin-left: 0px;
-}
-
-#tutorial_box_1_1 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_1_2 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_1_3 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_2_0 {
-  color: var(--black);
-  border-color: var(--filledborder);
-  margin-left: 0px;
-}
-
-#tutorial_box_2_1 {
-  background-color: var(--yellow);
-  color: white;
-  border-color: var(--yellow);
-}
-
-#tutorial_box_2_2 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_2_3 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_3_0 {
-  color: var(--black);
-  border-color: var(--filledborder);
-  margin-left: 0px;
-}
-
-#tutorial_box_3_1 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_3_2 {
-  color: var(--black);
-  border-color: var(--filledborder);
-}
-
-#tutorial_box_3_3 {
-  background-color: var(--darkgrey);
-  color: white;
-  border-color: var(--darkgrey);
 }
